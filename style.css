@@ -81,15 +81,32 @@ nav {
     margin-bottom: 0;
     background-size: cover;
 }
-
+/*Krzysiek pracuje od tego miejsca */
 #funkcje {
     max-width: 1200px;
-    background-color: palevioletred;
-    height: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: white;
+    margin: auto;
+}
+
+.opis {
+    color: black;
+    font-size: 45px;
 
 }
+
+#funkcja1 {
+    margin-left: 805px;
+}
+
+#funkcja2 {
+    margin-right: 805px;
+}
+
+#funkcja3 {
+    margin-left: 805px;
+}
+
+/*Krzysiek pracuje do tego miejsca */
 
 #team {
     max-width: 1200px;
