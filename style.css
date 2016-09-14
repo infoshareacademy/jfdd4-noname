@@ -93,10 +93,10 @@ nav {
 
 #team {
     max-width: 1200px;
-    background-color: red;
-    height: 1000px;
+    background-color: white;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 
 }
 
@@ -124,4 +124,15 @@ header {
 
 }
 
+.socials {
+    float: left;
+    height: 40px;
+    width: 300px;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    margin: 0;
+    background-color: white;
+    display: block;
+
+}
 
