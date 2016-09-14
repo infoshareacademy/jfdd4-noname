@@ -15,29 +15,13 @@ li {
     padding-right: 10px;
 }
 
-a:link {
+a:link, a:visited {
     color: darkred;
-    background-color: transparent;
     text-decoration: none
-}
-
-a:visited {
-    color: darkred;
-    background-color: transparent;
-    text-decoration: none;
 }
 
 a:hover {
     color: dimgrey;
-    background-color: transparent;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-a:active {
-    color: darkred;
-    background-color: transparent;
-    text-decoration: underline;
 }
 
 #logo {
@@ -72,18 +56,37 @@ nav {
 #zajawka {
     width: 100%;
     min-height: 500px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     text-align: center;
     background: url("http://static1.squarespace.com/static/55eddc12e4b0b489e5e54c60/t/57495f8fc6fc0859c43fa66d/1464426392841/1.jpg");
     max-width: 1200px;
-    margin-top: 0;
-    margin-bottom: 0;
     background-size: cover;
 }
-/*Krzysiek pracuje od tego miejsca */
+
+.button {
+    padding: 10px 25px;
+    background-color: bisque;
+    border-radius: 3px;
+    width: auto;
+}
+
+input {
+    border: 0;
+    padding: 10px 20px;
+    margin: 10px;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+
+}
+
 #funkcje {
     max-width: 1200px;
+    background-color: palevioletred;
+    height: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
     background-color: white;
     margin: auto;
 }
@@ -91,7 +94,12 @@ nav {
 .opis {
     color: black;
     font-size: 45px;
+}
 
+#join {
+    text-align: center;
+    color: darkred;
+    padding: 30px;
 }
 
 #funkcja1 {
@@ -110,10 +118,10 @@ nav {
 
 #team {
     max-width: 1200px;
-    background-color: red;
-    height: 1000px;
+    background-color: white;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 
 }
 
@@ -122,7 +130,7 @@ h1 {
     color: white;
     opacity: 0.95;
     text-align: center;
-    margin: 0;
+    margin: 0 auto 40px;
 }
 
 header {
@@ -138,7 +146,17 @@ header {
     height: 1000px;
     margin-left: auto;
     margin-right: auto;
-
 }
 
+.socials {
+    float: left;
+    height: 40px;
+    width: 300px;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    margin: 0;
+    background-color: white;
+    display: block;
+
+}
 
