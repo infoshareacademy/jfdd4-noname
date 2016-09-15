@@ -179,14 +179,14 @@ header {
 }
 
 .socials {
-    float: left;
-    height: 40px;
-    width: 300px;
+    /*float: left;*/
+    min-height: 60px;
+    width: 250px;
     text-align: center;
-    padding: 10px 0 10px 0;
+    padding: 5px 0;
     margin: 0;
     background-color: white;
-    display: block;
+    display: inline-block;
 
 }
 
