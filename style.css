@@ -43,20 +43,21 @@ ul {
     margin-right: auto;
 }
 
-nav {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+header {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    margin: 0 auto 0;
     background-color: white;
-    margin-top: 0;
-    padding-top: 0;
     text-align: center;
 }
 
 #zajawka {
+    z-index: 0;
     width: 100%;
     min-height: 500px;
-    margin: 0 auto;
+    padding-top: 60px;
+    margin: 0 auto 0;
     text-align: center;
     background: url("http://static1.squarespace.com/static/55eddc12e4b0b489e5e54c60/t/57495f8fc6fc0859c43fa66d/1464426392841/1.jpg");
     max-width: 1200px;
