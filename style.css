@@ -202,7 +202,7 @@ header {
 
 }
 
-#kontakt-header {
+.kontakt-header {
     padding-left: 60px;
 }
 
@@ -216,90 +216,43 @@ header {
     padding-right: 60px;
 }
 
-
 #kontakt a{
     padding-right: 50px;
+    text-align: center;
 }
 
 #button-link {
     display: inline-block;
 }
 
-#fbbut {
+.socialbut {
     background-color: transparent;
     color: black;
     text-align:left;
-    padding: 0 auto;
-    font-size: 20px;
     border-radius: 15px;
     float: left;
     -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
+    transition-duration: 0.4s ;
 }
 
-#fbbut:hover {
+section.socialbut[data-value="facebook"]:hover {
     background-color: #3b5998;
     color: white;
-    /*border: solid 5px white;*/
 }
 
-
-
-#twitbut {
-    background-color: transparent;
-    color: black;
-    text-align:left;
-    padding: 0 auto;
-    border-radius: 15px;
-    float: left;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s ;
-}
-
-#twitbut:hover {
+section.socialbut[data-value="twitter"]:hover {
     background-color: #0084b4;
     color: white;
-    /*border: solid 5px white;*/
-
 }
 
-#ytbut {
-    background-color: transparent;
-    color: black;
-    text-align:left;
-    border-radius: 15px;
-    float: left;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s ;
-}
-
-#ytbut:hover {
+section.socialbut[data-value="youtube"]:hover {
     background-color: #cc181e;
     color: white;
-    /*border: solid 5px white;*/
-
 }
 
-#gpbut {
-    background-color: transparent;
-    color: black;
-    text-align:left;
-    border-radius: 15px;
-    float: left;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s ;
-}
-
-#gpbut:hover {
+section.socialbut[data-value="gplus"]:hover {
     background-color: #4885ed;
     color: white;
-    /*border: solid 5px white;*/
-}
-
-#foot {
-    display: block;
-    padding-left: 450px;
-    padding-top: 50px;
 }
 
 /*footer*/
@@ -344,14 +297,12 @@ header {
 
 #foot-all ul li {
     line-height: 0;
-
 }
 
 .foot-content {
     float: left;
     padding-right: 75px;
     padding-left: 50px;
-
 }
 
 
@@ -375,6 +326,7 @@ header {
     color: white;
     line-height: 1.5;
     background-color: #1e2325;
+    font-size: small;
 
 }
 
