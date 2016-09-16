@@ -113,9 +113,22 @@ input {
     color: darkred;
     padding: 60px 0;
     position: relative;
+    z-index: 0;
 }
- background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Gda%C5%84sk_ulica_Obro%C5%84c%C3%B3w_Westerplatte_%28autobus_622%29.JPG/800px-Gda%C5%84sk_ulica_Obro%C5%84c%C3%B3w_Westerplatte_%28autobus_622%29.JPG") center;
+
+#join:after {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "";
+    background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Gda%C5%84sk_ulica_Obro%C5%84c%C3%B3w_Westerplatte_%28autobus_622%29.JPG/800px-Gda%C5%84sk_ulica_Obro%C5%84c%C3%B3w_Westerplatte_%28autobus_622%29.JPG") center;
     background-size: cover;
+    opacity: 0.5;
+    -webkit-filter: blur(3px);
+}
 
 
 #team {
