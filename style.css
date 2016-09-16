@@ -122,54 +122,99 @@ header {
     padding: 0;
 }
 
+/*social buttons*/
+
 #kontakt {
     max-width: 1200px;
-    background-color: bisque;
+    background-color: lightgrey;
     height: auto;
     margin-left: auto;
     margin-right: auto;
     padding-top: 50px;
     padding-bottom: 50px;
+    border-bottom: solid 3px #556efe;
 
+}
+
+#kontakt-header {
+    padding-left: 60px;
+}
+
+.float-left {
+    float: left;
+    padding-left: 60px;
 }
 
 #kontakt a{
-    padding-left: 150px;
+    padding-right: 50px;
+}
 
+#button-link {
+    display: inline-block;
 }
 
 #fbbut {
-    background-color: blue;
-    height: 100px;
-    width: 200px;
-    color: white;
+    background-color: transparent;
+    color: black;
+    text-align:left;
+    padding: 0 auto;
     font-size: 20px;
     border-radius: 15px;
-    display: inline-block;
-    box-shadow: 2px 2px 2px grey;
+    float: left;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
+
+#fbbut:hover {
+    background-color: blue;
+    color: white;
+    border: solid 5px white;
+}
+
+
 
 #twitbut {
-    background-color: #00aced;
-    height: 100px;
-    width: 200px;
-    color: white;
-    font-size: 20px;
+    background-color: transparent;
+    color: black;
+    text-align:left;
+    padding: 0 auto;
     border-radius: 15px;
-    display: inline-block;
-    box-shadow: 2px 2px 2px grey;
+    float: left;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s ;
 }
 
-#mailbut {
-    background-color: white;
-    border: 2px solid black;
-    height: 100px;
-    width: 200px;
+#ytbut {
+    background-color: transparent;
     color: black;
-    font-size: 20px;
+    text-align:left;
     border-radius: 15px;
-    display: inline-block;
-    box-shadow: 2px 2px 2px grey;
+    float: left;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s ;
+}
+
+#ytbut:hover {
+    background-color: red;
+    color: white;
+    border: solid 5px white;
+
+}
+
+#gpbut {
+    background-color: transparent;
+    color: black;
+    text-align:left;
+    border-radius: 15px;
+    float: left;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s ;
+}
+
+#gpbut:hover {
+    background-color: blue;
+    color: white;
+    border: solid 5px white;
 }
 
 #foot {
@@ -178,6 +223,81 @@ header {
     padding-top: 50px;
 }
 
+/*footer*/
+
+#foot2 {
+    max-width: 1200px;
+    background-color: lightgrey;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+
+#foot-all {
+    /*webkit-linear-gradient(#1f2121, #1e2325);*/
+    background: -moz-linear-gradient(#1f2121, #1e2325);
+    background: -o-linear-gradient(#1f2121, #1e2325);
+    background: -ms-linear-gradient(#1f2121, #1e2325);
+    background: linear-gradient(#1f2121, #1e2325);
+    box-shadow: 0 0 1px 0 #1c1d1d inset;
+    border-top: solid 3px #1c1d1d;
+    border-bottom: solid 3px #1c1d1d;
+    padding-top: 25px;
+    padding-bottom: 50px;
+
+
+}
+
+#foot-all ul {
+    line-height: 1.75;
+    max-width: 100px;
+    text-align: left;
+    display: inline-block;
+    font-size: small;
+
+}
+
+#foot-all ul li {
+    line-height: 0;
+
+}
+
+.foot-content {
+    float: left;
+    padding-right: 75px;
+    padding-left: 50px;
+
+}
+
+
+.foot-content h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    font-size: smaller;
+}
+
+.float-both {
+    clear: both;
+}
+
+#copyright {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    /*text-align: center;*/
+    color: white;
+    line-height: 1.5;
+    background-color: #1e2325;
+
+}
 .socials {
     /*float: left;*/
     min-height: 60px;
