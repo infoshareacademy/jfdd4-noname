@@ -110,6 +110,12 @@ input {
 .fl-left {float: left;}
 .fl-clear {clear: both;}
 
+.img-funkcje {
+    max-width: 300px;
+}
+.l-left-opis {
+    max-width: 900px;
+}
 
 #join {
     max-width: 1200px;
