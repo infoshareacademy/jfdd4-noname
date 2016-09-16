@@ -4,6 +4,7 @@ body {
     font-family: 'Lato', sans-serif;
     font-size: 20px;
     margin: 0 !important;
+    text-align: justify;
 }
 
 li {
@@ -100,21 +101,33 @@ input {
 
 #funkcje {
     max-width: 1200px;
-    background-color: palevioletred;
+    background-color: grey;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
 
 .fl-right {float: right;}
-.fl-left {float: left;}
+
+.fl-left {float: left;
+    max-width: 100%;
+    height:auto;
+    width:auto;
+
+}
 .fl-clear {clear: both;}
 
 .img-funkcje {
-    max-width: 300px;
+    max-width: 100%;
+    height:auto;
+    width:auto;
 }
-.l-left-opis {
-    max-width: 900px;
+.fl-left-opis {
+    max-width: 100%;
+    padding: 10px;
+    vertical-align: middle;
+    display: flex;
+
 }
 
 #join {
@@ -165,9 +178,7 @@ h3 {
     color: white;
     opacity: 0.95;
 }
-.img-funkcje {
-    box-shadow: 10px 10px 5px #888888;
-}
+
 header {
     width: 100%;
     background-color: white;
