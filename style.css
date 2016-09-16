@@ -151,7 +151,7 @@ header {
     height: auto;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 50px;
+    padding-top: 12px;
     padding-bottom: 50px;
     border-bottom: solid 3px #556efe;
 
@@ -165,6 +165,12 @@ header {
     float: left;
     padding-left: 60px;
 }
+
+.float-right {
+    float: right;
+    padding-right: 60px;
+}
+
 
 #kontakt a{
     padding-right: 50px;
@@ -187,9 +193,9 @@ header {
 }
 
 #fbbut:hover {
-    background-color: blue;
+    background-color: #3b5998;
     color: white;
-    border: solid 5px white;
+    /*border: solid 5px white;*/
 }
 
 
@@ -205,6 +211,13 @@ header {
     transition-duration: 0.4s ;
 }
 
+#twitbut:hover {
+    background-color: #0084b4;
+    color: white;
+    /*border: solid 5px white;*/
+
+}
+
 #ytbut {
     background-color: transparent;
     color: black;
@@ -216,9 +229,9 @@ header {
 }
 
 #ytbut:hover {
-    background-color: red;
+    background-color: #cc181e;
     color: white;
-    border: solid 5px white;
+    /*border: solid 5px white;*/
 
 }
 
@@ -233,9 +246,9 @@ header {
 }
 
 #gpbut:hover {
-    background-color: blue;
+    background-color: #4885ed;
     color: white;
-    border: solid 5px white;
+    /*border: solid 5px white;*/
 }
 
 #foot {
@@ -319,6 +332,11 @@ header {
     background-color: #1e2325;
 
 }
+
+.inline-block {
+    display: inline-block;
+}
+
 .socials {
     /*float: left;*/
     min-height: 60px;
