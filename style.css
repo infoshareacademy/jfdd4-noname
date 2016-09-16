@@ -102,8 +102,12 @@ input {
     background-color: palevioletred;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
 }
+
+.fl-right {float: right;}
+.fl-left {float: left;}
+.fl-clear {clear: both;}
+
 
 #join {
     max-width: 1200px;
