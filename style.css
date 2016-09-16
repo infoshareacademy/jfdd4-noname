@@ -62,9 +62,22 @@ nav {
     margin: 0 auto;
     padding-top: 60px;
     text-align: center;
-    background: url("http://static1.squarespace.com/static/55eddc12e4b0b489e5e54c60/t/57495f8fc6fc0859c43fa66d/1464426392841/1.jpg") center;
     max-width: 1200px;
     background-size: cover;
+    position: relative;
+}
+
+#zajawka::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url("http://static1.squarespace.com/static/55eddc12e4b0b489e5e54c60/t/57495f8fc6fc0859c43fa66d/1464426392841/1.jpg") center;
+    opacity: 0.7;
+    -webkit-filter: blur(3px);
+    z-index: -1;
 }
 
 .button {
@@ -181,7 +194,7 @@ header {
 .socials {
     /*float: left;*/
     min-height: 60px;
-    width: 250px;
+    width: 300px;
     text-align: center;
     padding: 5px 0;
     margin: 0;
