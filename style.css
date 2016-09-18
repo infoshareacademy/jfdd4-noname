@@ -29,9 +29,13 @@ a:hover {
     margin-left: 25px;
     display: block;
     float: left;
-    font-size: 25px;
-    line-height: 60px;
 
+}
+
+#logo img {
+    max-height: 50px;
+    max-width: 350px;
+    padding-top: 10px;
 }
 
 ul {
@@ -97,6 +101,7 @@ input {
     color: inherit;
 
 }
+
 /* FUNKCJE */
 
 #funkcje {
@@ -107,21 +112,28 @@ input {
     text-align: center;
 }
 
-.fl-right {float: right;}
+.fl-right {
+    float: right;
+}
 
-.fl-left {float: left;
+.fl-left {
+    float: left;
     max-width: 100%;
-    height:auto;
-    width:auto;
+    height: auto;
+    width: auto;
 
 }
-.fl-clear {clear: both;}
+
+.fl-clear {
+    clear: both;
+}
 
 .img-funkcje {
     max-width: 100%;
-    height:auto;
-    width:auto;
+    height: auto;
+    width: auto;
 }
+
 .fl-left-opis {
     max-width: 100%;
     padding: 10px;
@@ -155,7 +167,6 @@ input {
     -webkit-filter: blur(3px);
 }
 
-
 #team {
     max-width: 1200px;
     background-color: white;
@@ -173,7 +184,6 @@ h1 {
     margin: 0 auto 40px;
 }
 
-
 h3 {
     color: white;
     opacity: 0.95;
@@ -182,7 +192,7 @@ h3 {
 header {
     width: 100%;
     background-color: white;
-    margin:0;
+    margin: 0;
     padding: 0;
 }
 
@@ -214,7 +224,7 @@ header {
     padding-right: 60px;
 }
 
-#kontakt a{
+#kontakt a {
     padding-right: 50px;
     text-align: center;
 }
@@ -226,11 +236,11 @@ header {
 .socialbut {
     background-color: transparent;
     color: black;
-    text-align:left;
+    text-align: left;
     border-radius: 15px;
     float: left;
     -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s ;
+    transition-duration: 0.4s;
 }
 
 section.socialbut[data-value="facebook"]:hover {
@@ -267,8 +277,6 @@ section.socialbut[data-value="gplus"]:hover {
     margin-bottom: 0;
 }
 
-
-
 #foot-all {
     /*webkit-linear-gradient(#1f2121, #1e2325);*/
     background: -moz-linear-gradient(#1f2121, #1e2325);
@@ -280,7 +288,6 @@ section.socialbut[data-value="gplus"]:hover {
     border-bottom: solid 3px #1c1d1d;
     padding-top: 25px;
     padding-bottom: 50px;
-
 
 }
 
@@ -302,7 +309,6 @@ section.socialbut[data-value="gplus"]:hover {
     padding-right: 75px;
     padding-left: 50px;
 }
-
 
 .foot-content h3 {
     margin-top: 0;
