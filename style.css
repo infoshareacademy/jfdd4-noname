@@ -367,11 +367,9 @@ section.socialbut[data-value="gplus"]:hover {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    /*text-align: center;*/
     color: white;
     line-height: 1.5;
     font-size: small;
-
 }
 
 .inline-block {
