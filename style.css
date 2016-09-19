@@ -1,10 +1,19 @@
 body {
-    background-color: black;
+    background-color: #111;
     color: black;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', 'Lato', sans-serif;
     font-size: 20px;
     margin: 0 !important;
     text-align: justify;
+}
+
+/*Nawigacja*/
+
+header {
+    width: 100%;
+    background-color: #EEEEEE;
+    margin: 0;
+    padding: 0;
 }
 
 li {
@@ -57,9 +66,12 @@ nav {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    background-color: white;
     text-align: center;
 }
+/*Koniec nawigacji*/
+
+
+/*Zajawka*/
 
 #zajawka {
     width: 100%;
@@ -81,27 +93,14 @@ nav {
     left: 0;
     right: 0;
     background: url("img/metro.jpg") no-repeat center;
-    opacity: 0.7;
+    opacity: 0.8;
     -webkit-filter: blur(1px);
     z-index: -1;
 }
 
-.button {
-    padding: 10px 25px;
-    background-color: white;
-    border-radius: 3px;
-    width: auto;
-}
+/*Koniec zajawki*/
 
-input {
-    border: 0;
-    padding: 10px 20px;
-    margin: 10px;
-    font-family: inherit;
-    font-size: inherit;
-    color: inherit;
 
-}
 
 /* FUNKCJE */
 
@@ -158,6 +157,24 @@ hr {
 
 
 
+/*Formularz*/
+
+.button {
+    padding: 10px 25px;
+    background-color: white;
+    border-radius: 3px;
+    width: auto;
+}
+
+input {
+    border: 0;
+    padding: 10px 20px;
+    margin: 10px;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
 
 #join {
     max-width: 1200px;
@@ -184,9 +201,13 @@ hr {
     -webkit-filter: blur(3px);
 }
 
+/*Koniec formularza*/
+
+
+/*Team*/
+
 #team {
     max-width: 1200px;
-    background-color: white;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -206,18 +227,21 @@ h3 {
     opacity: 0.95;
 }
 
-header {
-    width: 100%;
-    background-color: white;
+.opis-team {
+    min-height: 60px;
+    width: 300px;
+    text-align: center;
+    padding: 5px 0;
     margin: 0;
-    padding: 0;
+    display: inline-block;
 }
 
-/*social buttons*/
+/*Koniec Team-u*/
+
+/*Kontakt*/
 
 #kontakt {
     max-width: 1200px;
-    background-color: lightgrey;
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -251,7 +275,6 @@ header {
 }
 
 .socialbut {
-    background-color: transparent;
     color: black;
     text-align: left;
     border-radius: 15px;
@@ -279,12 +302,13 @@ section.socialbut[data-value="gplus"]:hover {
     background-color: #4885ed;
     color: white;
 }
+/*Koniec skecji Kontakt*/
 
 /*footer*/
 
 #foot2 {
     max-width: 1200px;
-    background-color: lightgrey;
+    /*background-color: lightgrey;*/
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -296,10 +320,10 @@ section.socialbut[data-value="gplus"]:hover {
 
 #foot-all {
     /*webkit-linear-gradient(#1f2121, #1e2325);*/
-    background: -moz-linear-gradient(#1f2121, #1e2325);
-    background: -o-linear-gradient(#1f2121, #1e2325);
-    background: -ms-linear-gradient(#1f2121, #1e2325);
-    background: linear-gradient(#1f2121, #1e2325);
+    /*background: -moz-linear-gradient(#1f2121, #1e2325);*/
+    /*background: -o-linear-gradient(#1f2121, #1e2325);*/
+    /*background: -ms-linear-gradient(#1f2121, #1e2325);*/
+    /*background: linear-gradient(#1f2121, #1e2325);*/
     box-shadow: 0 0 1px 0 #1c1d1d inset;
     border-top: solid 3px #1c1d1d;
     border-bottom: solid 3px #1c1d1d;
@@ -346,7 +370,6 @@ section.socialbut[data-value="gplus"]:hover {
     /*text-align: center;*/
     color: white;
     line-height: 1.5;
-    background-color: #1e2325;
     font-size: small;
 
 }
@@ -355,15 +378,4 @@ section.socialbut[data-value="gplus"]:hover {
     display: inline-block;
 }
 
-.socials {
-    /*float: left;*/
-    min-height: 60px;
-    width: 300px;
-    text-align: center;
-    padding: 5px 0;
-    margin: 0;
-    background-color: white;
-    display: inline-block;
-
-}
-
+/*Koniec footera*/
