@@ -102,7 +102,7 @@ nav {
 
 }
 
-#zajawka h1 {
+#zajawka h1, #zajawka h3 {
     color: white;
     opacity: 0.95;
     text-align: center;
@@ -147,11 +147,7 @@ nav {
     opacity: 0.9;
 
 }
-#funkcje h3 {
 
-    font-size: 35px;
-
-}
 .fl-left-opis {
     padding: 10px;
     opacity: 0.9;
@@ -227,26 +223,17 @@ input {
 
 }
 
-h1 {
-    padding-top: 300px;
-    color: white;
-    opacity: 0.95;
-    text-align: center;
-    margin: 0 auto 40px;
-}
-
-h3 {
+#team h3 {
     color: white;
     opacity: 0.95;
     padding: 20px 0;
     font-size: 35px;
-
 }
 
 .opis-team {
     height: 450px;
     max-width: 300px;
-    padding: 5px 0px;
+    padding: 5px 0;
     margin: 0;
     display: inline-block;
     color: white;
