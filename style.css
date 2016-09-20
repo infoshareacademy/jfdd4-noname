@@ -14,6 +14,9 @@ header {
     background-color: #EEEEEE;
     margin: 0;
     padding: 0;
+    position: fixed;
+    z-index: 1;
+    /*display: none;*/
 }
 
 li {
@@ -57,11 +60,6 @@ ul {
     margin-right: auto;
 }
 
-header {
-    position: fixed;
-    z-index: 1;
-}
-
 nav {
     max-width: 1200px;
     margin-left: auto;
@@ -74,12 +72,15 @@ nav {
 /*Zajawka*/
 
 #zajawka {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    min-height: 800px;
+    min-height: 550px;
     margin: 0 auto;
     padding-top: 60px;
-    text-align: center;
-
+    padding-bottom: 5%;
     background-size: cover;
     position: relative;
 
@@ -97,6 +98,12 @@ nav {
     opacity: 0.8;
     -webkit-filter: blur(1px);
     z-index: -1;
+}
+
+#zajawka h1 {
+    color: white;
+    opacity: 0.95;
+    text-align: center;
 }
 
 /*Koniec zajawki*/
@@ -216,14 +223,6 @@ input {
     margin-right: auto;
     text-align: center;
 
-}
-
-h1 {
-    padding-top: 300px;
-    color: white;
-    opacity: 0.95;
-    text-align: center;
-    margin: 0 auto 40px;
 }
 
 h3 {
