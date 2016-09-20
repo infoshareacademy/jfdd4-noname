@@ -93,6 +93,7 @@ nav {
     left: 0;
     right: 0;
     background: url("img/metro.jpg") no-repeat center;
+    background-size: cover;
     opacity: 0.8;
     -webkit-filter: blur(1px);
     z-index: -1;
@@ -177,9 +178,12 @@ input {
 
 
 #join {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    margin: 30px auto;
     text-align: center;
     color: darkred;
     padding: 60px 0;
