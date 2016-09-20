@@ -212,6 +212,7 @@ input {
     margin-right: auto;
     text-align: center;
 
+
 }
 
 h1 {
@@ -222,18 +223,30 @@ h1 {
     margin: 0 auto 40px;
 }
 
-h3 {
+#team h3 {
     color: white;
     opacity: 0.95;
+    padding: 20px 0;
+    font-size: 35px;
+
 }
 
 .opis-team {
-    min-height: 60px;
-    width: 300px;
-    text-align: center;
-    padding: 5px 0;
+    height: 450px;
+    max-width: 300px;
+    padding: 5px 0px;
     margin: 0;
     display: inline-block;
+    color: white;
+    opacity: 0.9;
+
+
+}
+
+.img-socials {
+    border: solid darkred;
+    border-radius: 15% ;
+
 }
 
 /*Koniec Team-u*/
