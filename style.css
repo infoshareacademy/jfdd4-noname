@@ -60,6 +60,7 @@ ul {
 header {
     position: fixed;
     z-index: 1;
+    border-bottom: solid darkred;
 }
 
 nav {
@@ -96,6 +97,8 @@ nav {
     opacity: 0.8;
     -webkit-filter: blur(1px);
     z-index: -1;
+    border-bottom: solid darkred;
+
 }
 
 /*Koniec zajawki*/
@@ -111,6 +114,7 @@ nav {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+
 }
 
 .fl-right {
