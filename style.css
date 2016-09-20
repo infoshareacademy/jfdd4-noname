@@ -107,7 +107,7 @@ nav {
 #funkcje {
     padding: 50px 0;
     max-width: 1200px;
-        color: white;
+    color: white;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -248,37 +248,25 @@ h3 {
     padding-top: 12px;
     padding-bottom: 50px;
     border-bottom: solid 3px #556efe;
-
-}
-
-.kontakt-header {
-    padding-left: 60px;
-}
-
-.float-left {
-    float: left;
-    padding-left: 60px;
-}
-
-.float-right {
-    float: right;
-    padding-right: 60px;
-}
-
-#kontakt a {
-    padding-right: 50px;
     text-align: center;
 }
 
+.but-inline {
+    display: inline-block;
+    padding: 50px;
+}
+
+
+
 #button-link {
     display: inline-block;
+    text-align: center;
 }
 
 .socialbut {
     color: black;
     text-align: left;
     border-radius: 15px;
-    float: left;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
@@ -308,7 +296,6 @@ section.socialbut[data-value="gplus"]:hover {
 
 #foot2 {
     max-width: 1200px;
-    /*background-color: lightgrey;*/
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -329,7 +316,6 @@ section.socialbut[data-value="gplus"]:hover {
     border-bottom: solid 3px #1c1d1d;
     padding-top: 25px;
     padding-bottom: 50px;
-
 }
 
 #foot-all ul {
@@ -338,7 +324,6 @@ section.socialbut[data-value="gplus"]:hover {
     text-align: left;
     display: inline-block;
     font-size: small;
-
 }
 
 #foot-all ul li {
@@ -359,8 +344,21 @@ section.socialbut[data-value="gplus"]:hover {
     font-size: smaller;
 }
 
-.float-both {
+.clear-both {
     clear: both;
+}
+
+.foot-float-left {
+    float: left;
+    display: inline-block;
+    padding-left: 25px;
+    margin: 10px;
+}
+
+.foot-float-right {
+    float: right;
+    padding-right: 25px;
+    margin: 10px;
 }
 
 #copyright {
