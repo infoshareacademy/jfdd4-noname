@@ -14,6 +14,9 @@ header {
     background-color: #EEEEEE;
     margin: 0;
     padding: 0;
+    position: fixed;
+    z-index: 1;
+    /*display: none;*/
 }
 
 li {
@@ -57,12 +60,6 @@ ul {
     margin-right: auto;
 }
 
-header {
-    position: fixed;
-    z-index: 1;
-    border-bottom: solid darkred;
-}
-
 nav {
     max-width: 1200px;
     margin-left: auto;
@@ -75,12 +72,15 @@ nav {
 /*Zajawka*/
 
 #zajawka {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    min-height: 800px;
+    min-height: 550px;
     margin: 0 auto;
     padding-top: 60px;
-    text-align: center;
-
+    padding-bottom: 5%;
     background-size: cover;
     position: relative;
 
@@ -94,11 +94,18 @@ nav {
     left: 0;
     right: 0;
     background: url("img/metro.jpg") no-repeat center;
+    background-size: cover;
     opacity: 0.8;
     -webkit-filter: blur(1px);
     z-index: -1;
     border-bottom: solid darkred;
 
+}
+
+#zajawka h1 {
+    color: white;
+    opacity: 0.95;
+    text-align: center;
 }
 
 /*Koniec zajawki*/
@@ -114,7 +121,6 @@ nav {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-
 }
 
 .fl-right {
@@ -181,9 +187,12 @@ input {
 
 
 #join {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    margin: 30px auto;
     text-align: center;
     color: darkred;
     padding: 60px 0;
@@ -202,7 +211,7 @@ input {
     background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Gda%C5%84sk_ulica_Obro%C5%84c%C3%B3w_Westerplatte_%28autobus_622%29.JPG/800px-Gda%C5%84sk_ulica_Obro%C5%84c%C3%B3w_Westerplatte_%28autobus_622%29.JPG") center;
     background-size: cover;
     opacity: 0.5;
-    -webkit-filter: blur(3px);
+    -webkit-filter: blur(1px);
 }
 
 /*Koniec formularza*/
@@ -216,7 +225,6 @@ input {
     margin-right: auto;
     text-align: center;
 
-
 }
 
 h1 {
@@ -227,7 +235,7 @@ h1 {
     margin: 0 auto 40px;
 }
 
-#team h3 {
+h3 {
     color: white;
     opacity: 0.95;
     padding: 20px 0;
