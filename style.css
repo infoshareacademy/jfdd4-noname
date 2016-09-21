@@ -74,6 +74,7 @@ nav {
 
 /*Koniec nawigacji*/
 
+
 /*Zajawka*/
 
 #zajawka {
@@ -229,9 +230,9 @@ input {
 
 /*Koniec Team-u*/
 
-/*Kontakt*/
+/*Social buttons*/
 
-#kontakt {
+.kontakt {
     max-width: 1200px;
     height: auto;
     margin-left: auto;
@@ -240,16 +241,12 @@ input {
     padding-bottom: 50px;
     border-bottom: solid 3px #556efe;
     text-align: center;
+    font-size: 100px;
 }
 
 .but-inline {
     display: inline-block;
     padding: 50px;
-}
-
-#button-link {
-    display: inline-block;
-    text-align: center;
 }
 
 .socialbut {
@@ -262,9 +259,10 @@ input {
 
 .socialbut:hover {
     color: white;
-    }
+    transform: scale(1.1);
+}
 
-.socialbut[data-value="facebook"]:hover {
+section.socialbut[data-value="facebook"]:hover {
     background-color: #3b5998;
 }
 
@@ -272,43 +270,42 @@ input {
     background-color: #0084b4;
 }
 
-.socialbut[data-value="youtube"]:hover {
+section.socialbut[data-value="youtube"]:hover {
     background-color: #cc181e;
 }
 
-.socialbut[data-value="gplus"]:hover {
+section.socialbut[data-value="gplus"]:hover {
     background-color: #4885ed;
+    color: white;
 }
 
-/*Koniec skecji Kontakt*/
+section.socialbut[data-value="gmail"]:hover {
+    background-color: #3cba54;
+}
+/*Koniec skecji social buttons*/
 
 /*footer*/
 
-#foot2 {
+.foot-all {
     max-width: 1200px;
-    height: auto;
-    margin: 0 auto;
-    padding-bottom: 0;
-}
-
-#foot-all {
+    margin-left: auto;
+    margin-right: auto;
     box-shadow: 0 0 1px 0 #1c1d1d inset;
     border-top: solid 3px #1c1d1d;
     border-bottom: solid 3px #1c1d1d;
-    padding-top: 25px;
-    padding-bottom: 50px;
+    padding: 25px 0 50px 0;
 }
 
-#foot-all ul {
+.foot-all ul {
     line-height: 1.75;
     max-width: 100px;
     text-align: left;
-    display: inline-block;
     font-size: small;
 }
 
-#foot-all ul li {
+.foot-all ul li {
     line-height: 0;
+    color: honeydew;
 }
 
 .foot-content {
@@ -322,7 +319,6 @@ input {
     margin-bottom: 0;
     padding-left: 10px;
     padding-bottom: 10px;
-    font-size: smaller;
 }
 
 .clear-both {
@@ -342,12 +338,17 @@ input {
     margin: 10px;
 }
 
-#copyright {
+.copyright {
     max-width: 1200px;
-    margin:  auto;
+    margin-left: auto;
+    margin-right: auto;
     color: white;
     line-height: 1.5;
     font-size: small;
+}
+
+.inline-block {
+    display: inline-block;
 }
 
 /*Koniec footera*/
