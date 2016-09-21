@@ -9,6 +9,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     color: white;
+    text-align: center;
 }
 
 /*Nawigacja*/
@@ -70,8 +71,8 @@ nav {
     margin-right: auto;
     text-align: center;
 }
-/*Koniec nawigacji*/
 
+/*Koniec nawigacji*/
 
 /*Zajawka*/
 
@@ -98,23 +99,13 @@ nav {
     left: 0;
     right: 0;
     background: url("img/metro.jpg") no-repeat center;
-    background-size: cover;
     opacity: 0.8;
-    -webkit-filter: blur(1px);
     z-index: -1;
     border-bottom: solid darkred;
-
-}
-
-#zajawka h1, #zajawka h3 {
-    color: white;
-    opacity: 0.95;
-    text-align: center;
+    -webkit-filter: blur(1px);
 }
 
 /*Koniec zajawki*/
-
-
 
 /* FUNKCJE */
 
@@ -125,10 +116,6 @@ nav {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-}
-
-.fl-right {
-    float: right;
 }
 
 .fl-left {
@@ -143,13 +130,11 @@ nav {
 }
 
 .img-funkcje {
-
     max-height: 300px;
     width: 100%;
     border: solid darkred;
-    border-radius: 15% ;
+    border-radius: 15%;
     opacity: 0.9;
-
 }
 
 .fl-left-opis {
@@ -157,15 +142,12 @@ nav {
     opacity: 0.9;
     padding-top: 30px;
     box-sizing: border-box;
-
 }
 
 hr {
     color: darkred;
     background: darkred;
 }
-
-
 
 /*Formularz*/
 
@@ -185,7 +167,6 @@ input {
     color: inherit;
 }
 
-
 #join {
     display: flex;
     flex-direction: column;
@@ -203,11 +184,11 @@ input {
 #join:after {
     position: absolute;
     z-index: -1;
+    content: "";
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    content: "";
     background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Gda%C5%84sk_ulica_Obro%C5%84c%C3%B3w_Westerplatte_%28autobus_622%29.JPG/800px-Gda%C5%84sk_ulica_Obro%C5%84c%C3%B3w_Westerplatte_%28autobus_622%29.JPG") center;
     background-size: cover;
     opacity: 0.5;
@@ -216,15 +197,12 @@ input {
 
 /*Koniec formularza*/
 
-
 /*Team*/
 
 #team {
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     text-align: center;
-
 }
 
 #team h3 {
@@ -242,14 +220,11 @@ input {
     display: inline-block;
     color: white;
     opacity: 0.9;
-
-
 }
 
 .img-socials {
     border: solid darkred;
-    border-radius: 15% ;
-
+    border-radius: 15%;
 }
 
 /*Koniec Team-u*/
@@ -272,8 +247,6 @@ input {
     padding: 50px;
 }
 
-
-
 #button-link {
     display: inline-block;
     text-align: center;
@@ -283,29 +256,30 @@ input {
     color: black;
     text-align: left;
     border-radius: 15px;
-    -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
 }
 
-section.socialbut[data-value="facebook"]:hover {
+.socialbut:hover {
+    color: white;
+    }
+
+.socialbut[data-value="facebook"]:hover {
     background-color: #3b5998;
-    color: white;
 }
 
-section.socialbut[data-value="twitter"]:hover {
+.socialbut[data-value="twitter"]:hover {
     background-color: #0084b4;
-    color: white;
 }
 
-section.socialbut[data-value="youtube"]:hover {
+.socialbut[data-value="youtube"]:hover {
     background-color: #cc181e;
-    color: white;
 }
 
-section.socialbut[data-value="gplus"]:hover {
+.socialbut[data-value="gplus"]:hover {
     background-color: #4885ed;
-    color: white;
 }
+
 /*Koniec skecji Kontakt*/
 
 /*footer*/
@@ -313,20 +287,11 @@ section.socialbut[data-value="gplus"]:hover {
 #foot2 {
     max-width: 1200px;
     height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 0;
+    margin: 0 auto;
     padding-bottom: 0;
-    margin-top: 0;
-    margin-bottom: 0;
 }
 
 #foot-all {
-    /*webkit-linear-gradient(#1f2121, #1e2325);*/
-    /*background: -moz-linear-gradient(#1f2121, #1e2325);*/
-    /*background: -o-linear-gradient(#1f2121, #1e2325);*/
-    /*background: -ms-linear-gradient(#1f2121, #1e2325);*/
-    /*background: linear-gradient(#1f2121, #1e2325);*/
     box-shadow: 0 0 1px 0 #1c1d1d inset;
     border-top: solid 3px #1c1d1d;
     border-bottom: solid 3px #1c1d1d;
@@ -379,15 +344,10 @@ section.socialbut[data-value="gplus"]:hover {
 
 #copyright {
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin:  auto;
     color: white;
     line-height: 1.5;
     font-size: small;
-}
-
-.inline-block {
-    display: inline-block;
 }
 
 /*Koniec footera*/
