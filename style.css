@@ -224,32 +224,33 @@ input {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
 
 }
 
-#team h3 {
-    color: white;
-    opacity: 0.95;
-    padding: 20px 0;
-    font-size: 35px;
+section h3 {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .opis-team {
-    height: 450px;
-    max-width: 300px;
     padding: 5px 0;
     margin: 0;
-    display: inline-block;
     color: white;
     opacity: 0.9;
+    flex-direction: row;
+    flex-basis: 25%;
+
 
 
 }
 
 .img-socials {
-    border: solid darkred;
     border-radius: 15% ;
-
 }
 
 /*Koniec Team-u*/
