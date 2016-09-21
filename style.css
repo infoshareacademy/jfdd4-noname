@@ -254,9 +254,9 @@ input {
 
 /*Koniec Team-u*/
 
-/*Kontakt*/
+/*Social buttons*/
 
-#kontakt {
+.kontakt {
     max-width: 1200px;
     height: auto;
     margin-left: auto;
@@ -265,18 +265,12 @@ input {
     padding-bottom: 50px;
     border-bottom: solid 3px #556efe;
     text-align: center;
+    font-size: 100px;
 }
 
 .but-inline {
     display: inline-block;
     padding: 50px;
-}
-
-
-
-#button-link {
-    display: inline-block;
-    text-align: center;
 }
 
 .socialbut {
@@ -287,63 +281,54 @@ input {
     transition-duration: 0.4s;
 }
 
-section.socialbut[data-value="facebook"]:hover {
-    background-color: #3b5998;
+.socialbut:hover {
     color: white;
+    transform: scale(1.1);
 }
 
-section.socialbut[data-value="twitter"]:hover {
+section.socialbut[data-value="facebook"]:hover {
+    background-color: #3b5998;
+}
+
+.socialbut[data-value="twitter"]:hover {
     background-color: #0084b4;
-    color: white;
 }
 
 section.socialbut[data-value="youtube"]:hover {
     background-color: #cc181e;
-    color: white;
 }
 
 section.socialbut[data-value="gplus"]:hover {
     background-color: #4885ed;
-    color: white;
 }
-/*Koniec skecji Kontakt*/
+
+section.socialbut[data-value="gmail"]:hover {
+    background-color: #3cba54;
+}
+/*Koniec skecji social buttons*/
 
 /*footer*/
 
-#foot2 {
+.foot-all {
     max-width: 1200px;
-    height: auto;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 0;
-    padding-bottom: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-#foot-all {
-    /*webkit-linear-gradient(#1f2121, #1e2325);*/
-    /*background: -moz-linear-gradient(#1f2121, #1e2325);*/
-    /*background: -o-linear-gradient(#1f2121, #1e2325);*/
-    /*background: -ms-linear-gradient(#1f2121, #1e2325);*/
-    /*background: linear-gradient(#1f2121, #1e2325);*/
     box-shadow: 0 0 1px 0 #1c1d1d inset;
     border-top: solid 3px #1c1d1d;
     border-bottom: solid 3px #1c1d1d;
-    padding-top: 25px;
-    padding-bottom: 50px;
+    padding: 25px 0 50px 0;
 }
 
-#foot-all ul {
+.foot-all ul {
     line-height: 1.75;
     max-width: 100px;
     text-align: left;
-    display: inline-block;
     font-size: small;
 }
 
-#foot-all ul li {
+.foot-all ul li {
     line-height: 0;
+    color: honeydew;
 }
 
 .foot-content {
@@ -357,7 +342,6 @@ section.socialbut[data-value="gplus"]:hover {
     margin-bottom: 0;
     padding-left: 10px;
     padding-bottom: 10px;
-    font-size: smaller;
 }
 
 .clear-both {
@@ -377,17 +361,13 @@ section.socialbut[data-value="gplus"]:hover {
     margin: 10px;
 }
 
-#copyright {
+.copyright {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     color: white;
     line-height: 1.5;
     font-size: small;
-}
-
-.inline-block {
-    display: inline-block;
 }
 
 /*Koniec footera*/
