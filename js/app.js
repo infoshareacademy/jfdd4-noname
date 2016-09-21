@@ -1,0 +1,1 @@
+$('.parallax-window').parallax({imageSrc: 'http://www.topgear.com/sites/default/files/styles/fit_1960x1102/public/images/cars-road-test/carousel/2016/02/e8e3fec4392d8347d4777037b3d0539a/rp-vulcan-fr-21.jpg?itok=nedDt04B.jpg'});
