@@ -1,5 +1,5 @@
 body {
-    background-color: #111;
+    background-color: #E1E9EC;
     color: black;
     font-family: 'Open Sans', 'Lato', sans-serif;
     font-size: 20px;
@@ -8,7 +8,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: white;
+    color: black;
     text-align: center;
 }
 
@@ -33,7 +33,8 @@ li {
     padding-right: 10px;
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
     color: darkred;
     text-decoration: none
 }
@@ -100,10 +101,9 @@ nav {
     left: 0;
     right: 0;
     background: url("img/metro.jpg") no-repeat center;
-    opacity: 0.8;
+    opacity: 1;
     z-index: -1;
-    border-bottom: solid darkred;
-    -webkit-filter: blur(1px);
+    -webkit-filter: blur(0);
 }
 
 /*Koniec zajawki*/
@@ -113,7 +113,6 @@ nav {
 #funkcje {
     padding: 50px 0;
     max-width: 1200px;
-    color: white;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -131,9 +130,8 @@ nav {
 }
 
 .img-funkcje {
-    max-height: 300px;
+    max-height: 150px;
     width: 100%;
-    border: solid darkred;
     border-radius: 15%;
     opacity: 0.9;
 }
@@ -145,10 +143,6 @@ nav {
     box-sizing: border-box;
 }
 
-hr {
-    color: darkred;
-    background: darkred;
-}
 
 /*Formularz*/
 
@@ -190,7 +184,7 @@ input {
     bottom: 0;
     left: 0;
     right: 0;
-    background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Gda%C5%84sk_ulica_Obro%C5%84c%C3%B3w_Westerplatte_%28autobus_622%29.JPG/800px-Gda%C5%84sk_ulica_Obro%C5%84c%C3%B3w_Westerplatte_%28autobus_622%29.JPG") center;
+    /*background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Gda%C5%84sk_ulica_Obro%C5%84c%C3%B3w_Westerplatte_%28autobus_622%29.JPG/800px-Gda%C5%84sk_ulica_Obro%C5%84c%C3%B3w_Westerplatte_%28autobus_622%29.JPG") center;*/
     background-size: cover;
     opacity: 0.5;
     -webkit-filter: blur(1px);
@@ -207,8 +201,6 @@ input {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-
 }
 
 section h3 {
@@ -218,7 +210,6 @@ section h3 {
 .opis-team {
     padding: 5px 0;
     margin: 0;
-    color: white;
     opacity: 0.9;
     flex-direction: row;
     flex-basis: 25%;
@@ -226,6 +217,8 @@ section h3 {
 
 .img-socials {
     border-radius: 15% ;
+    max-height: 150px;
+    width: auto;
 }
 
 /*Koniec Team-u*/
