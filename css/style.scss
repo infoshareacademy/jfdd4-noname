@@ -119,25 +119,20 @@ nav {
 
 .fn-row {
   max-width: 90%;
-  padding: 5%;
+  margin: 5%;
 }
 
-.fn-img,
-.fn-text {
+.fn-data {
   display: inline-block;
   width: 49%;
   text-align: center;
   vertical-align: middle;
 }
 
-.fn-img img {
+.fn-data img {
   width: 200px;
   max-width: 100%;
 }
-
-//.fn-text {
-//  display: inline-block;
-//}
 
 //Koniec FUNKCJI
 
@@ -224,7 +219,7 @@ section h3 {
 
 /*Social buttons*/
 
-.kontakt {
+#kontakt {
   max-width: 1200px;
   height: auto;
   margin-left: auto;
