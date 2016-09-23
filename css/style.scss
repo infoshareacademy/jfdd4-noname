@@ -189,6 +189,11 @@ input {
 /*Team*/
 
 #team {
+  background: white;
+  padding: 60px 0;
+}
+
+#team-content {
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
@@ -197,9 +202,6 @@ input {
   justify-content: center;
 }
 
-section h3 {
-  margin: 0 auto;
-}
 
 .opis-team {
   padding: 5px 0;
@@ -220,13 +222,13 @@ section h3 {
 /*Social buttons*/
 
 #kontakt {
-  max-width: 1200px;
+  background: lightgray;
+  width: 100%;
   height: auto;
   margin-left: auto;
   margin-right: auto;
   padding-top: 12px;
   padding-bottom: 50px;
-  border-bottom: solid 3px #556efe;
   text-align: center;
   font-size: 35px;
 }
@@ -272,6 +274,14 @@ section.socialbut[data-value="gmail"]:hover {
 /*Koniec skecji social buttons*/
 
 /*footer*/
+
+footer {
+  background: black;
+}
+
+footer h3 {
+  color: white;
+}
 
 .foot-all {
   max-width: 1200px;
