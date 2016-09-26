@@ -7,8 +7,6 @@ body {
   text-align: justify;
 }
 
-
-
 h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
@@ -60,7 +58,6 @@ ul {
   font-size: 15px;
   padding: 0;
   text-align: right;
-  margin: 0;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -89,7 +86,6 @@ nav {
   padding-top: 60px;
   padding-bottom: 5%;
   position: relative;
-
 }
 
 #welcome::after {
@@ -201,7 +197,6 @@ input {
   flex-wrap: wrap;
   justify-content: center;
 }
-
 
 .team-description {
   padding: 5px 0;
