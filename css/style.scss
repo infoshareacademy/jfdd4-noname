@@ -7,6 +7,8 @@ body {
   text-align: justify;
 }
 
+
+
 h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
@@ -75,9 +77,9 @@ nav {
 /*Koniec nawigacji*/
 
 
-/*Zajawka*/
+/*Welcome*/
 
-#zajawka {
+#welcome {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,7 +93,7 @@ nav {
 
 }
 
-#zajawka::after {
+#welcome::after {
   content: "";
   position: absolute;
   top: 0;
@@ -108,7 +110,7 @@ nav {
 
 /* FUNKCJE */
 
-#funkcje {
+#functions {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -136,7 +138,7 @@ nav {
 
 
 
-/*Formularz*/
+/*Join*/
 
 .button {
   padding: 10px 25px;
@@ -182,7 +184,7 @@ input {
   -webkit-filter: blur(1px);
 }
 
-/*Koniec formularza*/
+/*End Join*/
 
 /*Team*/
 
@@ -202,7 +204,7 @@ input {
 }
 
 
-.opis-team {
+.team-description {
   padding: 5px 0;
   margin: 0;
   opacity: 0.9;
@@ -210,7 +212,7 @@ input {
   flex-basis: 25%;
 }
 
-.img-socials {
+.img-team {
   border-radius: 15% ;
   max-height: 150px;
   width: auto;
@@ -220,8 +222,7 @@ input {
 
 /*Social buttons*/
 
-#contact {
-  //background: #eee;
+#kontakt {
   width: 100%;
   height: auto;
   margin-left: auto;
@@ -276,76 +277,24 @@ section.socialbut[data-value="gmail"]:hover {
 
 footer {
   background: black;
-}
-
-footer h3 {
   color: white;
-  text-align: left;
 }
 
-.foot-all {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 0 1px 0 #1c1d1d inset;
-  border-top: solid 3px #1c1d1d;
-  border-bottom: solid 3px #1c1d1d;
-  padding: 25px 0 50px 0;
+footer li {
+  list-style: none;
+  text-align: center;
 }
 
-.foot-all ul {
-  line-height: 1.75;
-  max-width: 100px;
-  text-align: left;
-  font-size: small;
-}
-
-.foot-all ul li {
-  line-height: 0;
-  color: honeydew;
-}
-
-.foot-content {
-  float: left;
-  padding-right: 75px;
-  padding-left: 50px;
-}
-
-.foot-content h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 10px;
-  padding-bottom: 10px;
-}
-
-.clear-both {
-  clear: both;
-}
-
-.foot-float-left {
-  float: left;
-  display: inline-block;
-  padding-left: 25px;
-  margin: 10px;
-}
-
-.foot-float-right {
-  float: right;
-  padding-right: 25px;
-  margin: 10px;
+.site-map > div{
+  min-height: 150px;
 }
 
 .copyright {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: white;
-  line-height: 1.5;
-  font-size: smaller;
+  margin-top: 5em;
+  text-align: center;
+  font-size: 14px;
 }
 
-.inline-block {
-  display: inline-block;
-}
+
 
 /*Koniec footera*/
