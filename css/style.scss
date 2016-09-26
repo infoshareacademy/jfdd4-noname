@@ -7,6 +7,8 @@ body {
   text-align: justify;
 }
 
+
+
 h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
@@ -108,7 +110,7 @@ nav {
 
 /* FUNKCJE */
 
-#funkcje {
+#functions {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -202,7 +204,7 @@ input {
 }
 
 
-.opis-team {
+.team-description {
   padding: 5px 0;
   margin: 0;
   opacity: 0.9;
@@ -210,7 +212,7 @@ input {
   flex-basis: 25%;
 }
 
-.img-socials {
+.img-team {
   border-radius: 15% ;
   max-height: 150px;
   width: auto;
