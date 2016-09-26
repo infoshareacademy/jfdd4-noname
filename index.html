@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <title>Ikarus - Komunikacja miejska w Gdańsku</title>
 
     <meta name="description" content="Aplikacja ułatwiająca poruszanie się po Gdańsku"/>
     <meta name="keywords" content="Gdańsk, komunikacja miejska"/>
-    <link href="style.css" rel="stylesheet" type="text/css"/>
-    <link href="css/fontello.css" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="css/fontello/fontello.css" type="text/css"/>
 </head>
 <body>
 <header>
@@ -18,121 +20,141 @@
         </div>
         <ul>
             <li>
-                <a href="#zajawka">STRONA GŁÓWNA</a>
+                <a href="#welcome">STRONA GŁÓWNA</a>
             </li>
             <li>
-                <a href="#funkcje">FUNKCJE</a>
+                <a href="#functions">FUNKCJE</a>
             <li>
                 <a href="#team">TEAM</a>
             <li>
-                <a href="#kontakt">KONTAKT</a>
+                <a href="#contact">KONTAKT</a>
             </li>
         </ul>
     </nav>
 </header>
 
-<div id="zajawka">
-    <h1> Zaplanuj opytmalnie swoją podróż!</h1>
+<section id="zajawka">
+    <h1> Zaplanuj optymalnie swoją podróż!</h1>
     <h3>Innowacyjna wyszukiwarka połączeń i rozkłady jazdy komunikacji miejskiej w Gdańsku.</h3><br>
     <a href="#join" class="button">Dołącz do nas!</a>
-</div>
-<div id="funkcje">
+</section>
+<section id="functions">
 
-    <div>
+    <div class="fn-row">
 
-        <div class="fl-left"><img class="img-funkcje" src="img/nawigacja-funkcje.png"/></div>
+        <div class="fn-data"><img src="img/function-map-ikon.svg"/></div>
 
-        <div class="fl-left-opis"><h3>Nawigowanie po mieście</h3><br/><hr>
+        <div class="fn-data">
+
+            <h3>Nawigowanie po mieście</h3>
             <p>Aplikacja pozwala na podróż między wybranymi przystankami oraz konkretnymi adresami w najszybszy i
                 najkrótszy sposób!</p>
         </div>
-        <div class="fl-clear"></div>
 
     </div>
 
-    <div>
+    <div class="fn-row">
 
-        <div class="fl-left"><img class="img-funkcje" src="img/autobus-funkcja.jpg"/></div>
+        <div class="fn-data"><img src="img/function-bus-ikon.svg"/></div>
 
-        <div class="fl-left-opis"><h3>Wykaz wszystkich linii komunikacji w Gdańsku</h3><br/><hr>
-            <p> Dzięki naszej aplikacji w prosty sposób uzyskasz dostęp do listy przystanków, linii komunikacji
-                miejskiej oraz rozkładów jazdy.</p>
+        <div class="fn-data">
+
+            <h3>Wykaz wszystkich linii komunikacji w Gdańsku</h3>
+            <p> Dzięki naszej aplikacji w prosty sposób uzyskasz dostęp do listy przystanków, linii komunikacji miejskiej oraz rozkładów jazdy.</p>
+
         </div>
-        <div class="fl-clear"></div>
 
     </div>
 
-    <div>
+    <div class="fn-row">
 
-        <div class="fl-left"><img class="img-funkcje" src="img/automat-funkcje.jpg"/></div>
+        <div class="fn-data"><img src="img/function-ticket-icon.svg"/></div>
 
-        <div class="fl-left-opis"><h3>Automaty biletowe</h3><br/><hr>
-            <p>Nie masz biletu? Udostępnisz nam swoją lokalizację - a my wskażemy Ci gdzie znajduje się najbliższy
-                automat biletowy.
-                Dodatkowo uzyskasz listę lokalizacji automatów biletowych i punktów sprzedaży ZTM.</p>
+        <div class="fn-data">
+
+            <h3>Automaty biletowe</h3>
+            <p>Nie masz biletu? Udostępnij nam swoją lokalizację, a my wskażemy Ci,  gdzie znajduje się najbliższy automat biletowy. Dodatkowo uzyskasz listę lokalizacji automatów biletowych i punktów sprzedaży ZTM.</p>
+
         </div>
-        <div class="fl-clear"></div>
 
     </div>
 
-</div>
+</section>
 <section id="join">
-    <form>
-        <input type="text" name="e-mail" placeholder="Twój e-mail">
-        <input class="button" type="submit" value="submit">
+    <h3>Zapisz się do newslettera i bądź na bieżąco z nowościami w aplikacji Ikarus!</h3>
+    <form action="http://tools.is-academy.pl/mailer.php" method="POST">
+        <input type="email" name="receiver" placeholder="Twój e-mail">
+        <input class="button" type="submit" value="Zapisz się">
     </form>
 </section>
 
 <section id="team">
-    <!--<div id="naszzespol">Nasz zespół</div>-->
-    <h3>Nasz zespół</h3>
-    <div class="socials">
-        <img class="img-socials" src="img/iconmonstr-generation-10.svg"/> <br/>
-        PAMELA
-    </div><!--
-    --><div class="socials">
-        <img class="img-socials" src="img/iconmonstr-generation-3.svg"/> <br/>
-        PIOTR
-    </div><!--
-    --><div class="socials">
-        <img class="img-socials" src="img/iconmonstr-generation-5.svg"/> <br/>
-        KRZYSIEK
-    </div><!--
-    --><div class="socials">
-        <img class="img-socials" src="img/iconmonstr-generation-7.svg"/> <br/>
-        KAROL
+    <h2>Nasz zespół</h2>
+    <div class="team-content">
+        <div class="team-description">
+            <img class="img-team" src="img/pamela.jpg"/><br/>
+            PAMELA <br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mattis tincidunt felis, at auctor purus ornare
+            eu. Phasellus eget luctus sapien, vitae mattis est. Vivamus sit amet dignissim ipsum.
+        </div>
+        <div class="team-description">
+            <img class="img-team" src="img/Piotr.jpg"/><br/>
+            PIOTR <br>
+            Z wykształcenia muzyk gitarzysta, z doświadczeniem w branży wentylatorów przemysłowych i uboju bydła.
+            Pasjonat motoryzacji i nowych technologii, adept sztuki programowania.
+        </div><!--
+    -->
+        <div class="team-description">
+            <img class="img-team" src="img/photo.png"/><br/>
+            KRZYSIEK<br/>
+            Współtwórca i promotor objazdowego teatru dla dzieci. Przyszły student informatyki. Zainteresowania w
+            głównej mierze historyczne i polityczne.<br><br><br>
+        </div><!--
+    -->
+        <div class="team-description">
+            <img class="img-team" src="img/photo.png"/><br/>
+            KAROL <br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mattis tincidunt felis, at auctor purus ornare
+            eu. Phasellus eget luctus sapien, vitae mattis est. Vivamus sit amet dignissim ipsum.
+        </div>
     </div>
-    <!--<div style="clear:both;"></div>-->
 </section>
-
 
 <section id="kontakt">
 
-    <h2 class="kontakt-header">Sledz nas w internecie!</h2>
+    <h2 class="kontakt-header">Śledź nas w internecie!</h2>
 
-    <section id="button-link">
-        <div class="float-left"><a href="http://facebook.com">
+    <div>
+        <div class="but-inline"><a href="http://facebook.com" target="_blank">
             <section class="socialbut" data-value="facebook"><i class="icon-facebook"></i></section>
-        </a></div>
-        <div class="float-left"><a href="http://facebook.com">
+        </a></div><!--
+   -->
+        <div class="but-inline"><a href="http://twitter.com" target="_blank">
             <section class="socialbut" data-value="twitter"><i class="icon-twitter-bird"></i></section>
-        </a></div>
-        <div class="float-left"><a href="http://twitter.com">
+        </a></div><!--
+    -->
+        <div class="but-inline"><a href="http://youtube.com" target="_blank">
             <section class="socialbut" data-value="youtube"><i class="icon-youtube-1"></i></section>
-        </a></div>
-        <div class="float-left"><a href="mailto:ikarus@gmail.com">
+        </a></div><!--
+ -->
+        <div class="but-inline"><a href="https://plus.google.com/" target="_blank">
             <section class="socialbut" data-value="gplus"><i class="icon-googleplus-rect"></i></section>
+        </a></div><!--
+  -->
+        <div class="but-inline"><a href="mailto:ikarus@gmail.com" target="_blank">
+            <section class="socialbut" data-value="gmail"><i class="icon-mail-alt"></i></section>
         </a></div>
-        <div class="float-both"></div>
-    </section>
+        <div class="clear-both"></div>
+    </div>
 
 </section>
 
-<footer id="foot2">
 
-    <section id="foot-all">
+<footer>
 
-        <div class="foot-content">
+    <div class="container">
+
+        <div class="col-md-3">
 
             <h3>Ikarus</h3>
 
@@ -142,9 +164,8 @@
                 <li>Roadmap</li>
                 <li>Blog</li>
             </ul>
-
         </div>
-        <div class="foot-content">
+        <div class="col-md-3">
 
             <h3>App</h3>
 
@@ -157,7 +178,7 @@
 
         </div>
 
-        <div class="foot-content">
+        <div class="col-md-3">
 
             <h3>Company</h3>
 
@@ -170,7 +191,7 @@
         </div>
 
 
-        <div class="foot-content">
+        <div class="col-md-3">
 
             <h3>Connect</h3>
 
@@ -182,30 +203,26 @@
             </ul>
 
         </div>
+    </div>
 
+    <div class="copyright">
 
-        <div class="float-both"></div>
-
-    </section>
-
-    <section id="copyright">
-
-        <div class="float-left">
-            <content> NoNameTeam&copy; 2016</content>
+        <div class="foot-float-left">
+            <p> NoNameTeam&copy; 2016</p>
         </div>
-        <div class="float-left">
-            <content>Changelog</content>
+        <div class="foot-float-left">
+            <p>Changelog</p>
         </div>
-        <div class="float-right">
-            <content>Privacy policy</content>
+        <div class="foot-float-right">
+            <p>Privacy policy</p>
         </div>
-        <div class="float-right">
-            <content>Terms of use</content>
+        <div class="foot-float-right">
+            <p>Terms of use</p>
         </div>
-        <div class="float-both"></div>
+        <div class="clear-both"></div>
 
 
-    </section>
+    </div>
 
 </footer>
 
