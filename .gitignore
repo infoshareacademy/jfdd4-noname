@@ -1,5 +1,5 @@
 .idea
 *.iml
 
-style.css
-*.map.css
+css/style.css
+css/style.css.map

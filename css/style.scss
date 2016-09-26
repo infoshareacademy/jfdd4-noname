@@ -8,7 +8,6 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: black;
   text-align: center;
 }
 
@@ -16,7 +15,7 @@ h1, h2, h3, h4, h5, h6 {
 
 header {
   width: 100%;
-  background-color: #EEEEEE;
+  background-color: whitesmoke;
   margin: 0;
   padding: 0;
   position: fixed;
@@ -24,7 +23,7 @@ header {
   /*display: none;*/
 }
 
-li {
+header li {
   display: inline-block;
   line-height: 60px;
   list-style-image: none;
@@ -88,7 +87,6 @@ nav {
   margin: 0 auto;
   padding-top: 60px;
   padding-bottom: 5%;
-  background-size: cover;
   position: relative;
 
 }
@@ -101,9 +99,9 @@ nav {
   left: 0;
   right: 0;
   background: url("../img/metro.jpg") no-repeat center;
-  opacity: 1;
+  background-size: cover;
+  opacity: 0.9;
   z-index: -1;
-  -webkit-filter: blur(0);
 }
 
 /*Koniec zajawki*/
@@ -118,8 +116,8 @@ nav {
 }
 
 .fn-row {
-  max-width: 90%;
-  margin: 5%;
+  max-width: 100%;
+  margin: 5% 0;
 }
 
 .fn-data {
@@ -153,18 +151,18 @@ input {
   margin: 10px;
   font-family: inherit;
   font-size: inherit;
-  color: inherit;
+  color: #813E4F;
 }
 
 #join {
+  background: #813E4F;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
   height: 300px;
-  margin: 30px auto;
   text-align: center;
-  color: darkred;
+  color: white;
   padding: 60px 0;
   position: relative;
   z-index: 0;
@@ -190,10 +188,11 @@ input {
 
 #team {
   background: white;
+  color: black;
   padding: 60px 0;
 }
 
-#team-content {
+.team-content {
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
@@ -222,7 +221,7 @@ input {
 /*Social buttons*/
 
 #kontakt {
-  background: lightgray;
+  //background: #eee;
   width: 100%;
   height: auto;
   margin-left: auto;
