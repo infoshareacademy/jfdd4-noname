@@ -75,9 +75,9 @@ nav {
 /*Koniec nawigacji*/
 
 
-/*Zajawka*/
+/*Welcome*/
 
-#zajawka {
+#welcome {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,7 +91,7 @@ nav {
 
 }
 
-#zajawka::after {
+#welcome::after {
   content: "";
   position: absolute;
   top: 0;
@@ -108,7 +108,7 @@ nav {
 
 /* FUNKCJE */
 
-#funkcje {
+#functions {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -136,7 +136,7 @@ nav {
 
 
 
-/*Formularz*/
+/*Join*/
 
 .button {
   padding: 10px 25px;
@@ -182,7 +182,7 @@ input {
   -webkit-filter: blur(1px);
 }
 
-/*Koniec formularza*/
+/*End Join*/
 
 /*Team*/
 
@@ -221,7 +221,6 @@ input {
 /*Social buttons*/
 
 #kontakt {
-  //background: #eee;
   width: 100%;
   height: auto;
   margin-left: auto;
@@ -277,6 +276,21 @@ section.socialbut[data-value="gmail"]:hover {
 footer {
   background: black;
   color: white;
+}
+
+footer li {
+  list-style: none;
+  text-align: center;
+}
+
+.copyright {
+  margin-top: 5em;
+  text-align: center;
+  font-size: 14px;
+}
+
+.copyright > div{
+  height: 200px;
 }
 
 
