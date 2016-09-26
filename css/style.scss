@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
-/*Nawigacja*/
+//Navigation
 
 header {
   width: 100%;
@@ -22,7 +22,6 @@ header {
   padding: 0;
   position: fixed;
   z-index: 1;
-  /*display: none;*/
 }
 
 header li {
@@ -74,10 +73,10 @@ nav {
   text-align: center;
 }
 
-/*Koniec nawigacji*/
+//End of Navigation
 
 
-/*Welcome*/
+//Welcome
 
 #welcome {
   display: flex;
@@ -106,9 +105,9 @@ nav {
   z-index: -1;
 }
 
-/*Koniec zajawki*/
+//End of Welcome
 
-/* FUNKCJE */
+//Functions
 
 #functions {
   width: 100%;
@@ -134,11 +133,11 @@ nav {
   max-width: 100%;
 }
 
-//Koniec FUNKCJI
+//End of Functions
 
 
 
-/*Join*/
+//Join
 
 .button {
   padding: 10px 25px;
@@ -184,9 +183,9 @@ input {
   -webkit-filter: blur(1px);
 }
 
-/*End Join*/
+//End of Join
 
-/*Team*/
+//Team
 
 #team {
   background: white;
@@ -218,9 +217,10 @@ input {
   width: auto;
 }
 
-/*Koniec Team-u*/
+//End of Team
 
-/*Social buttons*/
+
+//Social buttons
 
 #contact {
   width: 100%;
@@ -271,9 +271,10 @@ section.socialbut[data-value="gplus"]:hover {
 section.socialbut[data-value="gmail"]:hover {
   background-color: #3cba54;
 }
-/*Koniec skecji social buttons*/
+//End of Social buttons
 
-/*footer*/
+
+//Footer
 
 footer {
   background: black;
@@ -297,4 +298,4 @@ footer li {
 
 
 
-/*Koniec footera*/
+//End of Footer
