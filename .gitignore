@@ -1,5 +1,4 @@
 .idea
-*.iml
-
 css/style.css
 css/style.css.map
+css/bootstrap.min.css
