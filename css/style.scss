@@ -118,15 +118,18 @@ nav {
 //Functions
 
 #functions {
-  margin: 7% auto;
+  margin: 3% auto;
   text-align: center;
 }
 
-.fn-data {
+.fn-row {
+  margin: 5%;
+}
 
+.fn-data {
+  
   img {
-    width: 200px;
-    max-width: 100%;
+    max-width: 200px;
   }
 }
 
