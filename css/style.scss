@@ -134,7 +134,7 @@ a:hover {
 //Functions
 
 #functions {
-  margin: 3% auto;
+  padding: 70px 15px;
   text-align: center;
 }
 
@@ -181,23 +181,12 @@ input {
   height: 300px;
   text-align: center;
   color: white;
-  padding: 60px 0;
+  padding: 80px 15px;
   position: relative;
   z-index: 0;
 }
 
-#join:after {
-  position: absolute;
-  z-index: -1;
-  content: "";
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-size: cover;
-  opacity: 0.5;
-  -webkit-filter: blur(1px);
-}
+
 
 //End of Join
 
@@ -207,7 +196,7 @@ input {
   background-color: white;
   color: black;
   text-align: center;
-  margin: 3% auto;
+  padding: 70px 15px;
 }
 
 .team-content {
