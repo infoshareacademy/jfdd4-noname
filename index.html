@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css"/>
     <link rel="stylesheet" href="css/fontello/fontello.css" type="text/css"/>
+    <script src="js/vendor/jquery-3.1.0.js" type="text/javascript"></script>
 </head>
-<body>
+<body onload="zmienslajd(); nawigacyjneKwadraty()">
 <header>
     <nav>
         <div id="logo">
@@ -39,8 +40,74 @@
         <h1> Zaplanuj optymalnie swoją podróż!</h1>
         <h3>Innowacyjna wyszukiwarka połączeń i rozkłady jazdy komunikacji miejskiej w Gdańsku.</h3><br>
         <a href="#join" class="button">Dołącz do nas!</a>
+        <div onclick="resetTimer(); zmienslajd()" id="moveBackward"></div>
+        <div onclick="resetTimer(); zmienslajd()" id="moveForward"></div>
 </section>
 </div>
+
+<script src="js/vendor/jquery-3.1.0.js" type="text/javascript"></script>
+
+<script>
+
+
+//    var numer = Math.floor(Math.random()*5)+1;
+    var numer = 1;
+    var numberOfSlides = 6;
+
+    var timer = 0;
+
+
+    var timerIsOn = 1;
+
+
+
+    function zmienslajd(slideNumber)
+    {
+        console.log('-------------------------------------',slideNumber);
+
+        numer++;
+        if (numer>5)
+            numer=1;
+
+        console.log(numer +" " +"numer slajdu");
+        document.getElementById("welcome").style.background = "url('img/slides/slajd" + numer + ".jpg')" ;
+        document.getElementById("welcome").style.backgroundSize = "cover";
+        console.log(timer);
+        if (timerIsOn)
+            timer = setTimeout("zmienslajd()", 5000);
+
+    }
+
+    function resetTimer() {
+        clearTimeout(timer);
+        timerIsOn = 0;
+       timer = setTimeout("zmienslajd()",5000);
+    }
+
+    function nawigacyjneKwadraty () {
+
+        var $Container = $('<div id="sliderKwadraty">').appendTo('#welcome'),
+        $kwadrat, $clearFloat;
+
+        for(var numerKwadrat=0;numerKwadrat<numberOfSlides; numerKwadrat++)
+
+        {
+            $kwadrat = $('<div>').appendTo($Container).addClass('kwadrat').attr('data-slideNumber', numerKwadrat);
+            $kwadrat.on('click', function() {
+                zmienslajd(this.dataset.slidenumber)
+            })
+
+        }
+
+        $clearFloar = $('<div>').appendTo($Container).addClass('clearBoth');
+
+    }
+
+
+</script>
+
+
+
 <section id="functions" class="container">
     <div class="fn-row row">
         <div class="fn-data col-sm-6"><img src="img/function-map-ikon.svg"/></div>
