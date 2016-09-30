@@ -1,37 +1,41 @@
+var size = 10;
 
 
-var t = [];  //ustawienie naszej tablicy jako zmienna globalna
-// (definicja tablicy zawierającej wiersze)
+$(document).ready(function () {
 
 
+    var $form = $('input.button');
+    $form.on('click', function (event) {
+        event.preventDefault();
+        $('.game-area').removeClass('game-area').addClass('game-start');
 
-function pokaz() {
-    var text = "<table>";
-    for (y=0; y<=15; y++) {
-        text += "<tr>";  //nowy wiersz tabeli
-        for (x=0; x<=15; x++) {
-            text+= "<td><div>" + t[y][x]+ "</div></td>";
+
+        var $row, $cell;
+
+        for (var rowNum = 0; rowNum < size; rowNum++) {
+            $row = $('<tr>').appendTo('#game');
+            for (var cellNum = 0; cellNum < size; cellNum++) {
+                $cell = $('<td>').addClass('cell').appendTo($row);
+
+                // var isBlack = rowNum % 2 ? cellNum % 2 : !(cellNum % 2);
+
+                // if (isBlack) {
+                //     $cell.addClass('black')
+                //         .attr('data-color', 'jestem czarny!!');
+                //
+                // } else {
+                //     $cell.addClass('white').attr('data-color', 'jestem bialy!!');
+                // }
+
+
+            }
         }
-        text+="</tr>"; //koniec wiersza tabeli
-    }
-    text += "</table>"; //koniec tabeli
-    //pobranie div id=plansza i ustawienie zawartości
 
-      $('#plansza').append(text);
-    //
-    // var elem = document.getElementById("plansza");
-    // elem.innerHTML=text;
-}
+    $('#game').find('tr').eq().addClass('road');
+    $('#game').find('tr').eq(3).addClass('road');
+    $('#game').find('tr').eq(4).addClass('road');
 
-/* Funkcja start */
 
-function start() {
-    t=[];  // na początku czyścimy tablice
-    for (var y=0;y<=15;y++) {  //wiersze od 0 do 8
-        t[y]=[];
-        for (var x=0;x<=15;x++) {  //kolumny od 0 do 8
-            t[y][x]='X';     // - każde pole ma X
-        }
-    }
-    pokaz();
-}
+    });
+});
+
