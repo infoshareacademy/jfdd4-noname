@@ -2,17 +2,19 @@
 
 
 body {
-  background-color: #E1E9EC;
+  background-color: #e6e6e6;
   color: black;
   font-family: 'Open Sans', 'Lato', sans-serif;
-  font-size: 20px;
+  font-size: 2em;
   margin: 0 !important;
   text-align: justify;
 }
 
 h1, h2, h3, h4, h5, h6 {
   text-align: center;
+  font-family: 'Baloo Bhai', cursive;
 }
+
 
 
 //Navigation
@@ -27,6 +29,8 @@ nav {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  font-family: 'Baloo Bhai', cursive;
+
 }
 
 #menu {
@@ -67,7 +71,7 @@ header {
 
 a:link,
 a:visited {
-  color: darkred;
+  color: #330000;
   text-decoration: none
 }
 
@@ -104,7 +108,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 550px;
+  min-height: 700px;
   margin: 0 auto;
   padding-top: 10%;
   padding-bottom: 5%;
@@ -123,9 +127,9 @@ a:hover {
   bottom: 0;
   left: 0;
   right: 0;
-  background: url("../img/background-image-1.jpg") no-repeat center;
+  background: url("../img/photo-1428591501234-1ffcb0d6871f.jpg") no-repeat center;
   background-size: cover;
-  opacity: 0.7;
+  opacity: 0.6;
   z-index: -1;
 }
 
@@ -134,19 +138,39 @@ a:hover {
 //Functions
 
 #functions {
-  padding: 70px 15px;
-  text-align: center;
-}
+  padding: 60px 15px;
+  text-align: justify;
+ }
 
 .fn-row {
-  margin: 5%;
-}
+  margin: 1%;
+  h2 {
+    text-align: justify;
+  }
 
+}
+.border-section1 {
+  border-top: solid 12px #330000;
+  position: relative;
+ }
+.border-section2 {
+  border-top: solid 6px black;
+  position: relative;
+}
+.border-section3 {
+   border-top: solid 6px silver;
+   position: relative;
+ }
 .fn-data {
-  
+  min-height: 200px;
   img {
     margin: auto;
-    max-width: 40%;
+    max-width: 200px;
+    padding: 1.5em;
+    opacity: 0.9;
+  }
+  h3 {
+    text-align: justify;
   }
 }
 
@@ -173,7 +197,7 @@ input {
 }
 
 #join {
-  background: #813E4F;
+  background: #330000;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -193,7 +217,7 @@ input {
 //Team
 
 #team {
-  background-color: white;
+  background-color: #f3f3f3;
   color: black;
   text-align: center;
   padding: 70px 15px;
@@ -211,12 +235,29 @@ input {
 }
 
 .img-team {
-  border-radius: 10% ;
+  border-radius: 15% ;
+  border: solid 6px silver;
+  background-color: black;
+  padding: 6px;
   width: auto;
-  padding: 3%;
   margin: 0 auto;
 }
 
+.border-section {
+  width: 70%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  -webkit-transform: translate(-50%,-100%);
+
+  p{
+    text-align: center;
+    font-family: 'Baloo Bhai', cursive;
+    text-transform: uppercase;
+    font-size: 2em;
+    padding: 2%;
+  }
+}
 //End of Team
 
 
@@ -254,12 +295,17 @@ input {
 //Footer
 
 footer {
-  background: black;
+  background:#9a9a9a;
   color: white;
-  li {
-    list-style: none;
-    text-align: center;
+  text-align: center;
+  img {
+    width: 150px;
+    //padding: 1em 0;
   }
+ }
+
+.but-inline {
+  margin: 0;
 }
 .copyright {
   padding-top: 1em;
@@ -267,6 +313,7 @@ footer {
   text-align: center;
   font-size: 14px;
 }
+
 
 //End of Footer
 
@@ -284,6 +331,32 @@ footer {
 
 .game-area {
   display: none ;
+  background-color: #330000;;
+  border: dotted 1.5em silver;
+
+
+}
+#gameIntro {
+  color: black;
+  padding: 10%;
+  background-color: #e6e6e6;
+  img {
+    padding: 3%;
+  }
+}
+
+.space {
+
+}
+
+#game {
+  max-width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#game button {
+  color: black;
 }
 
 .cell {
