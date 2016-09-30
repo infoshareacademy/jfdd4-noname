@@ -6,15 +6,22 @@ $("#join").submit(function(e) {
     e.preventDefault();
 });
 
-$('input.button').click(function () {
-    $('#game').removeClass('inactive');
+// $('input.button').click(function () {
+//     $('#game').removeClass('inactive');
+//     window.location = '#game';
 
-    for (i = 0; i < 4; i++) {
-        var $row = $('<tr>').appendTo('#board');
+    var boardSize = 10  ,
+        $row;
+    
+    for (i = 0; i < boardSize; i++) {
+        $row = $('<div class="game-row">').appendTo('#board');
 
-        for (j = 0; j < 4; j++) {
-            $row.append('<td>')
+        for (j = 0; j < boardSize; j++) {
+            $('<div class="game-cell">').appendTo($row)
         }
     }
-});
+
+
+
+// });
 

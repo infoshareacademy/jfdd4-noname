@@ -1,13 +1,28 @@
+$board-size: 50%;
+$field-size: 50px;
+
 //.inactive {
 //  display: none;
 //}
 
 #game {
   text-align: center;
+  margin: 0 auto;
+  padding-top: 60px;
   #board {
-    width: 500px;
-    height: 300px;
+    max-width: $board-size;
+    max-height: $board-size;
     background: #333;
     margin: 0 auto;
   }
 }
+
+.game-row{
+  .game-cell {
+    display: inline-block;
+    height: $field-size;
+    width: $field-size;
+    background-color: #4cae4c;
+  }
+}
+
