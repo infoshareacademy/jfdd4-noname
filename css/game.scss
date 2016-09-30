@@ -1,19 +1,21 @@
-$board-size: 50%;
-$field-size: 50px;
+$board-size: auto;
+$field-size: 80px;
 
 //.inactive {
 //  display: none;
 //}
 
 #game {
-  text-align: center;
   margin: 0 auto;
-  padding-top: 60px;
+  padding: 60px 0;
   #board {
     max-width: $board-size;
     max-height: $board-size;
     background: #333;
-    margin: 0 auto;
+
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
   }
 }
 
@@ -26,3 +28,6 @@ $field-size: 50px;
   }
 }
 
+#player {
+  background-color: yellow;
+}

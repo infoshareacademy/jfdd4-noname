@@ -14,12 +14,14 @@ $("#join").submit(function(e) {
         $row;
     
     for (i = 0; i < boardSize; i++) {
-        $row = $('<div class="game-row">').appendTo('#board');
+        $row = $('<tr class="game-row">').appendTo('#board');
 
         for (j = 0; j < boardSize; j++) {
-            $('<div class="game-cell">').appendTo($row)
+            $('<td class="game-cell">').appendTo($row)
         }
     }
+
+     
 
 
 
