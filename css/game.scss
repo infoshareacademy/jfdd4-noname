@@ -20,10 +20,10 @@ $board-color: #4cae4c;
   }
 }
 
-.game-row{
+.board-row{
   height: $field-size;
   margin: 0;
-  .game-cell {
+  .board-cell {
     display: inline-block;
     height: 100%;
     width: $field-size;
@@ -31,6 +31,6 @@ $board-color: #4cae4c;
   }
 }
 
-#player {
+#passenger {
   background-color: brown;
 }
