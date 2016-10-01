@@ -10,9 +10,11 @@ $("#join").submit(function(e) {
 //     $('#game').removeClass('inactive');
 //     window.location = '#game';
 
-    var boardSize = 10  ,
+    var boardSize = 20,
         $row;
-    
+
+    // CREATE GAME BOARD
+
     for (i = 0; i < boardSize; i++) {
         $row = $('<tr class="game-row">').appendTo('#board');
 

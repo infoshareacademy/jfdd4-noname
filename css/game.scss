@@ -1,18 +1,19 @@
-$board-size: auto;
-$field-size: 80px;
+$board-size: 600px;
+$field-size: 5%;
+$board-color: #4cae4c;
 
 //.inactive {
 //  display: none;
 //}
 
 #game {
+  line-height: 0 !important;
   margin: 0 auto;
   padding: 60px 0;
   #board {
-    max-width: $board-size;
-    max-height: $board-size;
-    background: #333;
-
+    width: $board-size;
+    height: $board-size;
+    background: $board-color;
     position: relative;
     left: 50%;
     transform: translate(-50%);
@@ -20,14 +21,16 @@ $field-size: 80px;
 }
 
 .game-row{
+  height: $field-size;
+  margin: 0;
   .game-cell {
     display: inline-block;
-    height: $field-size;
+    height: 100%;
     width: $field-size;
-    background-color: #4cae4c;
+    background-color: $board-color;
   }
 }
 
 #player {
-  background-color: yellow;
+  background-color: brown;
 }
