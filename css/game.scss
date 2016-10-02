@@ -1,10 +1,9 @@
-$board-size: 600px;
-$field-size: 5%;
-$board-color: #4cae4c;
+$board-size: 800px;
+$board-color: darkgrey;
 
-//.inactive {
-//  display: none;
-//}
+.inactive {
+  display: none !important;
+}
 
 #game {
   line-height: 0 !important;
@@ -21,16 +20,17 @@ $board-color: #4cae4c;
 }
 
 .board-row{
-  height: $field-size;
   margin: 0;
   .board-cell {
     display: inline-block;
     height: 100%;
-    width: $field-size;
-    background-color: $board-color;
   }
 }
 
 #passenger {
-  background-color: brown;
+  background-color: darkred;
+}
+
+.district {
+  background-color: black;
 }
