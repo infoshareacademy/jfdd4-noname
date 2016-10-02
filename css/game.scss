@@ -27,10 +27,14 @@ $board-color: darkgrey;
   }
 }
 
-#passenger {
-  background-color: darkred;
+.district {
+  background-color: #222;
 }
 
-.district {
-  background-color: black;
+#passenger {
+  background-color: whitesmoke !important;
+}
+
+.bus {
+  background-color: darkred !important;
 }

@@ -8,12 +8,12 @@ $("#join").submit(function(e) {
 
 // CREATE GAME BOARD
 
-$('input.button').click(function () {
+// $('input.button').click(function () {
     $('#game').removeClass('inactive');
     $('#join').addClass('inactive');
     // window.location = '#game';
 
-    var boardSize = 32,
+    var boardSize = 32, //must be (number divisible by 3) + 8
         fieldsize = 100 / boardSize + '%',
         $row;
 
@@ -30,7 +30,6 @@ $('input.button').click(function () {
     // PLACE AND MOVE PASSENGER
     var $boardRow = $('.board-row'),
         $boardCell = $('.board-cell');
-    $passenger = $('#passenger');
 
 
     //current position
@@ -44,7 +43,6 @@ $('input.button').click(function () {
 
     movePassenger();
 
-    // MOVE PASSENGER WITH ARROWS
     $(document).keydown(function(e) {
 
 
@@ -83,20 +81,55 @@ $('input.button').click(function () {
     });
 
     // CREATE DISTRICTS
-    var districtStart = 0,
-        distrctEnd = boardSize -1;
+    var districtStart = 2,
+        districtSize = (boardSize - 8) / 3,
+        boardEnd = boardSize -1;
 
-    for (var i = districtStart; i <= distrctEnd; i++) {
-        if (i > 1 && i < 10 || i > 11 && i < 20 || i > 21 && i < 30) {
-            for (var j = districtStart; j <= distrctEnd; j++) {
-                if (j > 1 && j < 10 || j > 11 && j < 20 || j > 21 && j < 30) {
+
+    for (var i = districtStart; i <= boardEnd; i++) {
+        if (i >= districtStart && i < districtStart + districtSize || i >= 2*districtStart + districtSize && i < 2*districtStart + 2*districtSize || i >= 3*districtStart + 2*districtSize && i < 3*districtStart + 3*districtSize) {
+            for (var j = districtStart; j <= boardEnd; j++) {
+                if (j >= districtStart && j < districtStart + districtSize || j >= 2*districtStart + districtSize && j < 2*districtStart + 2*districtSize || j >= 3*districtStart + 2*districtSize && j < 3*districtStart + 3*districtSize) {
                     $boardRow.eq(i).find($boardCell).eq(j).addClass('district');
                 }
             }
         }
-
     }
 
+    // CREATE AND MOVE BUS
+    var busRowIndex = 0,
+        busCellIndex = 10,
+        busSpeed = 1000;
 
-});
+    function createBus() {
+        $('.bus').removeClass('bus');
+        $boardRow.eq(busRowIndex).find($boardCell).eq(busCellIndex).addClass('bus');
+    }
+
+    createBus();
+
+
+    // function moveBus() {
+    for (var x = 0; x <= 10; x++) {
+
+        busRowIndex += 1;
+        setTimeout(function () {
+            console.log(busRowIndex);
+            createBus();
+            }, busSpeed
+        );
+
+
+            // $boardRow.eq(busRowIndex).find($boardCell).eq(busCellIndex).delay(busSpeed).queue(function () {
+            //     $('.bus').removeClass('bus');
+            //     $(this).addClass('bus');
+            // });
+        // }
+    }
+
+    // moveBus();
+
+
+
+// });
 
