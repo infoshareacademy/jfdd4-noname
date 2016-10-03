@@ -1,0 +1,40 @@
+$board-size: 800px;
+$board-color: darkgrey;
+
+.inactive {
+  display: none !important;
+}
+
+#game {
+  line-height: 0 !important;
+  margin: 0 auto;
+  padding: 60px 0;
+  #board {
+    width: $board-size;
+    height: $board-size;
+    background: $board-color;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}
+
+.board-row{
+  margin: 0;
+  .board-cell {
+    display: inline-block;
+    height: 100%;
+  }
+}
+
+.district {
+  background-color: #222;
+}
+
+#passenger {
+  background-color: whitesmoke !important;
+}
+
+.bus {
+  background-color: darkred !important;
+}

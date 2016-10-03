@@ -1,3 +1,5 @@
 .idea
 css/style.css
-css/style.css.map
+css/game.css
+*.css.map
+/jfdd4-noname.iml
