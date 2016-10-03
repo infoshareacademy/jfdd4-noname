@@ -32,13 +32,13 @@ var $boardRow = $('.board-row'),
     $boardCell = $('.board-cell');
 
 
-//current position
-var passRowIndex = 0,
-    passCellIndex = 0;
+//initial/current position
+var passRowIndex = 5,
+    passColIndex = 10;
 
 function movePassenger() {
     $('#passenger').removeAttr('id');
-    $boardRow.eq(passRowIndex).find($boardCell).eq(passCellIndex).attr('id', 'passenger');
+    $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex).attr('id', 'passenger');
 }
 
 movePassenger();
@@ -48,8 +48,8 @@ $(document).keydown(function (e) {
 
     switch (e.which) {
         case 37: // left
-            if (passCellIndex > 0) {
-                passCellIndex -= 1;
+            if (passColIndex > 0) {
+                passColIndex -= 1;
                 movePassenger();
             }
             break;
@@ -62,8 +62,8 @@ $(document).keydown(function (e) {
             break;
 
         case 39: // right
-            if (passCellIndex < boardSize - 1) {
-                passCellIndex += 1;
+            if (passColIndex < boardSize - 1) {
+                passColIndex += 1;
                 movePassenger();
             }
             break;
@@ -98,7 +98,7 @@ for (var i = districtStart; i <= boardEnd; i++) {
 }
 
 // CREATE AND MOVE BUS
-var busSpeed = 1000;
+var busSpeed = 500;
 
 function visualizeBusPosition(busRowIndex, busCellIndex) {
     $('.bus').removeClass('bus');
@@ -107,10 +107,7 @@ function visualizeBusPosition(busRowIndex, busCellIndex) {
 
 visualizeBusPosition();
 
-/**
- *
- * <div style="width=20px; height:20px; position: absolute">
- */
+
 
 function createVisualizeBusPositionCallback(busRowIndex, busCellIndex){
     return function(){
@@ -121,19 +118,13 @@ function createVisualizeBusPositionCallback(busRowIndex, busCellIndex){
 
 
 function moveBus() {
-    console.time('loop')    var busRowIndex = 0, busCellIndex = 0;
+    var busRowIndex = 0, busCellIndex = 0;
     for (var x = 1; x < boardSize; x++) {
 
         busRowIndex += 1;
         setTimeout(createVisualizeBusPositionCallback(busRowIndex, busCellIndex), busSpeed * x);
 
-
-        // $boardRow.eq(busRowIndex).find($boardCell).eq(busCellIndex).delay(busSpeed).queue(function () {
-        //     $('.bus').removeClass('bus');
-        //     $(this).addClass('bus');
-        // });
     }
-    console.timeEnd('loop')
 }
 
 moveBus();
