@@ -96,40 +96,44 @@ for (var i = 0; i < boardSize; i++) {
     }
 }
 
-// CREATE AND MOVE BUS
-// var busSpeed = 500;
+    // CREATE BUS STOPS
+
+var busStopSize = 3,
+
+
+    //CREATE AND MOVE BUS #1
+// var busSpeed = 300,
+//     busRepeatTime = busSpeed * boardSize;
 //
-// function visualizeBusPosition(busRowIndex, busCellIndex) {
+// function visualizeBusPosition(busRowIndex, busColIndex) {
 //     $('.bus').removeClass('bus');
-//     $boardRow.eq(busRowIndex).find($boardCell).eq(busCellIndex).addClass('bus');
+//     $boardRow.eq(busRowIndex).find($boardCell).eq(busColIndex).addClass('bus');
 // }
 //
 //
-//
-//
-// function callbackVisualizeBusPosition(busRowIndex, busCellIndex){
+// function callbackVisualizeBusPosition(busRowIndex, busColIndex){
 //     return function(){
-//         console.log(busRowIndex, busCellIndex);
-//         visualizeBusPosition(busRowIndex, busCellIndex);
+//         console.log(busRowIndex, busColIndex);
+//         visualizeBusPosition(busRowIndex, busColIndex);
 //     }
 // }
-//
 //
 // function moveBus() {
 //     console.time('loop'); //start time count
-//     var busRowIndex = 0, busCellIndex = 0;
-//     visualizeBusPosition(busRowIndex, busCellIndex);
+//     var busRowIndex = 0, busColIndex = districtSize;
+//     visualizeBusPosition(busRowIndex, busColIndex);
 //     for (var x = 1; x < boardSize; x++) {
 //         busRowIndex += 1;
-//         setTimeout(callbackVisualizeBusPosition(busRowIndex, busCellIndex), busSpeed * x);
+//         setTimeout(callbackVisualizeBusPosition(busRowIndex, busColIndex), busSpeed * x);
 //     }
 //     console.timeEnd('loop'); // end time count
 // }
+//
 // moveBus();
 // setInterval(function () {
 //     moveBus();
 //
-// }, 16000);
+// }, busRepeatTime);
 
 
 // });
