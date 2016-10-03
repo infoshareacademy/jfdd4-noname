@@ -117,19 +117,20 @@ function callbackVisualizeBusPosition(busRowIndex, busCellIndex){
 
 
 function moveBus() {
-    console.time('loop')
+    console.time('loop'); //start time count
     var busRowIndex = 0, busCellIndex = 0;
     visualizeBusPosition(busRowIndex, busCellIndex);
     for (var x = 1; x < boardSize; x++) {
-
         busRowIndex += 1;
         setTimeout(callbackVisualizeBusPosition(busRowIndex, busCellIndex), busSpeed * x);
-
     }
-    console.timeEnd('loop')
+    console.timeEnd('loop'); // end time count
 }
-
 moveBus();
+setInterval(function () {
+    moveBus();
+
+}, 16000);
 
 
 // });
