@@ -119,12 +119,11 @@ function callbackVisualizeBusPosition(busRowIndex, busCellIndex){
 function moveBus() {
     console.time('loop')
     var busRowIndex = 0, busCellIndex = 0;
-    for (var x = 1; x <= boardSize; x++) {
+    visualizeBusPosition(busRowIndex, busCellIndex);
+    for (var x = 1; x < boardSize; x++) {
 
-        visualizeBusPosition(busRowIndex, busCellIndex);
         busRowIndex += 1;
-        busCellIndex += 1;
-        setTimeout(callbackVisualizeBusPosition(busRowIndex, busCellIndex), busSpeed);
+        setTimeout(callbackVisualizeBusPosition(busRowIndex, busCellIndex), busSpeed * x);
 
     }
     console.timeEnd('loop')
