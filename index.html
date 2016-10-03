@@ -8,6 +8,8 @@
     <meta name="viewport" content="initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lalezar" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css"/>
     <link rel="stylesheet" href="css/game.css" type="text/css"/>
@@ -30,69 +32,87 @@
     </nav>
 </header>
 
-<div class="welcome-background  ">
+<div class="welcome-background">
     <section id="welcome">
         <h1> Zaplanuj optymalnie swoją podróż!</h1>
         <h3>Innowacyjna wyszukiwarka połączeń i rozkłady jazdy komunikacji miejskiej w Gdańsku.</h3><br>
         <a href="#join" class="button">Dołącz do nas!</a>
     </section>
 </div>
+<div class="border-section1"></div>
+<div class="border-section2"></div>
+<div class="border-section3"></div>
+
 <section id="functions" class="container">
-    <div class="fn-row row">
-        <div class="fn-data col-sm-6"><img class="img-responsive center-block" src="img/function-icons/function-map-icon.svg"/></div>
-        <div class="fn-data col-sm-6">
-            <h3>Nawigowanie po mieście</h3>
+       <div class="fn-row row">
+        <div class="fn-data col-sm-4"><img class="img-responsive center-block" src="img/function-icons/function-map-icon.svg"/></div>
+        <div class="fn-data col-sm-8">
+            <h2>Łatwiejsze poruszanie się po mieście</h2>
             <p>Aplikacja pozwala na znalezienie najszybszych połączeń między wybranymi przystankami oraz konkretnymi adresami.</p>
         </div>
     </div>
     <div class="fn-row row">
-        <div class="fn-data col-sm-6"><img class="img-responsive center-block" src="img/function-icons/function-bus-icon.svg"/></div>
-        <div class="fn-data col-sm-6">
-            <h3>Wykaz wszystkich linii komunikacji w Gdańsku</h3>
+        <div class="fn-data col-sm-4"><img class="img-responsive center-block" src="img/function-icons/function-bus-icon.svg"/></div>
+        <div class="fn-data col-sm-8">
+            <h2>Wykaz wszystkich linii komunikacji w Gdańsku</h2>
             <p> Dzięki naszej aplikacji w prosty sposób uzyskasz dostęp do listy przystanków, linii komunikacji miejskiej oraz rozkładów jazdy.</p>
         </div>
     </div>
     <div class="fn-row row">
-        <div class="fn-data col-sm-6"><img class="img-responsive center-block" src="img/function-icons/function-ticket-icon.svg"/></div>
-        <div class="fn-data col-sm-6">
-            <h3>Automaty biletowe</h3>
-            <p>Nie masz biletu? Udostępnij nam swoją lokalizację, a my wskażemy Ci,  gdzie znajduje się najbliższy automat biletowy. Dodatkowo uzyskasz listę lokalizacji automatów biletowych i punktów sprzedaży ZTM.</p>
+        <div class="fn-data col-sm-4"><img class="img-responsive center-block" src="img/function-icons/function-ticket-icon.svg"/></div>
+        <div class="fn-data col-sm-8">
+            <h2>Automaty biletowe</h2>
+            <p>Nie masz biletu? Udostępnij nam swoją lokalizację, a my wskażemy Ci,  gdzie znajduje się najbliższy automat biletowy. Dodatkowo uzyskasz listę lokalizacji automatów biletowych i punktów sprzedaży ZTM i SKM.</p>
         </div>
     </div>
-
 </section>
+<div class="border-section3"></div>
+<div class="border-section2"></div>
+<div class="border-section1"></div>
 <section id="join">
-    <h3>Zapisz się do newslettera i bądź na bieżąco z nowościami w aplikacji Ikarus!</h3>
+    <h2>Zapisz się do newslettera i bądź na bieżąco z nowościami w aplikacji Ikarus!</h2>
     <form action="http://tools.is-academy.pl/mailer.php" method="POST">
         <input type="email" name="receiver" placeholder="Twój e-mail">
         <input class="button" type="submit" value="Zapisz się" href="#game">
     </form>
 </section>
+<div class="border-section1"></div>
+<div class="border-section2"></div>
+<div class="border-section3"></div>
+
 <section id="game" class="inactive ">
+    <div id="gameIntro">
+        <h3>Dziękujemy, że jesteś zainteresowany naszą aplikacją!</h3>
+        <h4>Z tej okazji mamy dla Ciebie niespodziankę. Jeśli masz ochotę zagraj w naszą gre!</h4>
+        <p>Zasady są proste!</p>
+        <img src="img/busbus.png"/>
+        <p>Poruszaj się po mieście wsiadając i wysiadając z autobusów przyciskając klawisz SPACJI. </p>
+        <p> Twoim zadaniem jest zaliczyć jak najwięcej przesiadek. Pamiętaj, że masz ogarniczoną ilość czasu!</p>
+        <p>POWODZENIA!</p>
+        <button type="button" id="startGame" class="button">Gram!</button>
+        <p>albo..</p>
+        <button type="button" id="leaveGame" class="button">Nie, dziękuję! Zagram następnym razem.</button>
+    </div>
     <table id="board">
-
     </table>
-
-
-
 </section>
 <section id="team" class="container-fluid">
     <h2>NASZ ZESPÓŁ</h2>
     <div class="team-content row">
         <div class="team-description col-sm-4">
             <img class="img-team img-responsive" src="img/images-team/pamela.jpg"/>
-            <p>PAMELA</p>
+            <h3>PAMELA</h3>
             Inżynier budownictwa, miłośniczka podróżowania, dobrej kawy i jazdy na rolkach. Pasja do tworzenia i odkrywania nowych rzeczy sprawiły, że dziś próbuje swoich sił w programowaniu.
         </div>
         <div class="team-description col-sm-4">
             <img class="img-team img-responsive" src="img/images-team/Piotr.jpg"/>
-            <p>PIOTR </p>
+            <h3>PIOTR </h3>
             Z wykształcenia muzyk gitarzysta, z doświadczeniem w branży wentylatorów przemysłowych i uboju bydła. Pasjonat motoryzacji i nowych technologii, adept sztuki programowania.
         </div><!--
     -->
         <div class="team-description col-sm-4">
             <img class="img-team img-responsive" src="img/images-team/karol.jpg"/>
-            <p>KAROL </p>
+            <h3>KAROL </h3>
             Z wykształcenia oraz doświadczenia logistyk/spedytor. Interesuje się obrobką i edycją dźwięku. Poszukuje nowej drogi zawodowej i liczy na związanie jej z programowaniem.
         </div>
     </div>
@@ -101,38 +121,31 @@
 <section id="contact" class="container-fluid">
     <div class="contact-content row col-xs-4 col-xs-offset-4">
         <div class="but-inline col-xs-4"><a href="http://facebook.com" target="_blank">
-            <img class="img-responsive socialbut" src="img/social-icons/iconmonstr-facebook.svg"/>
+            <img class=" socialbut" src="img/social-icons/iconmonstr-facebook.svg"/>
         </a></div>
         <div class="but-inline col-xs-4"><a href="http://twitter.com" target="_blank">
-            <img class="img-responsive socialbut" src="img/social-icons/iconmonstr-twitter.svg"/>
+            <img class=" socialbut" src="img/social-icons/iconmonstr-twitter.svg"/>
         </a></div>
         <div class="but-inline col-xs-4"><a href="mailto:ikarus@gmail.com" target="_blank">
-            <img class="img-responsive socialbut" src="img/social-icons/iconmonstr-email.svg"/>
+            <img class=" socialbut" src="img/social-icons/iconmonstr-email.svg"/>
         </a></div>
     </div>
 </section>
 
+<div class="border-section3"></div>
+<div class="border-section2"></div>
 
 <footer>
     <div class="container copyright">
-        <div class="col-md-3">
-            <content><a href="http://google.pl" target="_blank">NoNameTeam&copy; 2016</a></content>
-        </div>
-        <div class="col-md-3">
-            <content><a href="http://google.pl" target="_blank">Changelog</a></content>
-        </div>
-        <div class="col-md-3">
-            <content><a href="http://google.pl" target="_blank">Polityka prywatności</a></content>
-        </div>
-        <div class="col-md-3">
-            <content><a href="http://google.pl" target="_blank">Warunki użytkowania</a></content>
+        <div>
+            <img src="img/logo-pics/logo-czerwone-2.png"/></div>
+        <div><a href="#welcome" target="_blank">site design / logo &copy; 2016 noName</a>
         </div>
     </div>
 </footer>
 
 <script src="js/vendor/jquery-3.1.0.js"></script>
 <script src="js/vendor/bootstrap.min.js"></script>
-
 <script src="js/app.js"></script>
 <script src="js/game.js"></script>
 
