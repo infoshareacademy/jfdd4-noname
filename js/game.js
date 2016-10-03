@@ -105,11 +105,10 @@ function visualizeBusPosition(busRowIndex, busCellIndex) {
     $boardRow.eq(busRowIndex).find($boardCell).eq(busCellIndex).addClass('bus');
 }
 
-visualizeBusPosition();
 
 
 
-function createVisualizeBusPositionCallback(busRowIndex, busCellIndex){
+function callbackVisualizeBusPosition(busRowIndex, busCellIndex){
     return function(){
         console.log(busRowIndex, busCellIndex);
         visualizeBusPosition(busRowIndex, busCellIndex);
@@ -118,13 +117,17 @@ function createVisualizeBusPositionCallback(busRowIndex, busCellIndex){
 
 
 function moveBus() {
+    console.time('loop')
     var busRowIndex = 0, busCellIndex = 0;
-    for (var x = 1; x < boardSize; x++) {
+    for (var x = 1; x <= boardSize; x++) {
 
+        visualizeBusPosition(busRowIndex, busCellIndex);
         busRowIndex += 1;
-        setTimeout(createVisualizeBusPositionCallback(busRowIndex, busCellIndex), busSpeed * x);
+        busCellIndex += 1;
+        setTimeout(callbackVisualizeBusPosition(busRowIndex, busCellIndex), busSpeed);
 
     }
+    console.timeEnd('loop')
 }
 
 moveBus();
