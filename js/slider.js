@@ -27,22 +27,6 @@ function rozpoznajSlajdKwadrat(identyfikator) {
 
 }
 
-function slideFadeOut() {
-    $('#welcome').fadeTo(function()
-    {
-        $(this).css('background-image', "url('img/slides/slajd" + numer-1 + ".jpg')");
-    }).fadeTo(150, 0, rotacjaSlajd);
-    console.log(numer + " " + "to jest obecny slajd");
-}
-
-function slideFadeIn () {
-    $('#welcome').fadeTo(function()
-    {
-        $(this).css('background-image', "url('img/slides/slajd" + numer + ".jpg')");
-    }).fadeTo(150, 1);
-}
-
-
 function rotacjaSlajd(){
     clearInterval(sliderClock);
     sliderClock =  setInterval(aktualnySlajd, 5000);
@@ -50,12 +34,9 @@ function rotacjaSlajd(){
 
 function wybierzSlajd() {
 
-//        document.getElementById("welcome").style.background = "url('img/slides/slajd" + numer + ".jpg')";
+       document.getElementById("welcome").style.background = "url('img/slider/slajd" + numer + ".jpg')";
+        document.getElementById("welcome").style.backgroundSize = "cover";
 
-    slideFadeOut();
-    slideFadeIn ();
-
-    document.getElementById("welcome").style.backgroundSize = "cover";
 
     hideZajawkaTxt ();
     showZajawkaTxt ();
@@ -103,6 +84,3 @@ $('#moveBackward').click(function() {
     }
 });
 
-$('.kwadrat').click(function() {
-    console.log("kielbasa");
-});
