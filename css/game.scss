@@ -37,10 +37,14 @@ $board-size: 700px;
   background-color: blue;
 }
 
-#passenger {
-  background-color: whitesmoke !important;
+.bus {
+  background-color: darkred;
 }
 
-.bus {
-  background-color: darkred !important;
+#passenger {
+  background-color: whitesmoke;
+}
+
+.occupied {
+  background-color: lightcoral !important;
 }
