@@ -2,139 +2,155 @@
  * Created by piotrszefler on 29.09.16.
  */
 
-$("#join").submit(function (e) {
-    e.preventDefault();
-});
+$(document).ready(function () {
+
+
+    $("#join").submit(function (e) {
+        e.preventDefault();
+    });
 
 // CREATE GAME BOARD
 
-// $('input.button').click(function () {
-$('#game').removeClass('inactive');
-$('#join').addClass('inactive');
-// window.location = '#game';
+    // $('input.button').click(function () {
+        $('#game').removeClass('inactive');
+        $('#join').addClass('inactive');
+        // window.location = '#game';
 
-var boardSize = 32, //must be even
-    fieldsize = 100 / boardSize + '%',
-    $row;
+        var boardSize = 20, //must be even
+            fieldsize = 100 / boardSize + '%',
+            $row;
 
 
-for (i = 0; i < boardSize; i++) {
-    $row = $('<tr class="board-row">').appendTo('#board');
+        for (i = 0; i < boardSize; i++) {
+            $row = $('<tr class="board-row">').appendTo('#board');
 
-    for (j = 0; j < boardSize; j++) {
-        $('<td class="board-cell">').css('width', fieldsize).appendTo($row)
-    }
-}
+            for (j = 0; j < boardSize; j++) {
+                $('<td class="board-cell road">').css('width', fieldsize).appendTo($row)
+            }
+        }
+
+// CREATE DISTRICTS
+        var $boardRow = $('.board-row'),
+            $boardCell = $('.board-cell');
+
+        var roadSize = 2,
+            districtSize = (boardSize - 2) / 2;
+
+
+        for (var i = 0; i < boardSize; i++) {
+            if (i < districtSize || i >= districtSize + roadSize) {
+                for (var j = 0; j < boardSize; j++) {
+                    if (j < districtSize || j >= districtSize + roadSize) {
+                        $boardRow.eq(i).find($boardCell).eq(j).removeClass('road').addClass('district');
+                    }
+                }
+            }
+        }
+
+// CREATE BUS STOPS
+        function createBusStop(x, y) {
+            $boardRow.eq(x).find($boardCell).eq(y).addClass('bus-stop');
+        }
+
+        createBusStop(2, districtSize -1);
+        createBusStop(2, districtSize + roadSize);
+        createBusStop(districtSize -3, districtSize -1);
+        createBusStop(districtSize -3, districtSize + roadSize);
+        createBusStop(districtSize + roadSize +2, districtSize -1);
+        createBusStop(districtSize + roadSize +2, districtSize + roadSize);
+        createBusStop(2 * districtSize -1, districtSize -1);
+        createBusStop(2 * districtSize -1, districtSize + roadSize);
+
 
 
 // PLACE AND MOVE PASSENGER
-var $boardRow = $('.board-row'),
-    $boardCell = $('.board-cell');
 
+        var passRowIndex = 13,
+            passColIndex = 13;
 
-//initial/current position
-var passRowIndex = 5,
-    passColIndex = 10;
+        function showPassenger() {
+            $('#passenger').removeAttr('id');
+            $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex).attr('id', 'passenger');
+        }
 
-function movePassenger() {
-    $('#passenger').removeAttr('id');
-    $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex).attr('id', 'passenger');
-}
+        showPassenger();
 
-movePassenger();
+        $(document).keydown(function (e) {
 
-$(document).keydown(function (e) {
+            switch (e.which) {
+                case 37: // left
+                    if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex -1).hasClass('district') ||
+                        $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex -1).attr('id') == 'bus') {
+                        passColIndex -= 1;
+                    } else if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex).hasClass('bus-stop')) {
+                        passColIndex -= 3;
+                    }
+                    showPassenger();
+                    break;
 
+                case 38: // up
+                    if (passRowIndex > 0 &&
+                        $boardRow.eq(passRowIndex -1 ).find($boardCell).eq(passColIndex).hasClass('district')) {
+                        passRowIndex -= 1;
+                        showPassenger();
+                    }
+                    break;
 
-    switch (e.which) {
-        case 37: // left
-            if (passColIndex > 0) {
-                passColIndex -= 1;
-                movePassenger();
+                case 39: // right
+                    if (passColIndex < boardSize - 1 &&
+                        $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex +1).hasClass('district')) {
+                        passColIndex += 1;
+                        showPassenger();
+                    }
+                    break;
+
+                case 40: // down
+                    if (passRowIndex < boardSize - 1 &&
+                        $boardRow.eq(passRowIndex + 1).find($boardCell).eq(passColIndex).hasClass('district')) {
+                        passRowIndex += 1;
+                        showPassenger();
+                    }
+                    break;
+
+                default:
+                    return; // exit this handler for other keys
             }
-            break;
+            e.preventDefault(); // prevent the default action (scroll / move caret)
+        });
 
-        case 38: // up
-            if (passRowIndex > 0) {
-                passRowIndex -= 1;
-                movePassenger();
-            }
-            break;
 
-        case 39: // right
-            if (passColIndex < boardSize - 1) {
-                passColIndex += 1;
-                movePassenger();
-            }
-            break;
+//CREATE AND MOVE BUS
+        var busSpeed = 700,
+            busRepeatTime = busSpeed * boardSize;
 
-        case 40: // down
-            if (passRowIndex < boardSize - 1) {
-                passRowIndex += 1;
-                movePassenger();
-            }
-            break;
+        function showBusPosition(busRowIndex, busColIndex) {
+            $('.bus').removeClass('bus');
+            $boardRow.eq(busRowIndex).find($boardCell).eq(busColIndex).addClass('bus');
+        }
 
-        default:
-            return; // exit this handler for other keys
-    }
-    e.preventDefault(); // prevent the default action (scroll / move caret)
-});
 
-// CREATE DISTRICTS
-var roadSize = 2,
-    districtSize = (boardSize - 2) / 2;
-
-    
-for (var i = 0; i < boardSize; i++) {
-    if (i < districtSize || i >= districtSize + roadSize) {
-        for (var j = 0; j < boardSize; j++) {
-            if (j < districtSize || j >= districtSize + roadSize) {
-                $boardRow.eq(i).find($boardCell).eq(j).addClass('district');
+        function callbackShowBusPosition(busRowIndex, busColIndex){
+            return function(){
+                showBusPosition(busRowIndex, busColIndex);
             }
         }
-    }
-}
 
-    // CREATE BUS STOPS
+        function moveBus() {
+            var busRowIndex = 0, busColIndex = districtSize + 1;
+            showBusPosition(busRowIndex, busColIndex);
+            for (var x = 1; x < boardSize; x++) {
+                busRowIndex += 1;
+                setTimeout(callbackShowBusPosition(busRowIndex, busColIndex), busSpeed * x);
+            }
+        }
 
-var busStopSize = 3,
+        moveBus();
+        setInterval(function () {
+            moveBus();
 
-
-    //CREATE AND MOVE BUS #1
-// var busSpeed = 300,
-//     busRepeatTime = busSpeed * boardSize;
-//
-// function visualizeBusPosition(busRowIndex, busColIndex) {
-//     $('.bus').removeClass('bus');
-//     $boardRow.eq(busRowIndex).find($boardCell).eq(busColIndex).addClass('bus');
-// }
-//
-//
-// function callbackVisualizeBusPosition(busRowIndex, busColIndex){
-//     return function(){
-//         console.log(busRowIndex, busColIndex);
-//         visualizeBusPosition(busRowIndex, busColIndex);
-//     }
-// }
-//
-// function moveBus() {
-//     console.time('loop'); //start time count
-//     var busRowIndex = 0, busColIndex = districtSize;
-//     visualizeBusPosition(busRowIndex, busColIndex);
-//     for (var x = 1; x < boardSize; x++) {
-//         busRowIndex += 1;
-//         setTimeout(callbackVisualizeBusPosition(busRowIndex, busColIndex), busSpeed * x);
-//     }
-//     console.timeEnd('loop'); // end time count
-// }
-//
-// moveBus();
-// setInterval(function () {
-//     moveBus();
-//
-// }, busRepeatTime);
+        }, busRepeatTime);
 
 
-// });
+    // });
 
+});

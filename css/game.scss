@@ -1,5 +1,4 @@
-$board-size: 800px;
-$board-color: darkgrey;
+$board-size: 700px;
 
 .inactive {
   display: none !important;
@@ -12,7 +11,6 @@ $board-color: darkgrey;
   #board {
     width: $board-size;
     height: $board-size;
-    background: $board-color;
     position: relative;
     left: 50%;
     transform: translate(-50%);
@@ -27,8 +25,16 @@ $board-color: darkgrey;
   }
 }
 
+.road {
+  background-color: darkgrey;
+}
+
 .district {
   background-color: #222;
+}
+
+.bus-stop {
+  background-color: blue;
 }
 
 #passenger {
