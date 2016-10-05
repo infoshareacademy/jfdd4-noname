@@ -74,7 +74,7 @@ $(document).ready(function () {
 
     function enterBus() {
         $('#passenger').removeAttr('id');
-        $('.bus').addClass('occupied');
+        $('.bus').addClass('occupied').attr('id', 'passenger');
     }
 
     showPassenger();
@@ -84,7 +84,10 @@ $(document).ready(function () {
         switch (e.which) {
 
             case 37: // left
-                if (passColIndex > 0 && $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex - 1).hasClass('district')) {
+                if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex - 1).hasClass('bus') &&
+                    $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex ).hasClass('bus-stop')) {
+                enterBus()
+                } else if (passColIndex > 0 && $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex - 1).hasClass('district')) {
                     passColIndex -= 1;
                 } else if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex).hasClass('bus-stop')) {
                     passColIndex -= 3;
@@ -103,7 +106,8 @@ $(document).ready(function () {
 
             case 39: // right
 
-                if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex + 1).hasClass('bus')) {
+                if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex + 1).hasClass('bus') &&
+                    $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex ).hasClass('bus-stop')) {
                     enterBus()
                 } else if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex + 1).hasClass('district')) {
                     passColIndex += 1;
@@ -136,7 +140,7 @@ $(document).ready(function () {
     function showBusPosition(x, y) {
         $('.bus').removeClass('bus');
         $boardRow.eq(x).find($boardCell).eq(y).addClass('bus');
-
+        
         if ($boardCell.hasClass('occupied')) {
             $boardCell.removeClass('occupied');
             $boardRow.eq(x).find($boardCell).eq(y).addClass('occupied');
@@ -165,30 +169,3 @@ $(document).ready(function () {
     // });
 
 });
-
-// function moveBusOne() {
-//     var Y = boardSize/2 -1;
-//     var X = -1;
-//     function addBus() {
-//         // $bus = $('td[x=' + 0 + '][y=' + 2 + ']').addClass('emptybus');
-//     }
-//
-//     addBus();
-//     var move = setInterval(function () {
-//         // $("tr:eq(" + Y + ") td:eq(" + X + ")").addClass('emptybus');
-//         if (X <= boardSize) {
-//             $("tr:eq(" + Y + ") td:eq(" + X + ")").removeClass('emptybus');
-//             X++;
-//             $("tr:eq(" + Y + ") td:eq(" + X + ")").addClass('emptybus')
-//         }
-//         else {
-//
-//             clearInterval(move);
-//
-//             $("tr:eq(" + Y + ") td:eq(" + X + ")").removeClass('emptybus');
-//         }
-//     }, busSpeed);
-// }
-//
-// moveBusOne();
-// repeatBusMove();
