@@ -6,21 +6,21 @@
  * Created by kgodlewski on 03.10.16.
  */
 
-var numer =0;
-var liczbaSlajdow = 3;
+var slideCounter =0;
+var slideQuantity = 3;
 var sliderClock = 0;
 
-function aktualnySlajd() {
-    numer++;
-    if (numer > liczbaSlajdow) {
-        numer = 1;
+function currentSlide() {
+    slideCounter++;
+    if (slideCounter > slideQuantity) {
+        slideCounter = 1;
     }
-    rozpoznajSlajdKwadrat(numer);
-    console.log(numer);
-    wybierzSlajd();
+    currentSlideSquareBar(slideCounter);
+    console.log(slideCounter);
+    chooseCurrentSlide();
 }
 
-function rozpoznajSlajdKwadrat(identyfikator) {
+function currentSlideSquareBar(identyfikator) {
     $('div.kwadrat').css("background","none");
     console.log(identyfikator + "" +"to jest identyfikator");
     $('div.slajd'+identyfikator).css("background","blue");
@@ -29,12 +29,12 @@ function rozpoznajSlajdKwadrat(identyfikator) {
 
 function rotacjaSlajd(){
     clearInterval(sliderClock);
-    sliderClock =  setInterval(aktualnySlajd, 5000);
+    sliderClock =  setInterval(currentSlide, 5000);
 }
 
-function wybierzSlajd() {
+function chooseCurrentSlide() {
 
-       document.getElementById("welcome").style.background = "url('img/slider/slajd" + numer + ".jpg')";
+       document.getElementById("welcome").style.background = "url('img/slider/slajd" + slideCounter + ".jpg')";
         document.getElementById("welcome").style.backgroundSize = "cover";
 
 
@@ -42,7 +42,7 @@ function wybierzSlajd() {
     showZajawkaTxt ();
 
 
-    console.log(numer + " " + "to jest obecny slajd");
+    console.log(slideCounter + " " + "to jest obecny slajd");
 }
 
 function hideZajawkaTxt () {
@@ -50,13 +50,13 @@ function hideZajawkaTxt () {
 }
 
 function showZajawkaTxt () {
-    $('.zajawkaHead'+numer).show();
-    $('.zajawkaTxt'+numer).show();
+    $('.zajawkaHead'+slideCounter).show();
+    $('.zajawkaTxt'+slideCounter).show();
 }
 
 
 function stworzSlajdKwadraty () {
-    for (var i = 1; i <= liczbaSlajdow; i++) {
+    for (var i = 1; i <= slideQuantity; i++) {
         $('<div>').attr('class', "slajd" + i).addClass('kwadrat').appendTo('#sliderNavSquares');
     }
 
@@ -65,22 +65,22 @@ function stworzSlajdKwadraty () {
 $('#moveForward').click(function() {
     clearInterval(sliderClock);
     rotacjaSlajd();
-    aktualnySlajd();
+    currentSlide();
 });
 
 $('#moveBackward').click(function() {
     clearInterval(sliderClock);
-    numer -= 1;
-    console.log(numer + "po odjeciu");
-    if (numer<1){
-        numer = liczbaSlajdow;
-        rozpoznajSlajdKwadrat(numer);
-        wybierzSlajd();
+    slideCounter -= 1;
+    console.log(slideCounter + "po odjeciu");
+    if (slideCounter<1){
+        slideCounter = slideQuantity;
+        currentSlideSquareBar(slideCounter);
+        chooseCurrentSlide();
     } else {
-        numer -= 1;
+        slideCounter -= 1;
         rotacjaSlajd();
-        console.log(numer + "do tylu");
-        aktualnySlajd();
+        console.log(slideCounter + "do tylu");
+        currentSlide();
     }
 });
 
