@@ -71,7 +71,7 @@ $(document).ready(function () {
         $('#passenger').removeAttr('id');
         $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex).attr('id', 'passenger');
     }
-
+    
     function enterBus() {
         $('#passenger').removeAttr('id');
         $('.bus').addClass('occupied').attr('id', 'passenger');
@@ -86,10 +86,12 @@ $(document).ready(function () {
             case 37: // left
                 if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex - 1).hasClass('bus') &&
                     $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex ).hasClass('bus-stop')) {
+                    passColIndex -= 1;
                 enterBus()
                 } else if (passColIndex > 0 && $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex - 1).hasClass('district')) {
                     passColIndex -= 1;
-                } else if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex).hasClass('bus-stop')) {
+                } else if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex - 3 ).hasClass('bus-stop') &&
+                $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex).hasClass('bus-stop')) {
                     passColIndex -= 3;
                 }
                 showPassenger();
@@ -108,11 +110,13 @@ $(document).ready(function () {
 
                 if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex + 1).hasClass('bus') &&
                     $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex ).hasClass('bus-stop')) {
+                    passColIndex += 1;
                     enterBus()
                 } else if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex + 1).hasClass('district')) {
                     passColIndex += 1;
                     showPassenger();
-                } else if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex).hasClass('bus-stop')) {
+                } else if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex).hasClass('bus-stop') &&
+                    $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex + 3).hasClass('bus-stop')) {
                     passColIndex += 3;
                     showPassenger();
                 }
@@ -144,6 +148,13 @@ $(document).ready(function () {
         if ($boardCell.hasClass('occupied')) {
             $boardCell.removeClass('occupied');
             $boardRow.eq(x).find($boardCell).eq(y).addClass('occupied');
+        }
+
+
+        if ($('.bus').attr('id') == 'passenger') {
+            passRowIndex = x;
+            passColIndex = y;
+            showPassenger()
         }
     }
 
