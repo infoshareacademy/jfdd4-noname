@@ -17,8 +17,10 @@ $board-size: 700px;
   }
 }
 
-.board-row{
+.board-row {
   margin: 0;
+  position: relative;
+  height: 5%;
   .board-cell {
     display: inline-block;
     height: 100%;
