@@ -102,6 +102,20 @@ a:hover {
   z-index: -2;
 }
 
+#sliderBackground {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 650px;
+  margin: 0 auto;
+  padding-top: 10%;
+  padding-bottom: 5%;
+  position: absolute;
+  z-index: -100;
+}
+
 #welcome {
   display: flex;
   flex-direction: column;
@@ -120,38 +134,57 @@ a:hover {
   }
 
   #moveBackward {
-    background: red;
-    border: solid 5px black;
+    background-image: url("../img/slider/prevSlide.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 100%;
     position: absolute;
     left: 0;
-    width: 100px;
-    height: 100px;
+    min-width: 48px;
+    min-height: 48px;
+    margin: 10px;
+    z-index: 101;
   }
 
+  #moveBackward:hover, #moveForward:hover{
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+
   #moveForward {
-    background: green;
-    border: solid 5px black;
+    background-image: url("../img/slider/nextSlide.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 100%;
     position: absolute;
     right: 0;
-    width: 100px;
-    height: 100px;
+    min-width: 48px;
+    min-height: 48px;
+    margin: 10px;
+    z-index: 101;
   }
 
   #sliderNavSquares {
     position: absolute;
     max-width: 200px;
-    background: white;
+    background: none;
     display: block;
     bottom: 0;
+    z-index: 101;
   }
 
   .kwadrat {
     background: blue;
-    border: 3px solid black;
-    width: 20px;
-    height: 20px;
+    border: 2px solid black;
+    min-width: 12px;
+    min-height: 12px;
     float: left;
     margin: 5px;
+  }
+  .zajwkaSlajd {
+    margin-bottom:20px;
   }
 
   .clearBoth {

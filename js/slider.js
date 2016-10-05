@@ -2,10 +2,6 @@
  * Created by kgodlewski on 04.10.16.
  */
 
-/**
- * Created by kgodlewski on 03.10.16.
- */
-
 var slideCounter =0;
 var slideQuantity = 3;
 var sliderClock = 0;
@@ -20,22 +16,15 @@ function currentSlide() {
     chooseCurrentSlide();
 }
 
-function currentSlideSquareBar(identyfikator) {
-    $('div.kwadrat').css("background","none");
-    console.log(identyfikator + "" +"to jest identyfikator");
-    $('div.slajd'+identyfikator).css("background","blue");
-
-}
-
-function rotacjaSlajd(){
+function slideRotationInterval(){
     clearInterval(sliderClock);
     sliderClock =  setInterval(currentSlide, 5000);
 }
 
 function chooseCurrentSlide() {
 
-       document.getElementById("welcome").style.background = "url('img/slider/slajd" + slideCounter + ".jpg')";
-        document.getElementById("welcome").style.backgroundSize = "cover";
+       document.getElementById("sliderBackground").style.background = "url('img/slider/slajd" + slideCounter + ".jpg')";
+        document.getElementById("sliderBackground").style.backgroundSize = "cover";
 
 
     hideZajawkaTxt ();
@@ -45,26 +34,24 @@ function chooseCurrentSlide() {
     console.log(slideCounter + " " + "to jest obecny slajd");
 }
 
-function hideZajawkaTxt () {
-    $('.zajwkaSlajd').hide();
-}
 
-function showZajawkaTxt () {
-    $('.zajawkaHead'+slideCounter).show();
-    $('.zajawkaTxt'+slideCounter).show();
-}
-
-
-function stworzSlajdKwadraty () {
+function createSquareBar () {
     for (var i = 1; i <= slideQuantity; i++) {
         $('<div>').attr('class', "slajd" + i).addClass('kwadrat').appendTo('#sliderNavSquares');
     }
 
 }
 
+function currentSlideSquareBar(identyfikator) {
+    $('div.kwadrat').css("background","none");
+    console.log(identyfikator + "" +"to jest identyfikator");
+    $('div.slajd'+identyfikator).css("background","rgba(0, 0, 255, 0.5)");
+
+}
+
 $('#moveForward').click(function() {
     clearInterval(sliderClock);
-    rotacjaSlajd();
+    slideRotationInterval();
     currentSlide();
 });
 
@@ -78,9 +65,20 @@ $('#moveBackward').click(function() {
         chooseCurrentSlide();
     } else {
         slideCounter -= 1;
-        rotacjaSlajd();
+        slideRotationInterval();
         console.log(slideCounter + "do tylu");
         currentSlide();
     }
 });
+
+function hideZajawkaTxt () {
+    $('.zajwkaSlajd').hide();
+};
+
+function showZajawkaTxt () {
+    $('.zajawkaHead'+slideCounter).show();
+    $('.zajawkaTxt'+slideCounter).show();
+};
+
+
 
