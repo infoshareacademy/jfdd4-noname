@@ -178,10 +178,11 @@ a:hover {
   .kwadrat {
     background: blue;
     border: 2px solid black;
-    min-width: 12px;
-    min-height: 12px;
+    min-width: 50px;
+    min-height: 50px;
     float: left;
     margin: 5px;
+    z-index: 100;
   }
   .zajwkaSlajd {
     margin-bottom:20px;
@@ -191,18 +192,6 @@ a:hover {
     clear:both;
   }
 }
-//#welcome::after {
-//  content: "";
-//  position: absolute;
-//  top: 0;
-//  bottom: 0;
-//  left: 0;
-//  right: 0;
-//  background: url("../img/photo-1428591501234-1ffcb0d6871f.jpg") no-repeat center;
-//  background-size: cover;
-//  opacity: 0.6;
-//  z-index: -1;
-//}
 
 //End of Welcome
 
