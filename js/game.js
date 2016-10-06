@@ -14,8 +14,6 @@ $(document).ready(function () {
     var boardSize = 20, //must be even
         fieldsize = 100 / boardSize + '%';
 
-    // var $boardRow = $('.board-row'),
-    //     $boardCell = $('.board-cell');
 
     var roadSize = 2,
         districtSize = (boardSize - 2) / 2;
@@ -68,24 +66,42 @@ $(document).ready(function () {
     createBusStop(2 * districtSize - 1, districtSize - 1);
     createBusStop(2 * districtSize - 1, districtSize + roadSize);
 
+    createBusStop(districtSize - 1, 2);
+    createBusStop(districtSize + roadSize, 2);
+    createBusStop(districtSize - 1, districtSize - 3);
+    createBusStop(districtSize + roadSize, districtSize - 3);
+    createBusStop(districtSize - 1, districtSize + roadSize + 2);
+    createBusStop(districtSize + roadSize, districtSize + roadSize + 2);
+    createBusStop(districtSize - 1, 2 * districtSize - 1);
+    createBusStop(districtSize + roadSize, 2 * districtSize - 1);
+
 
 // PLACE AND CONTROL PASSENGER
 
-    var passPosition = {};
-    var passTarget = { row: 6, cell: 7 };
+    var passInitPosition = { row: 2, cell: 7 };
+    movePassenger(passInitPosition, passInitPosition);
+
+    // var passPosition = findPassenger();
 
     function movePassenger(current, target) {
-        findField(current).removeAttr('id');
-        findField(target).attr('id', 'passenger');
+        if (checkIfMoveIsValid(current, target)) {
+            findField(current).removeAttr('id');
+            findField(target).attr('id', 'passenger');
+        }
     }
 
-    movePassenger(passPosition, passTarget);
+    function checkIfMoveIsValid(current, target) {
 
-    // var current = findPassenger();
-    // var target = getTargetPosition(e.which);
-    //
-    // var isMoveValid = checkIfMoveIsValid(current, target);
+        var start = findField(current),
+            end = findField(target);
 
+        if (start.hasClass('district') && end.hasClass('district') ||
+            start.hasClass('bus-stop') && end.hasClass('bus-stop') ||
+            start.hasClass('bus-stop') && end.hasClass('bus') ||
+            start.hasClass('bus') && end.hasClass('bus-stop')) {
+            return true;
+        }
+    }
 
     function findPassenger() {
         var player = document.getElementById('passenger');
@@ -97,31 +113,46 @@ $(document).ready(function () {
     }
 
 
-
-
-
-
+    // var target = getTargetPosition(e.which);
+    //
+    // var isMoveValid = checkIfMoveIsValid(current, target);
 
 
     $(document).keydown(function (e) {
 
-        if (isMoveValid) {
-            movePlayer(target, current);
+
+        var passTarget = findPassenger();
+
+        switch (e.which) {
+            case 37: // left
+                if (passTarget.cell > 0) {
+                    passTarget.cell--;
+                    movePassenger(findPassenger(), passTarget);
+                }
+                break;
+
+            case 38: // up
+                if (passTarget.row > 0) {
+                    passTarget.row--;
+                    movePassenger(findPassenger(), passTarget);
+                }
+                break;
+
+            case 39: // right
+                passTarget.cell++;
+                movePassenger(findPassenger(), passTarget);
+                break;
+
+            case 40: // down
+                passTarget.row++;
+                movePassenger(findPassenger(), passTarget);
+                break;
+
+            default:
+                return;
+                break;
         }
-
-
-        var playerCords = getPlayerCoordinates();
-
-        switch (keycode) {
-            case 37:
-                return $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex - 1);
-            case 38:
-                return $boardRow.eq(passRowIndex - 1).find($boardCell).eq(passColIndex);
-            case 39:
-                return $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex + 1);
-            case 40:
-                return $boardRow.eq(passRowIndex + 1).find($boardCell).eq(passColIndex);
-        }
+        e.preventDefault();
 
 
     });
@@ -137,117 +168,41 @@ $(document).ready(function () {
     // }
 //
 //
-// //CREATE AND MOVE BUS
-//     var busSpeed = 650,
-//         busRepeatTime = busSpeed * boardSize;
-//
-//     function showBusPosition(y, x) {
-//         $('.bus').removeClass('bus');
-//         $boardRow.eq(y).find($boardCell).eq(x).addClass('bus');
-//
-//         if ($boardCell.hasClass('occupied')) {
-//             $boardCell.removeClass('occupied');
-//             $boardRow.eq(y).find($boardCell).eq(x).addClass('occupied');
-//             passRowIndex = y;
-//             passColIndex = x;
-//         }
-//     }
-//
-//     function moveBus() {
-//         var busRowIndex = 0,
-//             busColIndex = districtSize;
-//         setInterval(function () {
-//             if (busRowIndex < boardSize) {
-//                 showBusPosition(busRowIndex, busColIndex);
-//                 busRowIndex += 1;
-//             }
-//         }, busSpeed);
-//     }
-//
-//     moveBus();
-//     setInterval(function () {
-//         moveBus();
-//
-//     }, busRepeatTime);
+//CREATE AND MOVE BUS
+    var busSpeed = 650,
+        busRepeatTime = busSpeed * boardSize;
+
+    function showBusPosition(y, x) {
+        $('.bus').removeClass('bus');
+        $('.board-row').eq(y).find($('.board-cell')).eq(x).addClass('bus');
+
+        // if ($boardCell.hasClass('occupied')) {
+        //     $boardCell.removeClass('occupied');
+        //     $boardRow.eq(y).find($boardCell).eq(x).addClass('occupied');
+        //     passRowIndex = y;
+        //     passColIndex = x;
+        // }
+    }
+
+    function moveBus() {
+        var busRowIndex = 0,
+            busColIndex = districtSize;
+        setInterval(function () {
+            if (busRowIndex < boardSize) {
+                showBusPosition(busRowIndex, busColIndex);
+                busRowIndex += 1;
+            }
+        }, busSpeed);
+    }
+
+    moveBus();
+    setInterval(function () {
+        moveBus();
+
+    }, busRepeatTime);
 
 
     // });
 
 });
 
-
-// $(document).keydown(function (e) {
-//
-//     switch (e.which) {
-//
-//         case 37: // left
-//             // enter bus
-//             if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex).hasClass('bus-stop') &&
-//                 $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex - 1).hasClass('bus')) {
-//                 passColIndex -= 1;
-//                 enterBus();
-//             }
-//
-//             // exit bus
-//             else if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex).hasClass('bus') &&
-//                 $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex - 1).hasClass('bus-stop')) {
-//                 passColIndex -= 1;
-//                 exitBus();
-//                 showPassenger();
-//             }
-//
-//             // walk
-//             else if (passColIndex > 0 &&
-//                 $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex).not('.bus') &&
-//                 $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex - 1).hasClass('district')) {
-//                 passColIndex -= 1;
-//                 showPassenger();
-//             }
-//
-//             // cross road
-//             else if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex - 3 ).hasClass('bus-stop') &&
-//             $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex).hasClass('bus-stop')) {
-//                 passColIndex -= 3;
-//                 showPassenger();
-//             }
-//             break;
-//
-//         case 38: // up
-//             if (passRowIndex > 0
-//             // && $boardRow.eq(passRowIndex - 1).find($boardCell).eq(passColIndex).hasClass('district')
-//             ) {
-//                 passRowIndex -= 1;
-//             }
-//             showPassenger();
-//             break;
-//
-//         case 39: // right
-//
-//             if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex + 1).hasClass('bus') &&
-//                 $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex ).hasClass('bus-stop')) {
-//                 passColIndex += 1;
-//                 enterBus()
-//             } else if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex + 1).hasClass('district')) {
-//                 passColIndex += 1;
-//                 showPassenger();
-//             } else if ($boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex).hasClass('bus-stop') &&
-//                 $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex + 3).hasClass('bus-stop')) {
-//                 passColIndex += 3;
-//                 showPassenger();
-//             }
-//             break;
-//
-//         case 40: // down
-//             if (passRowIndex < boardSize - 1
-//             // && $boardRow.eq(passRowIndex + 1).find($boardCell).eq(passColIndex).hasClass('district')
-//             ) {
-//                 passRowIndex += 1;
-//             }
-//             showPassenger();
-//             break;
-//
-//         default:
-//             return; // exit this handler for other keys
-//     }
-//     e.preventDefault(); // prevent the default action (scroll / move caret)
-// });
