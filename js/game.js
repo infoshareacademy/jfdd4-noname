@@ -43,7 +43,7 @@ $(document).ready(function () {
             if (i < districtSize || i >= districtSize + roadSize) {
                 for (var j = 0; j < boardSize; j++) {
                     if (j < districtSize || j >= districtSize + roadSize) {
-                        findField({row: i, cell: j}).addClass('district');
+                        findField({row: i, cell: j}).addClass('district').removeClass('road');
                     }
                 }
             }
@@ -127,25 +127,53 @@ $(document).ready(function () {
             case 37: // left
                 if (passTarget.cell > 0) {
                     passTarget.cell--;
-                    movePassenger(findPassenger(), passTarget);
+                    if (findField({row: passTarget.row, cell: passTarget.cell-2}).hasClass('bus-stop') &&
+                        findField(passTarget).hasClass('road') &&
+                        findField(passTarget).hasClass('bus') == false) {
+                        passTarget.cell -= 2;
+                        movePassenger(findPassenger(), passTarget)
+                    } else {
+                        movePassenger(findPassenger(), passTarget);
+                    }
                 }
                 break;
 
             case 38: // up
                 if (passTarget.row > 0) {
                     passTarget.row--;
-                    movePassenger(findPassenger(), passTarget);
+                    if (findField({row: passTarget.row-2, cell: passTarget.cell}).hasClass('bus-stop') &&
+                        findField(passTarget).hasClass('road') &&
+                        findField(passTarget).hasClass('bus') == false) {
+                        passTarget.row -= 2;
+                        movePassenger(findPassenger(), passTarget)
+                    } else {
+                        movePassenger(findPassenger(), passTarget);
+                    }
                 }
                 break;
 
             case 39: // right
                 passTarget.cell++;
-                movePassenger(findPassenger(), passTarget);
+                if (findField({row: passTarget.row, cell: passTarget.cell+2}).hasClass('bus-stop') &&
+                    findField(passTarget).hasClass('road') &&
+                    findField(passTarget).hasClass('bus') == false) {
+                    passTarget.cell += 2;
+                    movePassenger(findPassenger(), passTarget)
+                } else {
+                    movePassenger(findPassenger(), passTarget);
+                }
                 break;
 
             case 40: // down
                 passTarget.row++;
-                movePassenger(findPassenger(), passTarget);
+                if (findField({row: passTarget.row + 2, cell: passTarget.cell}).hasClass('bus-stop') &&
+                    findField(passTarget).hasClass('road') &&
+                    findField(passTarget).hasClass('bus') == false) {
+                    passTarget.row += 2;
+                    movePassenger(findPassenger(), passTarget)
+                } else {
+                    movePassenger(findPassenger(), passTarget);
+                }
                 break;
 
             default:
@@ -158,10 +186,10 @@ $(document).ready(function () {
     });
 
 
-    // function enterBus() {
-    //     $('#passenger').removeAttr('id');
-    //     $('.bus').addClass('occupied');
-    // }
+    function enterBus() {
+        $('#passenger').removeAttr('id');
+        $('.bus').addClass('occupied');
+    }
     //
     // function exitBus() {
     //     $('.bus').removeClass('occupied');
@@ -176,12 +204,12 @@ $(document).ready(function () {
         $('.bus').removeClass('bus');
         $('.board-row').eq(y).find($('.board-cell')).eq(x).addClass('bus');
 
-        // if ($boardCell.hasClass('occupied')) {
-        //     $boardCell.removeClass('occupied');
-        //     $boardRow.eq(y).find($boardCell).eq(x).addClass('occupied');
-        //     passRowIndex = y;
-        //     passColIndex = x;
-        // }
+        if ($('.board-cell').hasClass('occupied')) {
+            $('.board-cell').removeClass('occupied');
+            $('.board-row').eq(y).find($('.board-cell')).eq(x).addClass('occupied');
+            passRowIndex = y;
+            passColIndex = x;
+        }
     }
 
     function moveBus() {
