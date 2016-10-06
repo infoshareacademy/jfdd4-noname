@@ -147,7 +147,7 @@ a:hover {
     z-index: 101;
   }
 
-  #moveBackward:hover, #moveForward:hover{
+  #moveBackward:hover,#moveForward:hover{
     background-color: rgba(255, 255, 255, 0.6);
   }
 
@@ -172,19 +172,19 @@ a:hover {
     background: none;
     display: block;
     bottom: 0;
-    z-index: 101;
+    z-index: 99;
   }
 
-  .kwadrat {
+  .squareNav {
     background: blue;
     border: 2px solid black;
-    min-width: 50px;
-    min-height: 50px;
+    min-width: 18px;
+    min-height: 18px;
     float: left;
     margin: 5px;
     z-index: 100;
   }
-  .zajwkaSlajd {
+  .zajawkaTxtField {
     margin-bottom:20px;
   }
 

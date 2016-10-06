@@ -37,20 +37,17 @@ function chooseCurrentSlide() {
 
 function createSquareBar () {
     for (var i = 1; i <= slideQuantity; i++) {
-        $('<div>').attr('class', "slajd" + i).addClass('kwadrat').appendTo('#sliderNavSquares');
+        $('<div>').attr('class', i).addClass('squareNav').appendTo('#sliderNavSquares');
     }
 }
 
 function currentSlideSquareBar(identyfikator) {
-    $('div.kwadrat').css("background","none");
+    $('div.squareNav').css("background","none");
     console.log(identyfikator + "" +"to jest identyfikator");
-    $('div.slajd'+identyfikator).css("background","rgba(0, 0, 255, 0.5)");
+    $('div.'+identyfikator).css("background","rgba(0, 0, 255, 0.5)");
 }
 
-$('.kwadrat').click(function() {
-    currentSlide();
-    console.log('click');
-});
+
 
 $('#moveForward').click(function() {
     clearInterval(sliderClock);
@@ -73,7 +70,7 @@ $('#moveBackward').click(function() {
 });
 
 function hideZajawkaTxt () {
-    $('.zajwkaSlajd').hide();
+    $('.zajawkaTxtField').hide();
 }
 
 function showZajawkaTxt () {
@@ -88,3 +85,15 @@ currentSlideSquareBar(1);
 
 
 
+
+$(".squareNav").click(function() {
+    var myClass = this.classList;
+    $('#sliderBackground').css({
+        "background": "url('img/slider/slajd" + myClass[0] + ".jpg') no-repeat center",
+        "backgroundSize": "cover"
+    });
+    currentSlideSquareBar(myClass[0]);
+    slideRotationInterval();
+    slideCounter = myClass[0];
+    console.log(slideCounter);
+});
