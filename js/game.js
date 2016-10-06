@@ -7,17 +7,15 @@ $(document).ready(function () {
 
     $("#join").submit(function (e) {
         e.preventDefault();
+        $('#game').removeClass('inactive');
+        $('#join').addClass('inactive');
+        $('#border-inactive').addClass('border-inactive');
     });
 
 // CREATE GAME BOARD
 
-    // $('input.button').click(function () {
-    $('#game').removeClass('inactive');
-    $('#join').addClass('inactive');
-    // window.location = '#game';
-
     var boardSize = 20, //must be even
-        fieldsize = 100 / boardSize + '%',
+        fieldsize = (100 / boardSize) + '%',
         $row;
 
 
