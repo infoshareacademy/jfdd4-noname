@@ -20,6 +20,18 @@ $(document).ready(function () {
         $(this).addClass('active-scroll');
     });
 
+    $('a[href^="#"]').on('click', function (e) { // find all elements with a title attribute value starting with "#"
+        e.preventDefault();
+        // $(document).off('scroll');
+
+        $('a').each(function () {
+            $(this).removeClass('active');})
+        });
+        $(this).addClass('active');
+        var section = this.hash;
+
+
+
 });
 
 
