@@ -75,10 +75,15 @@ a:visited {
   text-decoration: none
 }
 nav
-a:hover, a.active {
+a:hover{
   color: #330000;
   border-bottom: solid #330000;
-}
+  }
+
+.active-link a {
+  color: #330000;
+  border-bottom: solid #330000;
+  }
 
 #logo {
   margin-left: 25px;
@@ -93,9 +98,15 @@ a:hover, a.active {
   text-decoration: none;
   position: fixed;
   right: 20px;
-  bottom: 20px;
-  background: url("../img/function-icons/scroll-top-icon.svg") no-repeat center;
-}
+  bottom: 15px;
+   img {
+     background-color: white;
+     border: solid white;
+     border-radius: 50%;
+     text-align: center;
+     margin: auto;
+   }
+  }
 .active-scroll {
   display: none;
 }
