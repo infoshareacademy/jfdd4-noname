@@ -20,12 +20,14 @@ $(document).ready(function () {
         fieldsize = 100 / boardSize + '%',
         $row;
 
-
     for (i = 0; i < boardSize; i++) {
         $row = $('<tr class="board-row">').css({height: fieldsize}).appendTo('#board');
 
         for (j = 0; j < boardSize; j++) {
-            $('<td class="board-cell road">').css({width: fieldsize}).appendTo($row)
+            $('<td class="board-cell road">').css({width: fieldsize})
+                .attr('data-boardRow', i)
+                .attr('data-boardCell', j)
+                .appendTo($row)
         }
     }
 
@@ -71,7 +73,7 @@ $(document).ready(function () {
         $('#passenger').removeAttr('id');
         $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex).attr('id', 'passenger');
     }
-    
+
     function enterBus() {
         $('#passenger').removeAttr('id');
         $('.bus').addClass('occupied');
@@ -81,39 +83,64 @@ $(document).ready(function () {
         $('.bus').removeClass('occupied');
     }
 
-    showPassenger();
+    function getPlayerStartingPosition() {
+        //ToDo: get starting position
+        return $('<div>');
+    }
 
+    // showPassenger();
 
-    $(document).keydown(function(e) {
+    movePlayer(getPlayerStartingPosition());
+
+    $(document).keydown(function (e) {
         var current = getCurrentPosition();
         var target = getTargetPosition(e.which);
 
         var isMoveValid = checkIfMoveIsValid(current, target);
 
         if (isMoveValid) {
-            movePlayer(current, target);
+            movePlayer(target, current);
+        }
+
+        function movePlayer(tar, cur) {
+            //ToDo: fixme
+            cur.removeAttr('id');
+            tar.attr('id', 'passenger');
+        }
+
+        function getCurrentPosition() {
+            return $('#passenger').get(0);
+            // return $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex);
+        }
+
+        function getPlayerCoordinates() {
+            var player = document.getElementById('passenger');
+
+            return {
+                row: Number.parseInt(player.dataset.boardrow),
+                cell: Number.parseInt(player.dataset.boardcell)
+            }
         }
 
 
-
-
         function getTargetPosition(keycode) {
-            switch(keycode) {
-                case 37: return $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex - 1);
-                case 38: return $boardRow.eq(passRowIndex - 1).find($boardCell).eq(passColIndex);
-                case 39: return $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex + 1);
-                case 40: return $boardRow.eq(passRowIndex + 1).find($boardCell).eq(passColIndex);
+
+
+            var playerCords = getPlayerCoordinates();
+
+            switch (keycode) {
+                case 37:
+                    return $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex - 1);
+                case 38:
+                    return $boardRow.eq(passRowIndex - 1).find($boardCell).eq(passColIndex);
+                case 39:
+                    return $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex + 1);
+                case 40:
+                    return $boardRow.eq(passRowIndex + 1).find($boardCell).eq(passColIndex);
             }
         }
 
     });
-
-    function getCurrentPosition() {
-        return $boardRow.eq(passRowIndex).find($boardCell).eq(passColIndex);
-    }
-
-
-
 
 
     // $(document).keydown(function (e) {
@@ -199,7 +226,7 @@ $(document).ready(function () {
     function showBusPosition(y, x) {
         $('.bus').removeClass('bus');
         $boardRow.eq(y).find($boardCell).eq(x).addClass('bus');
-        
+
         if ($boardCell.hasClass('occupied')) {
             $boardCell.removeClass('occupied');
             $boardRow.eq(y).find($boardCell).eq(x).addClass('occupied');
