@@ -24,89 +24,35 @@ $(document).ready(function () {
 
 //HIGHLIGHT THE ACTIVE MENU
 
-    var lastId,
-        menu = $("#menu"),
-        menuHeight = menu.outerHeight() + 15,
-        // All list items
-        menuElem = menu.find("a"),
-        // Anchors corresponding to menu items
-        scrollElem = menuElem.map(function () {
-            var item = $($(this).attr("href"));
-            if (item.length) {
-                return item;
-            } // it returns 5 sekcji "#"
-
-        });
+          // var menuElem = menu.find("a");
+       // //scroll animation
+//     menuElem.click(function (e) {
+//         var href = $(this).attr("href"),
+//             offsetTop = href === "#" ? 0 : $(href).offset().top - menuHeight + 1;
+//         $('html, body').stop().animate({
+//             scrollTop: offsetTop
+//         }, 400);
+//         e.preventDefault();
+//     });
 
 
-//scroll animation
-    menuElem.click(function (e) {
-        var href = $(this).attr("href"),
-            offsetTop = href === "#" ? 0 : $(href).offset().top - menuHeight + 1;
-        $('html, body').stop().animate({
-            scrollTop: offsetTop
-        }, 400);
-        e.preventDefault();
-    });
+    var $menu = $('#menu'),
+        menuHeight = $menu.height();
 
-//bind to scroll
-    $(window).scroll(function () {
-        // Get container scroll position
-        var fromTop = $(this).scrollTop() + menuHeight;
+    $(window).scroll(function() {
+        var fromTop = $(this).scrollTop() + menuHeight - 15;
 
-        // Get id of current scroll item
-        var cur = scrollElem.map(function () {
-            if ($(this).offset().top < fromTop)
-                return this;
-        });
-        // Get the id of the current element
-        cur = cur[cur.length - 1];
-        var id = cur && cur.length ? cur[0].id : "";
+        var current = $('section.navigable').toArray().filter(function(s) {
+            return s.offsetTop < fromTop
+        }).pop();
 
-        if (lastId !== id) {
-            lastId = id;
-            menuElem
-                .parent().removeClass("active-link")
-                .end().filter("[href='#" + id + "']")
-                .parent().addClass("active-link");
-        }
+        var activeClass = 'active-link';
+        $('li', $menu).removeClass(activeClass);
+        $('a[href="#' + current.getAttribute('id') +'"]').parent().addClass(activeClass);
+
     });
 
 
-    // $(document).on("scroll", activeMenu);
-    // $('a[href^="#"]').on('click', function (e) {
-    //     e.preventDefault();
-    //     $(document).off("scroll");
-    //
-    //     $('a').each(function () {
-    //         $(this).removeClass('active');
-    //
-    //     });
-    //     $(this).addClass('active');
-    //     var target = this.hash,
-    //         menu = target;
-    //     $target = $(target);
-    //     $('html, body').stop().animate({
-    //         'scrollTop': $target.offset().top
-    //     }, 500, 'swing', function () {
-    //         window.location.hash = target;
-    //         $(document).on("scroll", activeMenu);
-    //     });
-    // });
-    //
-    // function activeMenu(event) {
-    //     $('#menu li a').each(function () {
-    //         var scrollPosTop = $(document).scrollTop();
-    //         var currentSection = $(this);
-    //         var refSection = $(currentSection.attr("href")).position().top;
-    //         if (refSection <= scrollPosTop && refSection > scrollPosTop) {
-    //             $('#menu li a').removeClass('active');
-    //             currentSection.addClass('active');
-    //         } else {
-    //             currentSection.removeClass('active');
-    //         }
-    //     })
-    // }
 
 });
 
