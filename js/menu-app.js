@@ -37,16 +37,18 @@ $(document).ready(function () {
 
 
     var $menu = $('#menu'),
-        menuHeight = $menu.height();
+        menuHeight = $menu.outerHeight();
+    console.log(menuHeight);
 
     $(window).scroll(function() {
-        var fromTop = $(this).scrollTop() + menuHeight - 15;
+        var fromTop = $(this).scrollTop();
 
         var current = $('section.navigable').toArray().filter(function(s) {
-            return s.offsetTop < fromTop
+            return s.offsetTop - menuHeight < fromTop
         }).pop();
 
         var activeClass = 'active-link';
+
         $('li', $menu).removeClass(activeClass);
         $('a[href="#' + current.getAttribute('id') +'"]').parent().addClass(activeClass);
 

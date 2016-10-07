@@ -82,7 +82,10 @@ a:hover{
 
 .active-link a {
   color: #330000;
+  border-top: solid #330000;
   border-bottom: solid #330000;
+  border-radius:5%;
+
   }
 
 #logo {
