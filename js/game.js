@@ -90,6 +90,7 @@ $(document).ready(function () {
         }
     }
 
+
     function checkIfMoveIsValid(current, target) {
 
         var start = findField(current),
@@ -111,11 +112,6 @@ $(document).ready(function () {
             cell: Number.parseInt(player.dataset.boardcell)
         }
     }
-
-
-    // var target = getTargetPosition(e.which);
-    //
-    // var isMoveValid = checkIfMoveIsValid(current, target);
 
 
     $(document).keydown(function (e) {
@@ -187,8 +183,10 @@ $(document).ready(function () {
 
 
     function enterBus() {
-        $('#passenger').removeAttr('id');
-        $('.bus').addClass('occupied');
+        if (findPassenger() == busTarget) {
+            findField(findPassenger()).removeAttr('id');
+            $('.bus').addClass('occupied');
+        }
     }
     //
     // function exitBus() {
@@ -197,40 +195,38 @@ $(document).ready(function () {
 //
 //
 //CREATE AND MOVE BUS
-    var busSpeed = 650,
+    var busSpeed = 550,
         busRepeatTime = busSpeed * boardSize;
 
-    function showBusPosition(y, x) {
-        $('.bus').removeClass('bus');
-        $('.board-row').eq(y).find($('.board-cell')).eq(x).addClass('bus');
+    var busTarget = {row: 0, cell: districtSize},
+        busLoop;
 
+    function showBusPosition(target) {
+        $('.bus').removeClass('bus');
+        findField(target).addClass('bus');
         if ($('.board-cell').hasClass('occupied')) {
             $('.board-cell').removeClass('occupied');
-            $('.board-row').eq(y).find($('.board-cell')).eq(x).addClass('occupied');
-            passRowIndex = y;
-            passColIndex = x;
+            findField(busTarget).addClass('occupied');
+        }
+    }
+
+    function nextMove() {
+        if (busTarget.row < boardSize) {
+            busTarget.row += 1;
+        } else {
+            busTarget.row = 0;
         }
     }
 
     function moveBus() {
-        var busRowIndex = 0,
-            busColIndex = districtSize;
-        setInterval(function () {
-            if (busRowIndex < boardSize) {
-                showBusPosition(busRowIndex, busColIndex);
-                busRowIndex += 1;
-            }
-        }, busSpeed);
+        busLoop = setInterval(function () {
+            showBusPosition(busTarget);
+            nextMove();
+        }, busSpeed)
     }
 
+
     moveBus();
-    setInterval(function () {
-        moveBus();
-
-    }, busRepeatTime);
-
-
-    // });
 
 });
 
