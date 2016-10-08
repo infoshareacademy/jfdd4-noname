@@ -1,41 +1,38 @@
 /**
  * Created by kgodlewski on 06.10.16.
  */
-
 var timeLeft;
 
-$(document).ready(function () {
-    insertTimer();
-});
+insertTimer();
 
 function insertTimer() {
-    $('div').text(timeLeft.toFixed(2));
+    $('<div class="timerClock">').appendTo('#gameBoard');
+    $('<button type="button" name="start" id="startClock">').text('START GAME').appendTo('.timerClock');
+    $('<div>').addClass('timeLeft').text(timeLeft).appendTo('.timerClock');
 }
-
 function countDown() {
     timeLeft -= 0.1;
-    if (timeLeft<5){
-        $('.showTime').css({
-            "color": "red"
-        });
-    } if (timeLeft<0){
-        timeLeft = 0;
-        $('DIV').text('GAME OVER');
+    if (timeLeft<0){
+        return 0;
     }
-    $('div').text(timeLeft.toFixed(1));
-    console.log(timeLeft);
+    $('.timeLeft').text(timeLeft.toFixed(1));
 }
 
 function setClock() {
     clearInterval(countDown);
-    countDown();
     setInterval(countDown,100);
 }
 
-$('#startCLock').on("click", function () {
+$('#startClock').on("click", function () {
     timeLeft = 10;
-   setClock();
+    countDown();
+    setClock();
 });
+
+
+
+
+
 
 
 

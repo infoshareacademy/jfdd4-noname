@@ -1,0 +1,27 @@
+.timerClock {
+  color: black;
+  background-color: yellow;
+  min-width: 50px;
+  display: inline-block;
+  font-size: 36px;
+  position: relative;
+  bottom: 200px;
+  z-index: 9999;
+  float: left;
+  height: 100px; }
+
+#startClock {
+  position: relative;
+  bottom: 100px;
+  z-index: 9999;
+  float: left;
+  height: 100px; }
+
+.timeLeft {
+  background: white;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  bottom: 0; }
+
+/*# sourceMappingURL=timer.css.map */
