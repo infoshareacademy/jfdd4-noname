@@ -83,6 +83,133 @@ createBusStop(districtSize - 1, 2 * districtSize - 1);
 createBusStop(districtSize + roadSize, 2 * districtSize - 1);
 
 
+function createPavements(x, y) {
+    findField({row: x, cell: y}).css("background-color", "grey");
+
+}
+
+
+createPavements(0, districtSize - 1);
+createPavements(0, districtSize + 2);
+createPavements(1, districtSize - 1);
+createPavements(1, districtSize + 2);
+createPavements(2, districtSize - 1);
+createPavements(2, districtSize + 2);
+createPavements(3, districtSize - 1);
+createPavements(3, districtSize + 2);
+createPavements(4, districtSize - 1);
+createPavements(4, districtSize + 2);
+createPavements(5, districtSize - 1);
+createPavements(5, districtSize + 2);
+createPavements(6, districtSize - 1);
+createPavements(6, districtSize + 2);
+createPavements(7, districtSize - 1);
+createPavements(7, districtSize + 2);
+createPavements(8, districtSize - 1);
+createPavements(8, districtSize + 2);
+createPavements(11, districtSize - 1);
+createPavements(11, districtSize + 2);
+createPavements(12, districtSize - 1);
+createPavements(12, districtSize + 2);
+createPavements(13, districtSize - 1);
+createPavements(13, districtSize + 2);
+createPavements(14, districtSize - 1);
+createPavements(14, districtSize + 2);
+createPavements(15, districtSize - 1);
+createPavements(15, districtSize + 2);
+createPavements(16, districtSize - 1);
+createPavements(16, districtSize + 2);
+createPavements(17, districtSize - 1);
+createPavements(17, districtSize + 2);
+createPavements(18, districtSize - 1);
+createPavements(18, districtSize + 2);
+createPavements(19, districtSize - 1);
+createPavements(19, districtSize + 2);
+
+createPavements(8, districtSize - 9);
+createPavements(11, districtSize - 9);
+createPavements(8, districtSize - 8);
+createPavements(11, districtSize - 8);
+createPavements(8, districtSize - 7);
+createPavements(11, districtSize - 7);
+createPavements(8, districtSize - 6);
+createPavements(11, districtSize - 6);
+createPavements(8, districtSize - 5);
+createPavements(11, districtSize - 5);
+createPavements(8, districtSize - 4);
+createPavements(11, districtSize - 4);
+createPavements(8, districtSize - 3);
+createPavements(11, districtSize - 3);
+createPavements(8, districtSize - 2);
+createPavements(11, districtSize - 2);
+createPavements(8, districtSize + 3);
+createPavements(11, districtSize + 3);
+createPavements(8, districtSize + 4);
+createPavements(11, districtSize + 4);
+createPavements(8, districtSize + 5);
+createPavements(11, districtSize + 5);
+createPavements(8, districtSize + 6);
+createPavements(11, districtSize + 6);
+createPavements(8, districtSize + 7);
+createPavements(11, districtSize + 7);
+createPavements(8, districtSize + 8);
+createPavements(11, districtSize + 8);
+createPavements(8, districtSize + 9);
+createPavements(11, districtSize + 9);
+createPavements(8, districtSize + 10);
+createPavements(11, districtSize + 10);
+
+function createRoadStrips(x, y) {
+    findField({row: x, cell: y}).css("border-right", "solid 0.5px black");
+
+}
+
+createRoadStrips(0, districtSize);
+createRoadStrips(1, districtSize);
+createRoadStrips(2, districtSize);
+createRoadStrips(3, districtSize);
+createRoadStrips(4, districtSize);
+createRoadStrips(5, districtSize);
+createRoadStrips(6, districtSize);
+createRoadStrips(7, districtSize);
+createRoadStrips(8, districtSize);
+
+
+createRoadStrips(11, districtSize);
+createRoadStrips(12, districtSize);
+createRoadStrips(13, districtSize);
+createRoadStrips(14, districtSize);
+createRoadStrips(15, districtSize);
+createRoadStrips(16, districtSize);
+createRoadStrips(17, districtSize);
+createRoadStrips(18, districtSize);
+createRoadStrips(19, districtSize);
+
+
+function createHorizontalRoadStrips(x, y) {
+    findField({row: x, cell: y}).css("border-top", "solid 0.5px black");
+
+}
+
+createHorizontalRoadStrips(10, districtSize - 9);
+createHorizontalRoadStrips(10, districtSize - 8);
+createHorizontalRoadStrips(10, districtSize - 7);
+createHorizontalRoadStrips(10, districtSize - 6);
+createHorizontalRoadStrips(10, districtSize - 5);
+createHorizontalRoadStrips(10, districtSize - 4);
+createHorizontalRoadStrips(10, districtSize - 3);
+createHorizontalRoadStrips(10, districtSize - 2);
+createHorizontalRoadStrips(10, districtSize - 1);
+createHorizontalRoadStrips(10, districtSize + 2);
+createHorizontalRoadStrips(10, districtSize + 3);
+createHorizontalRoadStrips(10, districtSize + 4);
+createHorizontalRoadStrips(10, districtSize + 5);
+createHorizontalRoadStrips(10, districtSize + 6);
+createHorizontalRoadStrips(10, districtSize + 7);
+createHorizontalRoadStrips(10, districtSize + 8);
+createHorizontalRoadStrips(10, districtSize + 9);
+createHorizontalRoadStrips(10, districtSize + 10);
+
 // PLACE AND CONTROL PASSENGER
 
 var passInitPosition = {row: 2, cell: 7};
