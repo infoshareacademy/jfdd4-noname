@@ -1,15 +1,17 @@
-$(document).ready(function () {
+// $(document).ready(function () {
+//
+//
+//     $("#join").submit(function (e) {
+//         e.preventDefault();
+//         $('#game').removeClass('inactive');
+//         $('#join').addClass('inactive');
+//         $('#border-inactive').addClass('border-inactive');
+//     });
+//
+// });
 
-
-    $("#join").submit(function (e) {
-        e.preventDefault();
-        $('#game').removeClass('inactive');
-        $('#join').addClass('inactive');
-        $('#border-inactive').addClass('border-inactive');
-    });
 
 // CREATE GAME BOARD
-});
 
 
 // $('input.button').click(function () {
@@ -101,8 +103,9 @@ function checkIfMoveIsValid(current, target) {
     var start = findField(current),
         end = findField(target);
 
-    if (start.hasClass('district') && end.hasClass('district') ||
-        start.hasClass('bus-stop') && end.hasClass('bus-stop')) {
+    if (start.hasClass('district') && end.hasClass('district')
+        // || start.hasClass('bus-stop') && end.hasClass('bus-stop')
+    ) {
         return true;
     }
     else if (start.hasClass('bus-stop') && end.hasClass('bus')) {
@@ -152,53 +155,46 @@ $(document).keydown(function (e) {
         case 37: // left
             if (passTarget.cell > 0) {
                 passTarget.cell--;
-                if (findField({row: passTarget.row, cell: passTarget.cell - 2}).hasClass('bus-stop') &&
-                    findField(passTarget).hasClass('road') &&
-                    findField(passTarget).hasClass('bus') == false) {
-                    passTarget.cell -= 2;
-                    movePassenger(findPassenger(), passTarget)
-                } else {
-                    movePassenger(findPassenger(), passTarget);
-                }
+                // if (findField({row: passTarget.row, cell: passTarget.cell - 2}).hasClass('bus-stop') &&
+                //     findField(passTarget).hasClass('road') &&
+                //     findField(passTarget).hasClass('bus') == false) {
+                //     passTarget.cell -= 2;
+                //     movePassenger(findPassenger(), passTarget)
+                // }
+                movePassenger(findPassenger(), passTarget);
             }
             break;
 
         case 38: // up
             if (passTarget.row > 0) {
                 passTarget.row--;
-                if (findField({row: passTarget.row - 2, cell: passTarget.cell}).hasClass('bus-stop') &&
-                    findField(passTarget).hasClass('road') &&
-                    findField(passTarget).hasClass('bus') == false) {
-                    passTarget.row -= 2;
-                    movePassenger(findPassenger(), passTarget)
-                } else {
-                    movePassenger(findPassenger(), passTarget);
-                }
+                // if (findField({row: passTarget.row - 2, cell: passTarget.cell}).hasClass('bus-stop') &&
+                //     findField(passTarget).hasClass('road') &&
+                //     findField(passTarget).hasClass('bus') == false) {
+                //     passTarget.row -= 2;
+                // }
+                movePassenger(findPassenger(), passTarget);
             }
             break;
 
         case 39: // right
             passTarget.cell++;
-            if (findField({row: passTarget.row, cell: passTarget.cell + 2}).hasClass('bus-stop') &&
-                findField(passTarget).hasClass('road') &&
-                findField(passTarget).hasClass('bus') == false) {
-                passTarget.cell += 2;
-                movePassenger(findPassenger(), passTarget)
-            } else {
-                movePassenger(findPassenger(), passTarget);
-            }
+            // if (findField({row: passTarget.row, cell: passTarget.cell + 2}).hasClass('bus-stop') &&
+            //     findField(passTarget).hasClass('road') &&
+            //     findField(passTarget).hasClass('bus') == false) {
+            //     passTarget.cell += 2;
+            // }
+            movePassenger(findPassenger(), passTarget);
             break;
 
         case 40: // down
             passTarget.row++;
-            if (findField({row: passTarget.row + 2, cell: passTarget.cell}).hasClass('bus-stop') &&
-                findField(passTarget).hasClass('road') &&
-                findField(passTarget).hasClass('bus') == false) {
-                passTarget.row += 2;
-                movePassenger(findPassenger(), passTarget)
-            } else {
-                movePassenger(findPassenger(), passTarget);
-            }
+            // if (findField({row: passTarget.row + 2, cell: passTarget.cell}).hasClass('bus-stop') &&
+            //     findField(passTarget).hasClass('road') &&
+            //     findField(passTarget).hasClass('bus') == false) {
+            //     passTarget.row += 2;
+            // }
+            movePassenger(findPassenger(), passTarget);
             break;
 
         default:
@@ -212,14 +208,10 @@ $(document).keydown(function (e) {
 
 //CREATE AND MOVE BUSES
 var busSpeed = 550;
-var busLoop;
-
-
-// var busRepeatTime = busSpeed * boardSize;
-// var busTarget = {row: 0, cell: districtSize};
+// var busLoop;
 
 function createBusLine(name, position, direction) {
-    var busLine = {
+    return {
         line: name,
         position: {
             row: position[0],
@@ -227,17 +219,8 @@ function createBusLine(name, position, direction) {
         },
         direction: [direction[0], direction[1]]
     };
-    return busLine;
 }
 
-
-// var bus1 = {
-//     name: bus1,
-//     start: {
-//         row: 0,
-//         cell: districtSize
-//     }
-// };
 
 function showNewBusPosition(target, line) {
     if ($('.' + line).hasClass('occupied')) {
@@ -269,7 +252,6 @@ function moveBus(createBus) {
     showNewBusPosition(createBus.position, createBus.line);
     busLoop = setInterval(function () {
         showNewBusPosition(setBusTarget(createBus), createBus.line);
-        // console.log(findBus(createBus.line))
     }, busSpeed)
 }
 
@@ -278,15 +260,30 @@ moveBus(createBusLine('bus1', [0, districtSize], [1, 0]));
 
 setTimeout(function () {
     moveBus(createBusLine('bus2', [boardSize - 1, districtSize + 1], [-1, 0]));
-}, busSpeed *5);
-//
+}, busSpeed *2.5);
+
 setTimeout(function () {
-    moveBus(createBusLine('bus3', [districtSize, 0], [0, 1]));
+    moveBus(createBusLine('bus3', [districtSize +1, 0], [0, 1]));
+}, busSpeed *5);
+
+setTimeout(function () {
+    moveBus(createBusLine('bus4', [districtSize, boardSize -1], [0, -1]));
+}, busSpeed *6.5);
+
+setTimeout(function () {
+    moveBus(createBusLine('bus5', [0, districtSize], [1, 0]));
 }, busSpeed *10);
 
 setTimeout(function () {
-    moveBus(createBusLine('bus4', [districtSize +1, boardSize -1], [0, -1]));
+    moveBus(createBusLine('bus6', [boardSize - 1, districtSize + 1], [-1, 0]));
+}, busSpeed *12.5);
+
+setTimeout(function () {
+    moveBus(createBusLine('bus7', [districtSize +1, 0], [0, 1]));
 }, busSpeed *15);
 
+setTimeout(function () {
+    moveBus(createBusLine('bus8', [districtSize, boardSize -1], [0, -1]));
+}, busSpeed *16.5);
 
 // });
