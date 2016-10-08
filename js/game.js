@@ -97,12 +97,20 @@ $(document).ready(function () {
             end = findField(target);
 
         if (start.hasClass('district') && end.hasClass('district') ||
-            start.hasClass('bus-stop') && end.hasClass('bus-stop') ||
-            start.hasClass('bus-stop') && end.hasClass('bus') ||
-            start.hasClass('bus') && end.hasClass('bus-stop')) {
+            start.hasClass('bus-stop') && end.hasClass('bus-stop')) {
+            return true;
+        }
+        else if (start.hasClass('bus-stop') && end.hasClass('bus')) {
+            enterBus();
+            return true;
+        }
+        else if (start.hasClass('bus') && end.hasClass('bus-stop')) {
+            exitBus();
             return true;
         }
     }
+
+
 
     function findPassenger() {
         var player = document.getElementById('passenger');
@@ -110,6 +118,15 @@ $(document).ready(function () {
         return {
             row: Number.parseInt(player.dataset.boardrow),
             cell: Number.parseInt(player.dataset.boardcell)
+        }
+    }
+
+    function findBus() {
+        var bus = document.getElementsByClassName('bus')[0];
+
+        return {
+            row: Number.parseInt(bus.dataset.boardrow),
+            cell: Number.parseInt(bus.dataset.boardcell)
         }
     }
 
@@ -183,15 +200,15 @@ $(document).ready(function () {
 
 
     function enterBus() {
-        if (findPassenger() == busTarget) {
-            findField(findPassenger()).removeAttr('id');
-            $('.bus').addClass('occupied');
-        }
+        // findField(findPassenger()).removeAttr('id');
+        findField(findBus()).addClass('occupied');
+        // console.log(findPassenger(), findBus());
+        // console.log('success');
     }
-    //
-    // function exitBus() {
-    //     $('.bus').removeClass('occupied');
-    // }
+
+    function exitBus() {
+        $('.bus').removeClass('occupied');
+    }
 //
 //
 //CREATE AND MOVE BUS
@@ -204,14 +221,15 @@ $(document).ready(function () {
     function showBusPosition(target) {
         $('.bus').removeClass('bus');
         findField(target).addClass('bus');
+        // console.log(findBus());
         if ($('.board-cell').hasClass('occupied')) {
-            $('.board-cell').removeClass('occupied');
-            findField(busTarget).addClass('occupied');
+            $('.board-cell').removeClass('occupied').removeAttr('id');
+            findField(busTarget).addClass('occupied').attr('id', 'passenger');
         }
     }
 
     function nextMove() {
-        if (busTarget.row < boardSize) {
+        if (busTarget.row < boardSize -1) {
             busTarget.row += 1;
         } else {
             busTarget.row = 0;
