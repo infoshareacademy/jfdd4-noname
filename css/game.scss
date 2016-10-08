@@ -8,6 +8,9 @@ $board-size: 700px;
   line-height: 0 !important;
   margin: 0 auto;
   padding: 60px 0;
+  //max-width: 1200px;
+  text-align: center;
+  background: #330000;
   #board {
     width: $board-size;
     height: $board-size;

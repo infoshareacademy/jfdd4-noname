@@ -3,6 +3,12 @@ $(document).ready(function () {
 
     $("#join").submit(function (e) {
         e.preventDefault();
+        $('#game').removeClass('inactive');
+        $('#join').addClass('inactive');
+        $('#border-inactive').addClass('border-inactive');
+    });
+
+// CREATE GAME BOARD
     });
 
 
@@ -12,7 +18,8 @@ $(document).ready(function () {
     // window.location = '#game';
 
     var boardSize = 20, //must be even
-        fieldsize = 100 / boardSize + '%';
+        fieldsize = (100 / boardSize) + '%',
+        $row;
 
 
     var roadSize = 2,
@@ -250,4 +257,3 @@ $(document).ready(function () {
     moveBus('bus1', 1);
 
 });
-
