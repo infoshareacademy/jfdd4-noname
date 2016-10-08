@@ -83,6 +83,23 @@ $(document).ready(function () {
     createBusStop(districtSize + roadSize, 2 * districtSize - 1);
 
 
+    function createPavements(x,y) {
+        findField({row: x, cell: y}).css("background-color", "grey");
+
+    }
+
+
+        createPavements(0, districtSize - 1);
+        createPavements(1, districtSize - 1);
+        createPavements(2, districtSize - 1);
+        createPavements(3, districtSize - 1);
+        createPavements(4, districtSize - 1);
+        createPavements(5, districtSize - 1);
+        createPavements(7, districtSize - 1);
+        createPavements(8, districtSize - 1);
+
+
+
 // PLACE AND CONTROL PASSENGER
 
     var passInitPosition = {row: 2, cell: 7};

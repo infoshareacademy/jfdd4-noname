@@ -35,24 +35,48 @@ $board-size: 700px;
 }
 
 .district {
-  background-color: #222;
+  background-color: whitesmoke;
 }
 
 .bus-stop {
-  background-color: blue;
+  background-image: url("../img/game-icons/bus-stop-img.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.pavements {
+  background-color: grey;
 }
 
 .bus {
-  background-color: darkred;
+  //background-color: darkred;
+  background-image: url("../img/game-icons/bus-up-down.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
 }
 
-.bus1{background-color: green}
-.bus2{background-color: yellow}
-.bus3{background-color: dodgerblue}
-.bus4{background-color: orangered}
+//.bus1{background-color: green}
+.bus2 {
+  background-color: yellow
+}
+
+.bus3 {
+  background-color: dodgerblue
+}
+
+.bus4 {
+  background-color: orangered
+}
 
 #passenger {
-  background-color: whitesmoke;
+  //background-color: whitesmoke;
+  background-image: url("../img/game-icons/passenger.svg");
+  background-repeat: no-repeat;
+  background-size: 125%;
+  background-position: center;
+
 }
 
 .occupied {
