@@ -89,15 +89,31 @@ $(document).ready(function () {
     }
 
 
-        createPavements(0, districtSize - 1);
-        createPavements(1, districtSize - 1);
-        createPavements(2, districtSize - 1);
-        createPavements(3, districtSize - 1);
-        createPavements(4, districtSize - 1);
-        createPavements(5, districtSize - 1);
-        createPavements(7, districtSize - 1);
-        createPavements(8, districtSize - 1);
+        createPavements(0, districtSize - 1); createPavements(0, districtSize + 2);
+        createPavements(1, districtSize - 1);createPavements(1, districtSize + 2);
+        createPavements(2, districtSize - 1);createPavements(2, districtSize + 2);
+        createPavements(3, districtSize - 1);createPavements(3, districtSize + 2);
+        createPavements(4, districtSize - 1);createPavements(4, districtSize + 2);
+        createPavements(5, districtSize - 1);createPavements(5, districtSize + 2);
+        createPavements(6, districtSize - 1);createPavements(6, districtSize + 2);
+        createPavements(7, districtSize - 1);createPavements(7, districtSize + 2);
+        createPavements(8, districtSize - 1);createPavements(8, districtSize + 2);
+        createPavements(11, districtSize - 1);createPavements(11, districtSize + 2);
+        createPavements(12, districtSize - 1);createPavements(12, districtSize + 2);
+        createPavements(13, districtSize - 1);createPavements(13, districtSize + 2);
+        createPavements(14, districtSize - 1);createPavements(14, districtSize + 2);
+        createPavements(15, districtSize - 1);createPavements(15, districtSize + 2);
+        createPavements(16, districtSize - 1);createPavements(16, districtSize + 2);
+        createPavements(17, districtSize - 1);createPavements(17, districtSize + 2);
+        createPavements(18, districtSize - 1);createPavements(18, districtSize + 2);
+        createPavements(19, districtSize - 1);createPavements(19, districtSize + 2);
 
+        createPavements(8, districtSize - 9);createPavements(11, districtSize - 9);
+        createPavements(8, districtSize - 1);createPavements(11, districtSize + 2);
+        createPavements(8, districtSize - 1);createPavements(11, districtSize + 2);
+        createPavements(8, districtSize - 1);createPavements(11, districtSize + 2);
+        createPavements(8, districtSize - 1);createPavements(11, districtSize + 2);
+        createPavements(8, districtSize - 1);createPavements(11, districtSize + 2);
 
 
 // PLACE AND CONTROL PASSENGER
