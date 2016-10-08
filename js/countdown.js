@@ -9,15 +9,20 @@ $(document).ready(function () {
 });
 
 function insertTimer() {
-    $('div').text(timeLeft);
+    $('div').text(timeLeft.toFixed(2));
 }
 
 function countDown() {
-    timeLeft -=0.1;
-    if (timeLeft<0){
+    timeLeft -= 0.1;
+    if (timeLeft<5){
+        $('.showTime').css({
+            "color": "red"
+        });
+    } if (timeLeft<0){
         timeLeft = 0;
+        $('DIV').text('GAME OVER');
     }
-    $('div').text(timeLeft);
+    $('div').text(timeLeft.toFixed(1));
     console.log(timeLeft);
 }
 
@@ -28,7 +33,7 @@ function setClock() {
 }
 
 $('#startCLock').on("click", function () {
-    timeLeft = 5;
+    timeLeft = 10;
    setClock();
 });
 
