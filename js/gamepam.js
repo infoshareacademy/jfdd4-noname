@@ -48,3 +48,104 @@
 //
 // });
 //
+$(document).ready(function () {
+    var $position,
+        $passenger,
+        $bus,
+        $road;
+
+// CREATE TABLE
+    var $container,
+        $gameBoard;
+
+
+    function createGameBoard(boardSize) {
+        var $table, $tr, $td;
+        $table = $('<table id="board">');
+        for (var y = 0; y < boardSize; y++) {
+            $tr = $('<tr class="board-row">');
+            for (var x = 0; x < boardSize; x++) {
+                $td = $('<td class="board-cell">');
+                $td.attr('x', x).attr('y', y).appendTo($tr);
+            }
+            $table.append($tr);
+        }
+        return $table;
+    }
+
+    var boardSize = 16; // always even number!!!!
+    $container = $('#busGame');
+    $gameBoard = createGameBoard(boardSize);
+    $container.append($gameBoard);
+
+    // function movePassenger(key) {
+    //     switch (key) {
+    //         case 38:
+    //             moveIn();
+    //             break;
+    //         case 40:
+    //             moveOut();
+    //             break;
+    //     }
+    // }
+
+    function addPassenger() {
+        $passenger = $('td[x=' + 1 + '][y=' + 1 + ']');
+        $position = $passenger;
+        $position.addClass('passenger');
+    }
+
+    addPassenger();
+
+    function addRoad() {
+        var X = 0;
+        var Y = boardSize/2;
+
+
+        for (; X < boardSize; X++) {
+            $("tr:eq(" + Y + ") td:eq(" + X + ")").addClass('road');
+            $("tr:eq(" + (Y - 1) + ") td:eq(" + X + ")").addClass('road');
+            $("tr:eq(" + X + ") td:eq(" + (Y - 1) + ")").addClass('road');
+            $("tr:eq(" + X + ") td:eq(" + Y + ")").addClass('road');
+        }
+    }
+
+    addRoad();
+
+    var busSpeed = 500,
+        busRepeatTime = busSpeed * boardSize;
+
+    function repeatBusMove() {
+        setInterval(function () {
+            moveBusOne();
+        }, busRepeatTime);
+    }
+
+    function moveBusOne() {
+        var Y = boardSize/2 -1;
+        var X = -1;
+        function addBus() {
+            // $bus = $('td[x=' + 0 + '][y=' + 2 + ']').addClass('emptybus');
+        }
+
+        addBus();
+        var move = setInterval(function () {
+            // $("tr:eq(" + Y + ") td:eq(" + X + ")").addClass('emptybus');
+            if (X <= boardSize) {
+                $("tr:eq(" + Y + ") td:eq(" + X + ")").removeClass('emptybus');
+                X++;
+                $("tr:eq(" + Y + ") td:eq(" + X + ")").addClass('emptybus')
+            }
+            else {
+
+                clearInterval(move);
+
+                $("tr:eq(" + Y + ") td:eq(" + X + ")").removeClass('emptybus');
+            }
+        }, busSpeed);
+    }
+
+    moveBusOne();
+    repeatBusMove();
+
+});

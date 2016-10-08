@@ -1,5 +1,4 @@
-$board-size: 800px;
-$board-color: darkgrey;
+$board-size: 700px;
 
 .inactive {
   display: none !important;
@@ -9,32 +8,53 @@ $board-color: darkgrey;
   line-height: 0 !important;
   margin: 0 auto;
   padding: 60px 0;
+  //max-width: 1200px;
+  text-align: center;
+  background: #330000;
   #board {
     width: $board-size;
     height: $board-size;
-    background: $board-color;
     position: relative;
     left: 50%;
     transform: translate(-50%);
   }
 }
 
-.board-row{
+.board-row {
   margin: 0;
+  position: relative;
+  height: 5%;
   .board-cell {
     display: inline-block;
     height: 100%;
   }
 }
 
+.road {
+  background-color: darkgrey;
+}
+
 .district {
   background-color: #222;
 }
 
-#passenger {
-  background-color: whitesmoke !important;
+.bus-stop {
+  background-color: blue;
 }
 
 .bus {
-  background-color: darkred !important;
+  background-color: darkred;
+}
+
+.bus1{background-color: green}
+.bus2{background-color: yellow}
+.bus3{background-color: dodgerblue}
+.bus4{background-color: orangered}
+
+#passenger {
+  background-color: whitesmoke;
+}
+
+.occupied {
+  background-color: lightcoral !important;
 }

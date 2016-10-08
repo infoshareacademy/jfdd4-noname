@@ -68,21 +68,50 @@ header {
   z-index: 1;
 }
 
-
+nav
 a:link,
 a:visited {
-  color: #330000;
+  color: black;
   text-decoration: none
 }
+nav
+a:hover{
+  color: #330000;
+  border-bottom: solid #330000;
+  }
 
-a:hover {
-  color: dimgrey;
-}
+.active-link a {
+  color: #330000;
+  border-top: solid #330000;
+  border-bottom: solid #330000;
+  border-radius:5%;
+
+  }
 
 #logo {
   margin-left: 25px;
   display: block;
   float: left;
+}
+
+#back-to-top {
+  width: 60px;
+  height: 60px;
+  z-index: 2;
+  text-decoration: none;
+  position: fixed;
+  right: 20px;
+  bottom: 15px;
+   img {
+     background-color: white;
+     border: solid white;
+     border-radius: 50%;
+     text-align: center;
+     margin: auto;
+   }
+  }
+.active-scroll {
+  display: none;
 }
 
 #logo img {
@@ -102,6 +131,20 @@ a:hover {
   z-index: -2;
 }
 
+#sliderBackground {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 650px;
+  margin: 0 auto;
+  padding-top: 10%;
+  padding-bottom: 5%;
+  position: absolute;
+  z-index: -100;
+}
+
 #welcome {
   display: flex;
   flex-direction: column;
@@ -119,18 +162,64 @@ a:hover {
     color: white;
   }
 
-}
-#welcome::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: url("../img/photo-1428591501234-1ffcb0d6871f.jpg") no-repeat center;
-  background-size: cover;
-  opacity: 0.6;
-  z-index: -1;
+  #moveBackward {
+    background-image: url("../img/slider/prevSlide.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 100%;
+    position: absolute;
+    left: 0;
+    min-width: 48px;
+    min-height: 48px;
+    margin: 10px;
+    z-index: 101;
+  }
+
+  #moveBackward:hover,#moveForward:hover{
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+
+  #moveForward {
+    background-image: url("../img/slider/nextSlide.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 100%;
+    position: absolute;
+    right: 0;
+    min-width: 48px;
+    min-height: 48px;
+    margin: 10px;
+    z-index: 101;
+  }
+
+  #sliderNavSquares {
+    position: absolute;
+    max-width: 200px;
+    background: none;
+    display: block;
+    bottom: 0;
+    z-index: 99;
+  }
+
+  .squareNav {
+    background: blue;
+    border: 2px solid black;
+    min-width: 18px;
+    min-height: 18px;
+    float: left;
+    margin: 5px;
+    z-index: 100;
+  }
+  .zajawkaTxtField {
+    margin-bottom:20px;
+  }
+
+  .clearBoth {
+    clear:both;
+  }
 }
 
 //End of Welcome
@@ -225,18 +314,18 @@ input {
 
 .team-content {
   max-width: 1200px;
-  margin: 0 auto 2%;
+  margin: 0 5%;
  }
 
 .team-description {
   opacity: 0.9;
-  margin: 1% auto;
+  margin: 3% auto;
   text-align: center;
+  padding: 0 2%;
 }
 
 .img-team {
   border-radius: 15% ;
-  border: solid 6px silver;
   background-color: black;
   padding: 6px;
   width: auto;
@@ -329,53 +418,23 @@ footer {
 
 // GAME
 
-.game-area {
-  display: none ;
-  background-color: #330000;;
-  border: dotted 1.5em silver;
-
-
-}
-#gameIntro {
-  color: black;
-  padding: 10%;
-  background-color: #e6e6e6;
-  img {
-    padding: 3%;
-  }
-}
-
-.space {
-
-}
-
 #game {
-  max-width: 1200px;
+
   text-align: center;
   margin: 0 auto;
+}
+
+#gameBoard {
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid;
+  padding: 50px;
 }
 
 #game button {
   color: black;
 }
 
-.cell {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #000;
-  background-color: #5bc0de;
-
-
-}
-
-
-.black {
-  background: #000;
-}
-
-.white {
-  background: white;
-}
 
 .game-start {
   margin: 15px auto;
@@ -385,3 +444,4 @@ footer {
 .road td {
   background-color: gray;
 }
+
