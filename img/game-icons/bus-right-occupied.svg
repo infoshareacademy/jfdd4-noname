@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X7 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="10mm" height="10mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 1000 1000"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str2 {stroke:#2B2A29;stroke-width:17.64}
+    .str0 {stroke:#2B2A29;stroke-width:17.64}
+    .str1 {stroke:white;stroke-width:17.64}
+    .fil1 {fill:#2B2A29}
+    .fil0 {fill:#C32135}
+    .fil2 {fill:white}
+   ]]>
+  </style>
+ </defs>
+ <g id="Warstwa_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0 str0" x="65" y="295" width="871" height="370" rx="60" ry="60"/>
+  <circle class="fil1 str1" cx="268" cy="666" r="84"/>
+  <circle class="fil1 str1" cx="749" cy="666" r="84"/>
+  <circle class="fil2 str0" cx="749" cy="666" r="44"/>
+  <rect class="fil2 str0" x="145" y="356" width="150" height="170" rx="25" ry="30"/>
+  <rect class="fil2 str2" x="333" y="356" width="150" height="170" rx="25" ry="30"/>
+  <rect class="fil2 str2" x="525" y="356" width="150" height="170" rx="25" ry="30"/>
+  <rect class="fil2 str2" x="713" y="356" width="150" height="170" rx="25" ry="30"/>
+  <circle class="fil2 str0" cx="268" cy="666" r="44"/>
+  <circle class="fil1 str0" transform="matrix(-1.04851E-013 -1.29789 1 -8.07859E-014 601.25 433.29)" r="34"/>
+ </g>
+</svg>
