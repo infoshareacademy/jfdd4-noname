@@ -38,7 +38,7 @@ $(document).ready(function () {
 
     var $menu = $('#menu'),
         menuHeight = $menu.outerHeight();
-    console.log(menuHeight);
+    // console.log(menuHeight);
 
     $(window).scroll(function() {
         var fromTop = $(this).scrollTop();
