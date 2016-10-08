@@ -2,7 +2,6 @@
   color: black;
   background-color: yellow;
   min-width: 50px;
-  display: inline-block;
   font-size: 36px;
   position: relative;
   bottom: 200px;
@@ -17,11 +16,15 @@
   float: left;
   height: 100px; }
 
-.timeLeft {
-  background: white;
-  height: 50px;
-  width: 50px;
-  position: absolute;
-  bottom: 0; }
+#timeLeft {
+  background: none;
+  height: auto;
+  width: auto;
+  position: relative;
+  margin: 0 auto;
+  color: white;
+  font-size: 48px;
+  display: inline-block;
+  line-height: normal !important; }
 
 /*# sourceMappingURL=timer.css.map */
