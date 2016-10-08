@@ -23,7 +23,7 @@
         <div id="menu">
             <div class="menu-trigger"><a href="#menu">MENU</a></div>
             <ul>
-                <li><a href="#welcome">STRONA GŁÓWNA</a></li>
+                <li><a href="#welcome" class="active">STRONA GŁÓWNA</a></li>
                 <li><a href="#functions">FUNKCJE</a></li>
                 <li><a href="#team">NASZ ZESPÓŁ</a></li>
                 <li><a href="#contact">KONTAKT</a></li>
@@ -31,9 +31,12 @@
         </div>
     </nav>
 </header>
+<a href="#" id="back-to-top" class="active-scroll">
+    <img src="img/function-icons/scroll-top-icon.svg"/>
+</a>
 
 <div class="welcome-background">
-    <section id="welcome">
+    <section id="welcome" class="navigable">
         <div id="sliderBackground"></div>
         <h1 class="zajawkaHead1 zajawkaTxtField"> Zaplanuj optymalnie swoją podróż!</h1>
         <h3 class="zajawkaTxt1 zajawkaTxtField">Innowacyjna wyszukiwarka połączeń i rozkłady jazdy komunikacji miejskiej w Gdańsku.</h3>
@@ -51,8 +54,8 @@
 <div class="border-section2"></div>
 <div class="border-section3"></div>
 
-<section id="functions" class="container">
-       <div class="fn-row row">
+<section id="functions" class="container navigable">
+    <div class="fn-row row">
         <div class="fn-data col-sm-4"><img class="img-responsive center-block" src="img/function-icons/function-map-icon.svg"/></div>
         <div class="fn-data col-sm-8">
             <h2>Łatwiejsze poruszanie się po mieście</h2>
@@ -77,6 +80,7 @@
 <div class="border-section3"></div>
 <div class="border-section2"></div>
 <div class="border-section1"></div>
+
 <section id="join">
     <h2>Zapisz się do newslettera i bądź na bieżąco z nowościami w aplikacji Ikarus!</h2>
     <form action="http://tools.is-academy.pl/mailer.php" method="POST">
@@ -84,27 +88,28 @@
         <input class="button" type="submit" value="Zapisz się" href="#game">
     </form>
 </section>
-<div class="border-section1"></div>
-<div class="border-section2"></div>
-<div class="border-section3"></div>
 
-<section id="game" class="inactive ">
-    <div id="gameIntro">
-        <h3>Dziękujemy, że jesteś zainteresowany naszą aplikacją!</h3>
-        <h4>Z tej okazji mamy dla Ciebie niespodziankę. Jeśli masz ochotę zagraj w naszą gre!</h4>
-        <p>Zasady są proste!</p>
-        <img src="img/busbus.png"/>
-        <p>Poruszaj się po mieście wsiadając i wysiadając z autobusów przyciskając klawisz SPACJI. </p>
-        <p> Twoim zadaniem jest zaliczyć jak najwięcej przesiadek. Pamiętaj, że masz ogarniczoną ilość czasu!</p>
-        <p>POWODZENIA!</p>
-        <button type="button" id="startGame" class="button">Gram!</button>
-        <p>albo..</p>
-        <button type="button" id="leaveGame" class="button">Nie, dziękuję! Zagram następnym razem.</button>
-    </div>
+<section id="game" class="inactive">
+        <!--<h3>Dziękujemy, że jesteś zainteresowany naszą aplikacją!</h3>-->
+        <!--<h4>Z tej okazji mamy dla Ciebie niespodziankę. Jeśli masz ochotę zagraj w naszą gre!</h4>-->
+        <!--<p>Zasady są proste!</p>-->
+        <!--<img src="img/busbus.png"/>-->
+        <!--<p>Poruszaj się po mieście wsiadając i wysiadając z autobusów przyciskając klawisz SPACJI. </p>-->
+        <!--<p> Twoim zadaniem jest zaliczyć jak najwięcej przesiadek. Pamiętaj, że masz ogarniczoną ilość czasu!</p>-->
+        <!--<p>POWODZENIA!</p>-->
+        <!--<button type="button" id="startGame" class="button">Gram!</button>-->
+<div id="gameBoard">
     <table id="board">
     </table>
+
+    </div>
 </section>
-<section id="team" class="container-fluid">
+
+    <div class="border-section1"></div>
+    <div class="border-section2"></div>
+    <div class="border-section3"></div>
+
+<section id="team" class="container-fluid navigable">
     <h2>NASZ ZESPÓŁ</h2>
     <div class="team-content row">
         <div class="team-description col-sm-4">
@@ -126,7 +131,7 @@
     </div>
 </section>
 
-<section id="contact" class="container-fluid">
+<section id="contact" class="container-fluid navigable">
     <div class="contact-content row col-xs-4 col-xs-offset-4">
         <div class="but-inline col-xs-4"><a href="http://facebook.com" target="_blank">
             <img class=" socialbut" src="img/social-icons/iconmonstr-facebook.svg"/>
@@ -157,6 +162,7 @@
 <script src="js/app.js"></script>
 <script src="js/slider.js"></script>
 <script src="js/game.js"></script>
+<script src="js/menu-app.js"></script>
 
 </body>
 </html>
