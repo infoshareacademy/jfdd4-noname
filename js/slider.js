@@ -15,7 +15,7 @@ function currentSlide() {
         slideCounter = 1;
     }
     currentSlideSquareBar(slideCounter);
-    console.log(slideCounter);
+    // console.log(slideCounter);
     chooseCurrentSlide();
 }
 
@@ -43,7 +43,7 @@ function createSquareBar () {
 
 function currentSlideSquareBar(identyfikator) {
     $('div.squareNav').css("background","none");
-    console.log(identyfikator + "" +"to jest identyfikator");
+    // console.log(identyfikator + "" +"to jest identyfikator");
     $('div.'+identyfikator).css("background","rgba(0, 0, 255, 0.5)");
 }
 
