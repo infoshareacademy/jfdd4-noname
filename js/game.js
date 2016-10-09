@@ -13,10 +13,10 @@ $(document).ready(function () {
     $('#board').addClass('inactive');
     $('#startGame').click(function () {
         $('#intro-game').addClass('inactive');
-        var $board =  $('#board');
-        $board .removeClass('inactive');
-        $board .append('<div class="score">Score: ' );
-        $board .append('<div class="time">Time: ' );
+        var $board = $('#board');
+        $board.removeClass('inactive');
+        $board.append('<div class="score">Score: ');
+        $board.append('<div class="time">Time: ');
         var $gameBoard = $("#gameBoard");
         $gameBoard.css("background-image", "none");
     });
@@ -30,15 +30,24 @@ $(document).ready(function () {
     var roadSize = 2,
         districtSize = (boardSize - 2) / 2;
 
+    var sub_iString = [];
+    var super_iString = [];
+
     function createBoard() {
         for (i = 0; i < boardSize; i++) {
-            $row = $('<tr class="board-row">').css({height: fieldsize}).appendTo('#board');
+            $row = $('<tr class="board-row">')
+                .css({height: fieldsize})
+                .appendTo('#board');
 
             for (j = 0; j < boardSize; j++) {
-                $('<td class="board-cell road">').css({width: fieldsize})
+                $('<td class="board-cell road">')
+                    .css({width: fieldsize})
                     .attr('data-boardRow', i)
                     .attr('data-boardCell', j)
-                    .appendTo($row)
+                    .attr('id', i.toString() + j.toString())
+                    .appendTo($row);
+                sub_iString.push(i.toString() + j.toString());
+                // super_iString.push(sub_iString.concat());
             }
         }
     }
@@ -422,4 +431,54 @@ $(document).ready(function () {
     }, busSpeed * 15);
 
 
+// });
+
+// reward placement
+
+    createReward();
+
+    var arrayHelp = [];
+
+    function randomizeRewardPosition() {
+
+        var rewardQuantity = 10; // ile elementów losujemy
+
+        for (i = 0; i < rewardQuantity; i++) {
+            var randomReward = Math.round(Math.random() * (sub_iString.length - 1));
+            var trueFalse = false;
+            for (j = 0; j < arrayHelp.length; j++) if (arrayHelp[j] == randomReward) trueFalse = true;
+            if (trueFalse) i--; else arrayHelp[i] = randomReward;
+        }
+
+        console.log(arrayHelp);
+
+        $('#' + arrayHelp[0])
+            .css({
+                "background": "orange"
+            });
+        $('#' + arrayHelp[1])
+            .css({
+                "background": "orange"
+            });
+        $('#' + arrayHelp[2])
+            .css({
+                "background": "orange"
+            });
+        $('#' + arrayHelp[3]).css({
+            "background": "orange"
+        })
+
+    }
+
+    randomizeRewardPosition();
+
+
+    function createReward() {
+    }
+
+    createReward();
+
 });
+
+
+
