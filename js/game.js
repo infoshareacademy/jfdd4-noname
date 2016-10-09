@@ -44,11 +44,8 @@ $(document).ready(function () {
                 $('#intro-game').removeClass('inactive');
                 $('#board').addClass('inactive');
                 $time.text('Czas: ' + limit);
-                score = 0;
-
+                scoreCounter(-score)
             }
-
-
         }, 1000);
     }
 
@@ -59,7 +56,7 @@ $(document).ready(function () {
     function scoreCounter(points) {
         var $score = $('div.score');
         score += points;
-        $score.text('Wynik: ' + (score + points))
+        $score.text('Wynik: ' + score)
     }
 
 // RANDOMIZE POSITION
