@@ -3,30 +3,29 @@ $(document).ready(function () {
 
 // Walidacja EMAIL
 
-        function validateEmail(email) {
-            var regEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return regEmail.test(email);
+    function validateEmail(email) {
+        var regEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return regEmail.test(email);
+    }
+
+    function validate() {
+        var $result = $("#result");
+        $result.text("");
+        var email = $("#email").val();
+        if (!validateEmail(email)) {
+            $result.text('Podaj swój poprawny e-mail! Czeka na Ciebie niespodzianka :-)');
+            $result.css("color", "red");
+        } else {
+            $result.text('Dziękujemy za podanie swojego emaila: ' + email + ' :-)');
+            $result.css("color", "white");
+            $('#game').removeClass('inactive');
+            $('#board').addClass('inactive');
+
         }
+        return false;
+    }
 
-        function validate() {
-            var $result = $("#result");
-            $result.text("");
-            var email = $("#email").val();
-            if (!validateEmail(email)) {
-                $result.text('Podaj swój poprawny e-mail! Czeka na Ciebie niespodzianka :-)');
-                $result.css("color", "red");
-            } else {
-                $result.text('Dziękujemy za podanie swojego emaila: ' + email + ' :-)');
-                $result.css("color", "white");
-                $('#game').removeClass('inactive');
-                $('#board').addClass('inactive');
-
-            }
-            return false;
-        }
-
-        $("form").bind("submit", validate);
-
+    $("form").bind("submit", validate);
 
 
 // GAME TIMER
@@ -72,6 +71,7 @@ $(document).ready(function () {
     var boardSize = 20, //must be even
         fieldsize = (100 / boardSize) + '%',
         $row;
+
 
     var roadSize = 2,
         districtSize = (boardSize - roadSize) / 2;
@@ -443,9 +443,11 @@ $(document).ready(function () {
         return busTarget;
     }
 
+    var busLoopIntervals = [];
+
     function moveBus(createBus) {
         showNewBusPosition(createBus.position, createBus.line);
-        busLoop = setInterval(function () {
+        busLoopIntervals.push(setInterval(function () {
             showNewBusPosition(setBusTarget(createBus), createBus.line);
         }, busSpeed));
 
