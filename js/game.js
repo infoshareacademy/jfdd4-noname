@@ -3,45 +3,70 @@ $(document).ready(function () {
 
 // Walidacja EMAIL
 
-        function validateEmail(email) {
-            var regEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return regEmail.test(email);
-        }
+    function validateEmail(email) {
+        var regEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return regEmail.test(email);
+    }
 
-        function validate() {
-            var $result = $("#result");
-            $result.text("");
-            var email = $("#email").val();
-            if (!validateEmail(email)) {
-                $result.text('Podaj swój poprawny e-mail! Czeka na Ciebie niespodzianka :-)');
-                $result.css("color", "red");
-            } else {
-                $result.text('Dziękujemy za podanie swojego emaila: ' + email + ' :-)');
-                $result.css("color", "white");
-                $('#game').removeClass('inactive');
+    function validate() {
+        var $result = $("#result");
+        $result.text("");
+        var email = $("#email").val();
+        if (!validateEmail(email)) {
+            $result.text('Podaj swój poprawny e-mail! Czeka na Ciebie niespodzianka :-)');
+            $result.css("color", "red");
+        } else {
+            $result.text('Dziękujemy za podanie swojego emaila: ' + email + ' :-)');
+            $result.css("color", "white");
+            $('#game').removeClass('inactive');
+            $('#board').addClass('inactive');
+
+        }
+        return false;
+    }
+
+    $("form").bind("submit", validate);
+
+
+// GAME TIMER
+    function gameTimer(limit) {
+        var timeCounter = 0;
+        var $time = $('div.time');
+
+        var timer = setInterval(function () {
+
+            timeCounter++;
+            console.log(timeCounter);
+            $time.text('Czas: ' + (limit - timeCounter));
+
+
+            if (timeCounter == limit) {
+                clearInterval(timer);
+                $('#intro-game').removeClass('inactive');
                 $('#board').addClass('inactive');
+                $time.text('Czas: ' + limit);
+                score = 0;
 
             }
-            return false;
-        }
 
-        $("form").bind("submit", validate);
+
+        }, 1000);
+    }
+
+// POINTS COUNTER
+    var score = 0;
+
+
+    function scoreCounter(points) {
+        var $score = $('div.score');
+        score += points;
+        $score.text('Wynik: ' + (score + points))
+    }
 
 
 // CREATE GAME BOARD
 
-    // $('#game').removeClass('inactive');
-    $('#board').addClass('inactive');
-    $('#startGame').click(function () {
-        $('#intro-game').addClass('inactive');
-        var $board =  $('#board');
-        $board .removeClass('inactive');
-        $board .append('<div class="score">Score: ' );
-        $board .append('<div class="time">Time: ' );
-        var $gameBoard = $("#gameBoard");
-        $gameBoard.css("background-image", "none");
-    });
-
+    var $board = $('#board');
 
     var boardSize = 20, //must be even
         fieldsize = (100 / boardSize) + '%',
@@ -49,9 +74,23 @@ $(document).ready(function () {
 
 
     var roadSize = 2,
-        districtSize = (boardSize - 2) / 2;
+        districtSize = (boardSize - roadSize) / 2;
+
+    $('#game').removeClass('inactive');
+    $('#board').addClass('inactive');
+    $('#startGame').click(function () {
+        $('#intro-game').addClass('inactive');
+        $board.removeClass('inactive');
+
+        var $gameBoard = $("#gameBoard");
+        $gameBoard.css("background-image", "none");
+        gameTimer(30);
+    });
+
 
     function createBoard() {
+
+
         for (i = 0; i < boardSize; i++) {
             $row = $('<tr class="board-row">').css({height: fieldsize}).appendTo('#board');
 
@@ -59,9 +98,12 @@ $(document).ready(function () {
                 $('<td class="board-cell road">').css({width: fieldsize})
                     .attr('data-boardRow', i)
                     .attr('data-boardCell', j)
+                    .append('<div class="passenger">')
                     .appendTo($row)
             }
         }
+        $board.append('<div class="game-status score">Wynik: 0');
+        $board.append('<div class="game-status time">Czas: 30');
     }
 
     createBoard();
@@ -200,7 +242,6 @@ $(document).ready(function () {
     createRoadStrips(7, districtSize);
     createRoadStrips(8, districtSize);
 
-
     createRoadStrips(11, districtSize);
     createRoadStrips(12, districtSize);
     createRoadStrips(13, districtSize);
@@ -226,6 +267,7 @@ $(document).ready(function () {
     createHorizontalRoadStrips(10, districtSize - 3);
     createHorizontalRoadStrips(10, districtSize - 2);
     createHorizontalRoadStrips(10, districtSize - 1);
+
     createHorizontalRoadStrips(10, districtSize + 2);
     createHorizontalRoadStrips(10, districtSize + 3);
     createHorizontalRoadStrips(10, districtSize + 4);
@@ -244,8 +286,8 @@ $(document).ready(function () {
 
     function movePassenger(current, target) {
         if (checkIfMoveIsValid(current, target)) {
-            findField(current).removeAttr('id');
-            findField(target).attr('id', 'passenger');
+            findField(current).find('div').removeAttr('id');
+            findField(target).find('div').attr('id', 'passenger');
         }
     }
 
@@ -270,15 +312,18 @@ $(document).ready(function () {
 
 
     function enterBus(bus) {
-        findField(bus).addClass('occupied');
+        findField(bus).find('div').addClass('occupied');
     }
 
     function exitBus() {
-        $('.bus').removeClass('occupied');
+        $('.bus').find('div').removeClass('occupied');
+        scoreCounter(10);
     }
 
     function findPassenger() {
-        var player = document.getElementById('passenger');
+        // var player = $('#passenger').parent();
+        var player = document.getElementById('passenger').parentNode;
+        console.log(player);
 
         return {
             row: Number.parseInt(player.dataset.boardrow),
@@ -305,53 +350,46 @@ $(document).ready(function () {
             case 37: // left
                 if (passTarget.cell > 0) {
                     passTarget.cell--;
-                    if (findField({row: passTarget.row, cell: passTarget.cell - 2}).hasClass('bus-stop') &&
-                        findField(passTarget).hasClass('road') &&
-                        findField(passTarget).hasClass('bus') == false) {
-                        passTarget.cell -= 2;
-                        movePassenger(findPassenger(), passTarget)
-                    } else {
-                        movePassenger(findPassenger(), passTarget);
-                    }
+                    // if (findField({row: passTarget.row, cell: passTarget.cell - 2}).hasClass('bus-stop') &&
+                    //     findField(passTarget).hasClass('road') &&
+                    //     findField(passTarget).hasClass('bus') == false) {
+                    //     passTarget.cell -= 2;
+                    //     movePassenger(findPassenger(), passTarget)
+                    // }
+                    movePassenger(findPassenger(), passTarget);
                 }
                 break;
 
             case 38: // up
                 if (passTarget.row > 0) {
                     passTarget.row--;
-                    if (findField({row: passTarget.row - 2, cell: passTarget.cell}).hasClass('bus-stop') &&
-                        findField(passTarget).hasClass('road') &&
-                        findField(passTarget).hasClass('bus') == false) {
-                        passTarget.row -= 2;
-                        movePassenger(findPassenger(), passTarget)
-                    } else {
-                        movePassenger(findPassenger(), passTarget);
-                    }
+                    // if (findField({row: passTarget.row - 2, cell: passTarget.cell}).hasClass('bus-stop') &&
+                    //     findField(passTarget).hasClass('road') &&
+                    //     findField(passTarget).hasClass('bus') == false) {
+                    //     passTarget.row -= 2;
+                    // }
+                    movePassenger(findPassenger(), passTarget);
                 }
                 break;
 
             case 39: // right
                 passTarget.cell++;
-                if (findField({row: passTarget.row, cell: passTarget.cell + 2}).hasClass('bus-stop') &&
-                    findField(passTarget).hasClass('road') &&
-                    findField(passTarget).hasClass('bus') == false) {
-                    passTarget.cell += 2;
-                    movePassenger(findPassenger(), passTarget)
-                } else {
-                    movePassenger(findPassenger(), passTarget);
-                }
+                // if (findField({row: passTarget.row, cell: passTarget.cell + 2}).hasClass('bus-stop') &&
+                //     findField(passTarget).hasClass('road') &&
+                //     findField(passTarget).hasClass('bus') == false) {
+                //     passTarget.cell += 2;
+                // }
+                movePassenger(findPassenger(), passTarget);
                 break;
 
             case 40: // down
                 passTarget.row++;
-                if (findField({row: passTarget.row + 2, cell: passTarget.cell}).hasClass('bus-stop') &&
-                    findField(passTarget).hasClass('road') &&
-                    findField(passTarget).hasClass('bus') == false) {
-                    passTarget.row += 2;
-                    movePassenger(findPassenger(), passTarget)
-                } else {
-                    movePassenger(findPassenger(), passTarget);
-                }
+                // if (findField({row: passTarget.row + 2, cell: passTarget.cell}).hasClass('bus-stop') &&
+                //     findField(passTarget).hasClass('road') &&
+                //     findField(passTarget).hasClass('bus') == false) {
+                //     passTarget.row += 2;
+                // }
+                movePassenger(findPassenger(), passTarget);
                 break;
 
             default:
@@ -365,14 +403,10 @@ $(document).ready(function () {
 
 //CREATE AND MOVE BUSES
     var busSpeed = 550;
-    var busLoop;
-
-
-// var busRepeatTime = busSpeed * boardSize;
-// var busTarget = {row: 0, cell: districtSize};
+// var busLoop;
 
     function createBusLine(name, position, direction) {
-        var busLine = {
+        return {
             line: name,
             position: {
                 row: position[0],
@@ -380,28 +414,18 @@ $(document).ready(function () {
             },
             direction: [direction[0], direction[1]]
         };
-        return busLine;
     }
 
 
-// var bus1 = {
-//     name: bus1,
-//     start: {
-//         row: 0,
-//         cell: districtSize
-//     }
-// };
-
     function showNewBusPosition(target, line) {
-        if ($('.' + line).hasClass('occupied')) {
-            $('.board-cell').removeClass('occupied').removeAttr('id');
-            findField(target).addClass('occupied').attr('id', 'passenger');
+        if ($('.' + line).find('div').hasClass('occupied')) {
+            $('.board-cell').find('div').removeClass('occupied').removeAttr('id');
+            findField(target).find('div').addClass('occupied').attr('id', 'passenger');
         }
         $('.' + line).removeClass('bus ' + line);
         findField(target).addClass('bus ' + line);
     }
 
-//
     function setBusTarget(createbus) {
         var busTarget = findBus(createbus.line);
         if (createbus.direction[0] != 0) {
@@ -419,28 +443,44 @@ $(document).ready(function () {
         return busTarget;
     }
 
+    var busLoopIntervals = [];
+
     function moveBus(createBus) {
         showNewBusPosition(createBus.position, createBus.line);
-        busLoop = setInterval(function () {
+        busLoopIntervals.push(setInterval(function () {
             showNewBusPosition(setBusTarget(createBus), createBus.line);
-            // console.log(findBus(createBus.line))
-        }, busSpeed)
-    }
+        }, busSpeed));
 
+    }
 
     moveBus(createBusLine('bus1', [0, districtSize], [1, 0]));
 
     setTimeout(function () {
         moveBus(createBusLine('bus2', [boardSize - 1, districtSize + 1], [-1, 0]));
-    }, busSpeed * 5);
-//
+    }, busSpeed * 3);
+
     setTimeout(function () {
-        moveBus(createBusLine('bus3', [districtSize, 0], [0, 1]));
+        moveBus(createBusLine('bus3', [0, districtSize], [1, 0]));
     }, busSpeed * 10);
 
     setTimeout(function () {
-        moveBus(createBusLine('bus4', [districtSize + 1, boardSize - 1], [0, -1]));
+        moveBus(createBusLine('bus4', [boardSize - 1, districtSize + 1], [-1, 0]));
+    }, busSpeed * 13);
+
+    setTimeout(function () {
+        moveBus(createBusLine('bus5', [districtSize + 1, 0], [0, 1]));
+    }, busSpeed * 5);
+
+    setTimeout(function () {
+        moveBus(createBusLine('bus6', [districtSize, boardSize - 1], [0, -1]));
+    }, busSpeed * 7);
+
+    setTimeout(function () {
+        moveBus(createBusLine('bus7', [districtSize + 1, 0], [0, 1]));
     }, busSpeed * 15);
 
+    setTimeout(function () {
+        moveBus(createBusLine('bus8', [districtSize, boardSize - 1], [0, -1]));
+    }, busSpeed * 17);
 
 });
