@@ -25,15 +25,24 @@ var boardSize = 20, //must be even
 var roadSize = 2,
     districtSize = (boardSize - 2) / 2;
 
+var sub_iString = [];
+var super_iString = [];
+
 function createBoard() {
     for (i = 0; i < boardSize; i++) {
-        $row = $('<tr class="board-row">').css({height: fieldsize}).appendTo('#board');
+        $row = $('<tr class="board-row">')
+            .css({height: fieldsize})
+            .appendTo('#board');
 
         for (j = 0; j < boardSize; j++) {
-            $('<td class="board-cell road">').css({width: fieldsize})
+            $('<td class="board-cell road">')
+                .css({width: fieldsize})
                 .attr('data-boardRow', i)
                 .attr('data-boardCell', j)
-                .appendTo($row)
+                .attr('id', i.toString() + j.toString())
+                .appendTo($row);
+                sub_iString.push(i.toString() + j.toString());
+                super_iString.push(sub_iString.concat());
         }
     }
 }
@@ -417,3 +426,20 @@ setTimeout(function () {
 
 
 // });
+
+// reward placement
+
+createReward();
+
+function createReward () {
+
+
+
+
+    if ($('.board-cell').attr('id') == '00'){
+        $('#00').css({
+            "background":"yellow"
+        })
+    }
+}
+createReward();
