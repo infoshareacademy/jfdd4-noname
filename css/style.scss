@@ -422,13 +422,32 @@ footer {
 
   text-align: center;
   margin: 0 auto;
+
 }
 
 #gameBoard {
   max-width: 1200px;
   margin: 0 auto;
   border: 1px solid;
-  padding: 50px;
+  height: 800px;
+  background-color: white;
+  color: black;
+  padding-top: 40px;
+  background-image: url("../img/game-icons/game-intro.png");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+
+
+
+}
+
+
+#intro-instructions {
+  margin: 0 20%;
+  img {
+    width: 25%;
+  }
+
 }
 
 #game button {
