@@ -38,6 +38,7 @@ $(document).ready(function () {
                 $('<td class="board-cell road">').css({width: fieldsize})
                     .attr('data-boardRow', i)
                     .attr('data-boardCell', j)
+                    .append('<div class="passenger">')
                     .appendTo($row)
             }
         }
@@ -224,8 +225,8 @@ $(document).ready(function () {
 
     function movePassenger(current, target) {
         if (checkIfMoveIsValid(current, target)) {
-            findField(current).removeAttr('id');
-            findField(target).attr('id', 'passenger');
+            findField(current).find('div').removeAttr('id');
+            findField(target).find('div').attr('id', 'passenger');
         }
     }
 

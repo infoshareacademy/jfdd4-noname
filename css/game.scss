@@ -28,6 +28,11 @@ $board-size: 700px;
     //box-sizing: border-box;
     display: inline-block;
     height: 100%;
+    position: relative;
+    .passenger {
+      display: block;
+      position: absolute;
+    }
   }
 }
 
@@ -51,33 +56,32 @@ $board-size: 700px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  .bus1,
+  .bus3{
+    background-image: url("../img/game-icons/bus-up-down.png");
+  }
+  .bus2,
+  .bus4{
+    background-image: url("../img/game-icons/bus-down-up.png");
+  }
+  .bus5,
+  .bus6,
+  .bus7,
+  .bus8 {
+    background-image: url("../img/game-icons/bus-left-right.png");
+  }
 }
 
-.bus1,
-.bus3{
-  background-image: url("../img/game-icons/bus-up-down.png");
-}
 
-.bus2,
-.bus4{
-  background-image: url("../img/game-icons/bus-down-up.png");
-}
-
-.bus5,
-.bus6,
-.bus7,
-.bus8 {
-  background-image: url("../img/game-icons/bus-left-right.png");
-}
 
 
 #passenger {
-  //background-color: whitesmoke;
+  background-color: whitesmoke;
   background-image: url("../img/game-icons/passenger.svg");
   background-repeat: no-repeat;
   background-size: 125%;
   background-position: center;
-
+  z-index: 99;
 }
 
 .occupied {
