@@ -44,7 +44,7 @@ function createSquareBar () {
 function currentSlideSquareBar(identyfikator) {
     $('div.squareNav').css("background","none");
     // console.log(identyfikator + "" +"to jest identyfikator");
-    $('div.'+identyfikator).css("background","rgba(0, 0, 255, 0.5)");
+    $('div.'+identyfikator).css("background","rgba(139, 0, 0, 0.8)");
 }
 
 

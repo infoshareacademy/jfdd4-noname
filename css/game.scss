@@ -24,10 +24,15 @@ $board-size: 700px;
 .board-row {
   margin: 0;
   position: relative;
-  height: 5%;
   .board-cell {
+    //box-sizing: border-box;
     display: inline-block;
     height: 100%;
+    position: relative;
+    .passenger {
+      display: block;
+      position: absolute;
+    }
   }
 }
 
@@ -45,44 +50,42 @@ $board-size: 700px;
   background-size: contain;
 }
 
-.pavements {
-  background-color: grey;
-}
 
 .bus {
-  //background-color: darkred;
-  background-image: url("../img/game-icons/bus-up-down.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-
 }
 
-//.bus1{background-color: green}
-.bus2 {
-  background-color: yellow
+.bus1,
+.bus3{
+  background-image: url("../img/game-icons/bus-up-down.png");
+}
+.bus2,
+.bus4{
+  background-image: url("../img/game-icons/bus-down-up.png");
+}
+.bus5,
+.bus6,
+.bus7,
+.bus8 {
+  background-image: url("../img/game-icons/bus-left-right.png");
 }
 
-.bus3 {
-  background-color: dodgerblue
-}
-
-.bus4 {
-  background-color: orangered
-}
 
 #passenger {
-  //background-color: whitesmoke;
   background-image: url("../img/game-icons/passenger.svg");
   background-repeat: no-repeat;
   background-size: 125%;
   background-position: center;
-
+  height: 100%;
+  width: 100%;
+  //z-index: 99;
 }
 
 .occupied {
-  background-color: lightcoral !important;
-
+  //background-color: lightcoral !important;
+  background-image: url("../img/game-icons/buzka-wektorowa.svg") !important;
 }
 
 .score {
