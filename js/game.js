@@ -44,10 +44,7 @@ $(document).ready(function () {
                     .css({width: fieldsize})
                     .attr('data-boardRow', i)
                     .attr('data-boardCell', j)
-                    .attr('id', i.toString() + j.toString())
                     .appendTo($row);
-                sub_iString.push(i.toString() + j.toString());
-                // super_iString.push(sub_iString.concat());
             }
         }
     }
@@ -64,7 +61,8 @@ $(document).ready(function () {
             if (i < districtSize || i >= districtSize + roadSize) {
                 for (var j = 0; j < boardSize; j++) {
                     if (j < districtSize || j >= districtSize + roadSize) {
-                        findField({row: i, cell: j}).addClass('district').removeClass('road');
+                        findField({row: i, cell: j}).addClass('district').removeClass('road').attr('id', i.toString() + j.toString());
+                        sub_iString.push(i.toString() + j.toString());
                     }
                 }
             }
@@ -431,9 +429,8 @@ $(document).ready(function () {
     }, busSpeed * 15);
 
 
-// });
-
 // reward placement
+
 
     createReward();
 
@@ -441,7 +438,7 @@ $(document).ready(function () {
 
     function randomizeRewardPosition() {
 
-        var rewardQuantity = 10; // ile elementów losujemy
+        var rewardQuantity = 4; // ile elementów losujemy
 
         for (i = 0; i < rewardQuantity; i++) {
             var randomReward = Math.round(Math.random() * (sub_iString.length - 1));
@@ -477,6 +474,27 @@ $(document).ready(function () {
     }
 
     createReward();
+
+    var some = [];
+    var diff = [];
+
+    // function getIdOfRoad () {
+    //     $('td.board-cell.road').each(function () {
+    //         some.push($(this).attr("id"));
+    //         // console.log(some);
+    //         // diff = $(some).not(sub_iString).get();
+    //         // console.log(diff);
+    //
+    //         diff = jQuery.grep(sub_iString,function (item) {
+    //             return jQuery.inArray(item, some) < 0;
+    //
+    //         });
+    //         console.log
+    //     });
+    // }
+    //
+    // getIdOfRoad();
+
 
 });
 
