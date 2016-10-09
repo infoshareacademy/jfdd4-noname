@@ -29,6 +29,7 @@ $(document).ready(function () {
 
     var roadSize = 2,
         districtSize = (boardSize - roadSize) / 2;
+    var sub_iString = [];
 
     function createBoard() {
         for (i = 0; i < boardSize; i++) {
@@ -38,8 +39,10 @@ $(document).ready(function () {
                 $('<td class="board-cell road">').css({width: fieldsize})
                     .attr('data-boardRow', i)
                     .attr('data-boardCell', j)
+                    .attr('id', i.toString() + j.toString())
                     .append('<div class="passenger">')
-                    .appendTo($row)
+                    .appendTo($row);
+                    sub_iString.push(i.toString() + j.toString());
             }
         }
     }
@@ -49,6 +52,7 @@ $(document).ready(function () {
     function findField(coordinates) {
         return $('.board-row').eq(coordinates.row).find($('.board-cell')).eq(coordinates.cell)
     }
+
 
 
     function createDistricts() {
@@ -67,9 +71,7 @@ $(document).ready(function () {
 
     function createPavements(x, y) {
         findField({row: x, cell: y}).css("background-color", "grey");
-
     }
-
 
     createPavements(0, districtSize - 1);
     createPavements(0, districtSize + 2);
@@ -421,4 +423,85 @@ $(document).ready(function () {
         moveBus(createBusLine('bus8', [districtSize, boardSize - 1], [0, -1]));
     }, busSpeed * 17);
 
+// reward placement
+
+    var arrayHelp = [];
+    var xRandomNumbers = [];
+    var yRandomNumbers = [];
+    var rewardNumberOne;
+    var rewardNumberTwo;
+    var rewardNumberThree;
+    var rewardNumberFour;
+
+    function randomizeRewardPosition() {
+
+        var xQuantity = 4; // ile elementów losujemy
+        var yQuantity = 4; // ile elementów losujemy
+
+
+        var cellX = [0, 1, 2, 3, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+
+        for (i = 0; i < xQuantity; i++) {
+            var randomRewardX = Math.round(Math.random() * (cellX.length));
+            if (randomRewardX == 9 || randomRewardX == 10){
+                randomRewardX = randomRewardX-2;
+            }
+            var trueFalseX = false;
+            for (j = 0; j < xRandomNumbers.length; j++) if (xRandomNumbers[j] == randomRewardX) trueFalseX = true;
+            if (trueFalseX) i--; else xRandomNumbers[i] = randomRewardX;
+            console.log(xRandomNumbers);
+        }
+
+        var cellY = [0, 1, 2, 3, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+
+        for (i = 0; i < yQuantity; i++) {
+            var randomRewardY = Math.round(Math.random() * (cellY.length));
+            if (randomRewardY == 9 || randomRewardY == 10){
+                randomRewardY = randomRewardY-2;
+            }
+            var trueFalseY = false;
+            for (j = 0; j < yRandomNumbers.length; j++) if (yRandomNumbers[j] == randomRewardY) trueFalseY = true;
+            if (trueFalseY) i--; else yRandomNumbers[i] = randomRewardY;
+            console.log(yRandomNumbers);
+        }
+
+        rewardNumberOne = xRandomNumbers[0].toString() + yRandomNumbers[0].toString();
+        console.log(rewardNumberOne);
+        rewardNumberTwo = xRandomNumbers[1].toString() + yRandomNumbers[1].toString();
+        console.log(rewardNumberTwo);
+        rewardNumberThree = xRandomNumbers[2].toString() + yRandomNumbers[2].toString();
+        console.log(rewardNumberThree);
+        rewardNumberFour = xRandomNumbers[3].toString() + yRandomNumbers[3].toString();
+        console.log(rewardNumberFour);
+    }
+
+    randomizeRewardPosition();
+
+    function createReward() {
+        $('#'+rewardNumberOne)
+            .addClass('reward')
+            .css({
+                "background": "orange"
+            });
+        $('#' + rewardNumberTwo)
+            .addClass('reward')
+            .css({
+                "background": "orange"
+            });
+        $('#' + rewardNumberThree)
+            .addClass('reward')
+            .css({
+                "background": "orange"
+            });
+        $('#' + rewardNumberFour)
+            .addClass('reward')
+            .css({
+                "background": "orange"
+            })
+    }
+
+    createReward();
 });
+
+
+

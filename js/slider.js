@@ -25,7 +25,7 @@ function slideRotationInterval(){
 }
 
 function chooseCurrentSlide() {
-    $('#sliderBackground').css({
+    $('#welcome').css({
         "background": "url('img/slider/slajd" + slideCounter + ".jpg') no-repeat center",
         "backgroundSize": "cover"
     });
