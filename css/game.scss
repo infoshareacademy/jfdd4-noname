@@ -61,9 +61,11 @@ $board-size: 700px;
     display: inline-block;
     height: 100%;
     position: relative;
-    .passenger {
+    .box {
       display: block;
       position: absolute;
+      height: 100%;
+      width: 100%;
     }
   }
 }
@@ -110,8 +112,8 @@ $board-size: 700px;
   background-repeat: no-repeat;
   background-size: 125%;
   background-position: center;
-  height: 100%;
-  width: 100%;
+  //height: 100%;
+  //width: 100%;
   //z-index: 99;
 }
 
@@ -137,5 +139,9 @@ $board-size: 700px;
 
 .score {
   top: 50px;
+}
+
+.reward {
+  background-image: url("../img/game-icons/buzka-wektorowa.svg");
 }
 
