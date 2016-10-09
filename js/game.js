@@ -43,9 +43,16 @@ $(document).ready(function () {
             if (timeCounter == limit) {
                 clearInterval(timer);
                 $('#intro-game').removeClass('inactive');
+                $('#intro-instructions').addClass('inactive');
+                                $('#close-instructions').removeClass('inactive').find('span').text(''+ score +'');
                 $('#board').addClass('inactive');
                 $time.text('Czas: ' + limit);
                 score = 0;
+                $('#startGameAgain').click(function () {
+                    $('#intro-game').addClass('inactive');
+                    $board.removeClass('inactive');
+                    gameTimer(10);
+                });
 
             }
 
@@ -84,7 +91,7 @@ $(document).ready(function () {
 
         var $gameBoard = $("#gameBoard");
         $gameBoard.css("background-image", "none");
-        gameTimer(30);
+        gameTimer(10);
     });
 
 
