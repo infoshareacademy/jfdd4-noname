@@ -42,7 +42,7 @@ function createBoard() {
                 .attr('id', i.toString() + j.toString())
                 .appendTo($row);
                 sub_iString.push(i.toString() + j.toString());
-                super_iString.push(sub_iString.concat());
+                // super_iString.push(sub_iString.concat());
         }
     }
 }
@@ -431,15 +431,45 @@ setTimeout(function () {
 
 createReward();
 
-function createReward () {
+var arrayHelp=[];
 
+function randomizeRewardPosition() {
 
+    var rewardQuantity = 10; // ile elementów losujemy
 
-
-    if ($('.board-cell').attr('id') == '00'){
-        $('#00').css({
-            "background":"yellow"
-        })
+    for (i=0;i<rewardQuantity;i++) {
+        var randomReward = Math.round(Math.random()*(sub_iString.length-1));
+        var trueFalse = false;
+        for (j=0;j<arrayHelp.length;j++) if (arrayHelp[j]==randomReward) trueFalse=true;
+        if (trueFalse) i--; else arrayHelp[i] = randomReward;
     }
+
+    console.log(arrayHelp);
+
+    $('#'+arrayHelp[0])
+        .css({
+        "background":"orange"
+    });
+    $('#'+arrayHelp[1])
+        .css({
+        "background":"orange"
+    });
+    $('#'+arrayHelp[2])
+        .css({
+        "background":"orange"
+    });
+    $('#'+arrayHelp[3]).css({
+        "background":"orange"
+    })
+
+}
+
+randomizeRewardPosition();
+
+
+function createReward () {
 }
 createReward();
+
+
+
