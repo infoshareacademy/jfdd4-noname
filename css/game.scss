@@ -11,6 +11,7 @@ $board-size: 700px;
   //max-width: 1200px;
   text-align: center;
   background: #330000;
+  color: white;
   #board {
     width: $board-size;
     height: $board-size;
@@ -34,26 +35,71 @@ $board-size: 700px;
 }
 
 .district {
-  background-color: #222;
+  background-color: darkseagreen;
 }
 
 .bus-stop {
-  background-color: blue;
+  background-image: url("../img/game-icons/bus-stop-img.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.pavements {
+  background-color: grey;
 }
 
 .bus {
-  background-color: darkred;
+  //background-color: darkred;
+  background-image: url("../img/game-icons/bus-up-down.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
 }
 
-.bus1{background-color: green}
-.bus2{background-color: yellow}
-.bus3{background-color: dodgerblue}
-.bus4{background-color: orangered}
+//.bus1{background-color: green}
+.bus2 {
+  background-color: yellow
+}
+
+.bus3 {
+  background-color: dodgerblue
+}
+
+.bus4 {
+  background-color: orangered
+}
 
 #passenger {
-  background-color: whitesmoke;
+  //background-color: whitesmoke;
+  background-image: url("../img/game-icons/passenger.svg");
+  background-repeat: no-repeat;
+  background-size: 125%;
+  background-position: center;
+
 }
 
 .occupied {
   background-color: lightcoral !important;
+
+}
+
+.score {
+  position: absolute;
+  top: 50px;
+  left: -50px;
+  width: 200px;
+  height: 30px;
+  font-size: 25px;
+  color: black;
+}
+
+.time {
+  position: absolute;
+  top: 100px;
+  left: -50px;
+  width: 200px;
+  height: 30px;
+  font-size: 25px;
+  color: black;
 }
