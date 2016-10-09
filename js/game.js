@@ -251,15 +251,17 @@ $(document).ready(function () {
 
 
     function enterBus(bus) {
-        findField(bus).addClass('occupied');
+        findField(bus).find('div').addClass('occupied');
     }
 
     function exitBus() {
-        $('.bus').removeClass('occupied');
+        $('.bus').find('div').removeClass('occupied');
     }
 
     function findPassenger() {
-        var player = document.getElementById('passenger');
+        // var player = $('#passenger').parent();
+        var player = document.getElementById('passenger').parentNode;
+        console.log(player);
 
         return {
             row: Number.parseInt(player.dataset.boardrow),
@@ -354,9 +356,9 @@ $(document).ready(function () {
 
 
     function showNewBusPosition(target, line) {
-        if ($('.' + line).hasClass('occupied')) {
-            $('.board-cell').removeClass('occupied').removeAttr('id');
-            findField(target).addClass('occupied').attr('id', 'passenger');
+        if ($('.' + line).find('div').hasClass('occupied')) {
+            $('.board-cell').find('div').removeClass('occupied').removeAttr('id');
+            findField(target).find('div').addClass('occupied').attr('id', 'passenger');
         }
         $('.' + line).removeClass('bus ' + line);
         findField(target).addClass('bus ' + line);
@@ -379,13 +381,15 @@ $(document).ready(function () {
         return busTarget;
     }
 
+    var busLoopIntervals=[];
+
     function moveBus(createBus) {
         showNewBusPosition(createBus.position, createBus.line);
-        busLoop = setInterval(function () {
+        busLoopIntervals.push(setInterval(function () {
             showNewBusPosition(setBusTarget(createBus), createBus.line);
-        }, busSpeed)
-    }
+        }, busSpeed));
 
+    }
 
     moveBus(createBusLine('bus1', [0, districtSize], [1, 0]));
 
