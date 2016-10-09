@@ -5,32 +5,72 @@ $(document).ready(function () {
         e.preventDefault();
         $('#game').removeClass('inactive');
         $('#board').addClass('inactive');
+
     });
+
+
+// GAME TIMER
+    function gameTimer(limit) {
+        var timeCounter = 0;
+        var $time = $('div.time');
+
+        var timer = setInterval(function () {
+
+            timeCounter++;
+            console.log(timeCounter);
+            $time.text('Czas: ' + (limit - timeCounter));
+
+
+            if (timeCounter == limit) {
+                clearInterval(timer);
+                $('#intro-game').removeClass('inactive');
+                $('#board').addClass('inactive');
+                $time.text('Czas: ' + limit);
+                score = 0;
+
+            }
+
+
+        }, 1000);
+    }
+
+// POINTS COUNTER
+    var score = 0;
+
+
+    function scoreCounter(points) {
+        var $score = $('div.score');
+        score += points;
+        $score.text('Wynik: ' + (score + points))
+    }
+
 
 // CREATE GAME BOARD
 
-    $('#game').removeClass('inactive');
-    $('#board').addClass('inactive');
-    // $('#startGame').click(function () {
-        $('#intro-game').addClass('inactive');
-        var $board = $('#board');
-        $board.removeClass('inactive');
-        $board.append('<div class="score">Score: ');
-        $board.append('<div class="time">Time: ');
-        var $gameBoard = $("#gameBoard");
-        $gameBoard.css("background-image", "none");
-    // });
-
+    var $board = $('#board');
 
     var boardSize = 20, //must be even
         fieldsize = (100 / boardSize) + '%',
         $row;
 
-
     var roadSize = 2,
         districtSize = (boardSize - roadSize) / 2;
 
+    $('#game').removeClass('inactive');
+    $('#board').addClass('inactive');
+    $('#startGame').click(function () {
+        $('#intro-game').addClass('inactive');
+        $board.removeClass('inactive');
+
+        var $gameBoard = $("#gameBoard");
+        $gameBoard.css("background-image", "none");
+        gameTimer(30);
+    });
+
+
     function createBoard() {
+
+
         for (i = 0; i < boardSize; i++) {
             $row = $('<tr class="board-row">').css({height: fieldsize}).appendTo('#board');
 
@@ -42,6 +82,8 @@ $(document).ready(function () {
                     .appendTo($row)
             }
         }
+        $board.append('<div class="game-status score">Wynik: 0');
+        $board.append('<div class="game-status time">Czas: 30');
     }
 
     createBoard();
@@ -256,6 +298,7 @@ $(document).ready(function () {
 
     function exitBus() {
         $('.bus').find('div').removeClass('occupied');
+        scoreCounter(10);
     }
 
     function findPassenger() {
