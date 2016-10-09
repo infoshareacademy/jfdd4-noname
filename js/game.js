@@ -1,12 +1,32 @@
 $(document).ready(function () {
 
 
-    $("#join").submit(function (e) {
-        e.preventDefault();
-        $('#game').removeClass('inactive');
-        $('#board').addClass('inactive');
+// Walidacja EMAIL
 
-    });
+        function validateEmail(email) {
+            var regEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return regEmail.test(email);
+        }
+
+        function validate() {
+            var $result = $("#result");
+            $result.text("");
+            var email = $("#email").val();
+            if (!validateEmail(email)) {
+                $result.text('Podaj swój poprawny e-mail! Czeka na Ciebie niespodzianka :-)');
+                $result.css("color", "red");
+            } else {
+                $result.text('Dziękujemy za podanie swojego emaila: ' + email + ' :-)');
+                $result.css("color", "white");
+                $('#game').removeClass('inactive');
+                $('#board').addClass('inactive');
+
+            }
+            return false;
+        }
+
+        $("form").bind("submit", validate);
+
 
 
 // GAME TIMER
@@ -107,6 +127,30 @@ $(document).ready(function () {
 
     createDistricts();
 
+
+    function createBusStop(x, y) {
+        findField({row: x, cell: y}).addClass('bus-stop');
+    }
+
+    createBusStop(2, districtSize - 1);
+    createBusStop(2, districtSize + roadSize);
+    createBusStop(districtSize - 3, districtSize - 1);
+    createBusStop(districtSize - 3, districtSize + roadSize);
+    createBusStop(districtSize + roadSize + 2, districtSize - 1);
+    createBusStop(districtSize + roadSize + 2, districtSize + roadSize);
+    createBusStop(2 * districtSize - 1, districtSize - 1);
+    createBusStop(2 * districtSize - 1, districtSize + roadSize);
+
+    createBusStop(districtSize - 1, 2);
+    createBusStop(districtSize + roadSize, 2);
+    createBusStop(districtSize - 1, districtSize - 3);
+    createBusStop(districtSize + roadSize, districtSize - 3);
+    createBusStop(districtSize - 1, districtSize + roadSize + 2);
+    createBusStop(districtSize + roadSize, districtSize + roadSize + 2);
+    createBusStop(districtSize - 1, 2 * districtSize - 1);
+    createBusStop(districtSize + roadSize, 2 * districtSize - 1);
+
+
     function createPavements(x, y) {
         findField({row: x, cell: y}).css("background-color", "grey");
 
@@ -182,31 +226,6 @@ $(document).ready(function () {
     createPavements(11, districtSize + 9);
     createPavements(8, districtSize + 10);
     createPavements(11, districtSize + 10);
-
-
-
-    function createBusStop(x, y) {
-        findField({row: x, cell: y}).addClass('bus-stop').css('background-color', '#bbc');
-    }
-
-    createBusStop(2, districtSize - 1);
-    createBusStop(2, districtSize + roadSize);
-    createBusStop(districtSize - 3, districtSize - 1);
-    createBusStop(districtSize - 3, districtSize + roadSize);
-    createBusStop(districtSize + roadSize + 2, districtSize - 1);
-    createBusStop(districtSize + roadSize + 2, districtSize + roadSize);
-    createBusStop(2 * districtSize - 1, districtSize - 1);
-    createBusStop(2 * districtSize - 1, districtSize + roadSize);
-
-    createBusStop(districtSize - 1, 2);
-    createBusStop(districtSize + roadSize, 2);
-    createBusStop(districtSize - 1, districtSize - 3);
-    createBusStop(districtSize + roadSize, districtSize - 3);
-    createBusStop(districtSize - 1, districtSize + roadSize + 2);
-    createBusStop(districtSize + roadSize, districtSize + roadSize + 2);
-    createBusStop(districtSize - 1, 2 * districtSize - 1);
-    createBusStop(districtSize + roadSize, 2 * districtSize - 1);
-
 
     function createRoadStrips(x, y) {
         findField({row: x, cell: y}).css("border-right", "solid 0.5px black");
@@ -424,11 +443,9 @@ $(document).ready(function () {
         return busTarget;
     }
 
-    var busLoopIntervals=[];
-
     function moveBus(createBus) {
         showNewBusPosition(createBus.position, createBus.line);
-        busLoopIntervals.push(setInterval(function () {
+        busLoop = setInterval(function () {
             showNewBusPosition(setBusTarget(createBus), createBus.line);
         }, busSpeed));
 
