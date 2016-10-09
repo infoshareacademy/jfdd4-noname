@@ -25,6 +25,7 @@ $board-size: 700px;
   margin: 0;
   position: relative;
   .board-cell {
+    //box-sizing: border-box;
     display: inline-block;
     height: 100%;
   }
@@ -44,31 +45,31 @@ $board-size: 700px;
   background-size: contain;
 }
 
-.pavements {
-  background-color: grey;
-}
 
 .bus {
   //background-color: darkred;
-  background-image: url("../img/game-icons/bus-up-down.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-
 }
 
-//.bus1{background-color: green}
-.bus2 {
-  background-color: yellow
+.bus1,
+.bus3{
+  background-image: url("../img/game-icons/bus-up-down.png");
 }
 
-.bus3 {
-  background-color: dodgerblue
+.bus2,
+.bus4{
+  background-image: url("../img/game-icons/bus-down-up.png");
 }
 
-.bus4 {
-  background-color: orangered
+.bus5,
+.bus6,
+.bus7,
+.bus8 {
+  background-image: url("../img/game-icons/bus-left-right.png");
 }
+
 
 #passenger {
   //background-color: whitesmoke;
