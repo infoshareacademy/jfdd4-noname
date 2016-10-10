@@ -226,11 +226,11 @@ $(document).ready(function () {
     }
 
     function endGame() {
+        $('#close-instructions').removeClass('inactive').find('span').text('' + score + '');
         scoreCounter(-score);
         stopAllBuses();
         $('#intro-game').removeClass('inactive');
         $('#intro-instructions').addClass('inactive');
-        $('#close-instructions').removeClass('inactive').find('span').text('' + score + '');
         $('#board').empty();
         $('#board').addClass('inactive');
     }
