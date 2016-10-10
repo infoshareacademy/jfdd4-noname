@@ -19,6 +19,7 @@ $(document).ready(function () {
             $result.text('Dziękujemy za podanie swojego emaila: ' + email + ' :-)');
             $result.css("color", "white");
             $('#game').removeClass('inactive');
+            startGame();
             $('#board').addClass('inactive');
 
         }
@@ -26,6 +27,181 @@ $(document).ready(function () {
     }
 
     $("form").bind("submit", validate);
+
+
+// GAME UNIFICATION
+    function startGame() {
+
+        createBoard();
+        createDistricts();
+        addReward();
+        addReward();
+        addReward();
+        addReward();
+        addReward();
+        addReward();
+
+        createBusStop(2, districtSize - 1);
+        createBusStop(2, districtSize + roadSize);
+        createBusStop(districtSize - 3, districtSize - 1);
+        createBusStop(districtSize - 3, districtSize + roadSize);
+        createBusStop(districtSize + roadSize + 2, districtSize - 1);
+        createBusStop(districtSize + roadSize + 2, districtSize + roadSize);
+        createBusStop(2 * districtSize - 1, districtSize - 1);
+        createBusStop(2 * districtSize - 1, districtSize + roadSize);
+
+        createBusStop(districtSize - 1, 2);
+        createBusStop(districtSize + roadSize, 2);
+        createBusStop(districtSize - 1, districtSize - 3);
+        createBusStop(districtSize + roadSize, districtSize - 3);
+        createBusStop(districtSize - 1, districtSize + roadSize + 2);
+        createBusStop(districtSize + roadSize, districtSize + roadSize + 2);
+        createBusStop(districtSize - 1, 2 * districtSize - 1);
+        createBusStop(districtSize + roadSize, 2 * districtSize - 1);
+
+        createPavements(0, districtSize - 1);
+        createPavements(0, districtSize + 2);
+        createPavements(1, districtSize - 1);
+        createPavements(1, districtSize + 2);
+        createPavements(2, districtSize - 1);
+        createPavements(2, districtSize + 2);
+        createPavements(3, districtSize - 1);
+        createPavements(3, districtSize + 2);
+        createPavements(4, districtSize - 1);
+        createPavements(4, districtSize + 2);
+        createPavements(5, districtSize - 1);
+        createPavements(5, districtSize + 2);
+        createPavements(6, districtSize - 1);
+        createPavements(6, districtSize + 2);
+        createPavements(7, districtSize - 1);
+        createPavements(7, districtSize + 2);
+        createPavements(8, districtSize - 1);
+        createPavements(8, districtSize + 2);
+        createPavements(11, districtSize - 1);
+        createPavements(11, districtSize + 2);
+        createPavements(12, districtSize - 1);
+        createPavements(12, districtSize + 2);
+        createPavements(13, districtSize - 1);
+        createPavements(13, districtSize + 2);
+        createPavements(14, districtSize - 1);
+        createPavements(14, districtSize + 2);
+        createPavements(15, districtSize - 1);
+        createPavements(15, districtSize + 2);
+        createPavements(16, districtSize - 1);
+        createPavements(16, districtSize + 2);
+        createPavements(17, districtSize - 1);
+        createPavements(17, districtSize + 2);
+        createPavements(18, districtSize - 1);
+        createPavements(18, districtSize + 2);
+        createPavements(19, districtSize - 1);
+        createPavements(19, districtSize + 2);
+
+        createPavements(8, districtSize - 9);
+        createPavements(11, districtSize - 9);
+        createPavements(8, districtSize - 8);
+        createPavements(11, districtSize - 8);
+        createPavements(8, districtSize - 7);
+        createPavements(11, districtSize - 7);
+        createPavements(8, districtSize - 6);
+        createPavements(11, districtSize - 6);
+        createPavements(8, districtSize - 5);
+        createPavements(11, districtSize - 5);
+        createPavements(8, districtSize - 4);
+        createPavements(11, districtSize - 4);
+        createPavements(8, districtSize - 3);
+        createPavements(11, districtSize - 3);
+        createPavements(8, districtSize - 2);
+        createPavements(11, districtSize - 2);
+        createPavements(8, districtSize + 3);
+        createPavements(11, districtSize + 3);
+        createPavements(8, districtSize + 4);
+        createPavements(11, districtSize + 4);
+        createPavements(8, districtSize + 5);
+        createPavements(11, districtSize + 5);
+        createPavements(8, districtSize + 6);
+        createPavements(11, districtSize + 6);
+        createPavements(8, districtSize + 7);
+        createPavements(11, districtSize + 7);
+        createPavements(8, districtSize + 8);
+        createPavements(11, districtSize + 8);
+        createPavements(8, districtSize + 9);
+        createPavements(11, districtSize + 9);
+        createPavements(8, districtSize + 10);
+        createPavements(11, districtSize + 10);
+
+        createRoadStrips(0, districtSize);
+        createRoadStrips(1, districtSize);
+        createRoadStrips(2, districtSize);
+        createRoadStrips(3, districtSize);
+        createRoadStrips(4, districtSize);
+        createRoadStrips(5, districtSize);
+        createRoadStrips(6, districtSize);
+        createRoadStrips(7, districtSize);
+        createRoadStrips(8, districtSize);
+
+        createRoadStrips(11, districtSize);
+        createRoadStrips(12, districtSize);
+        createRoadStrips(13, districtSize);
+        createRoadStrips(14, districtSize);
+        createRoadStrips(15, districtSize);
+        createRoadStrips(16, districtSize);
+        createRoadStrips(17, districtSize);
+        createRoadStrips(18, districtSize);
+        createRoadStrips(19, districtSize);
+
+        createHorizontalRoadStrips(10, districtSize - 9);
+        createHorizontalRoadStrips(10, districtSize - 8);
+        createHorizontalRoadStrips(10, districtSize - 7);
+        createHorizontalRoadStrips(10, districtSize - 6);
+        createHorizontalRoadStrips(10, districtSize - 5);
+        createHorizontalRoadStrips(10, districtSize - 4);
+        createHorizontalRoadStrips(10, districtSize - 3);
+        createHorizontalRoadStrips(10, districtSize - 2);
+        createHorizontalRoadStrips(10, districtSize - 1);
+
+        createHorizontalRoadStrips(10, districtSize + 2);
+        createHorizontalRoadStrips(10, districtSize + 3);
+        createHorizontalRoadStrips(10, districtSize + 4);
+        createHorizontalRoadStrips(10, districtSize + 5);
+        createHorizontalRoadStrips(10, districtSize + 6);
+        createHorizontalRoadStrips(10, districtSize + 7);
+        createHorizontalRoadStrips(10, districtSize + 8);
+        createHorizontalRoadStrips(10, districtSize + 9);
+        createHorizontalRoadStrips(10, districtSize + 10);
+
+        movePassenger(passInitPosition, passInitPosition);
+
+        moveBus(createBusLine('bus1', [0, districtSize], [1, 0]));
+
+        setTimeout(function () {
+            moveBus(createBusLine('bus2', [boardSize - 1, districtSize + 1], [-1, 0]));
+        }, busSpeed * 3);
+
+        setTimeout(function () {
+            moveBus(createBusLine('bus3', [0, districtSize], [1, 0]));
+        }, busSpeed * 10);
+
+        setTimeout(function () {
+            moveBus(createBusLine('bus4', [boardSize - 1, districtSize + 1], [-1, 0]));
+        }, busSpeed * 13);
+
+        setTimeout(function () {
+            moveBus(createBusLine('bus5', [districtSize + 1, 0], [0, 1]));
+        }, busSpeed * 5);
+
+        setTimeout(function () {
+            moveBus(createBusLine('bus6', [districtSize, boardSize - 1], [0, -1]));
+        }, busSpeed * 7);
+
+        setTimeout(function () {
+            moveBus(createBusLine('bus7', [districtSize + 1, 0], [0, 1]));
+        }, busSpeed * 15);
+
+        setTimeout(function () {
+            moveBus(createBusLine('bus8', [districtSize, boardSize - 1], [0, -1]));
+        }, busSpeed * 17);
+
+    }
 
 
 // GAME TIMER
@@ -119,13 +295,6 @@ $(document).ready(function () {
         $board.append('<div class="game-status time">Czas: 30');
     }
 
-    createBoard();
-    addReward();
-    addReward();
-    addReward();
-    addReward();
-    addReward();
-    addReward();
 
     function findField(coordinates) {
         return $('.board-row').eq(coordinates.row).find($('.board-cell')).eq(coordinates.cell)
@@ -144,163 +313,30 @@ $(document).ready(function () {
         }
     }
 
-    createDistricts();
-
 
     function createBusStop(x, y) {
         findField({row: x, cell: y}).addClass('bus-stop');
     }
-
-    createBusStop(2, districtSize - 1);
-    createBusStop(2, districtSize + roadSize);
-    createBusStop(districtSize - 3, districtSize - 1);
-    createBusStop(districtSize - 3, districtSize + roadSize);
-    createBusStop(districtSize + roadSize + 2, districtSize - 1);
-    createBusStop(districtSize + roadSize + 2, districtSize + roadSize);
-    createBusStop(2 * districtSize - 1, districtSize - 1);
-    createBusStop(2 * districtSize - 1, districtSize + roadSize);
-
-    createBusStop(districtSize - 1, 2);
-    createBusStop(districtSize + roadSize, 2);
-    createBusStop(districtSize - 1, districtSize - 3);
-    createBusStop(districtSize + roadSize, districtSize - 3);
-    createBusStop(districtSize - 1, districtSize + roadSize + 2);
-    createBusStop(districtSize + roadSize, districtSize + roadSize + 2);
-    createBusStop(districtSize - 1, 2 * districtSize - 1);
-    createBusStop(districtSize + roadSize, 2 * districtSize - 1);
-
 
     function createPavements(x, y) {
         findField({row: x, cell: y}).css("background-color", "grey");
 
     }
 
-
-    createPavements(0, districtSize - 1);
-    createPavements(0, districtSize + 2);
-    createPavements(1, districtSize - 1);
-    createPavements(1, districtSize + 2);
-    createPavements(2, districtSize - 1);
-    createPavements(2, districtSize + 2);
-    createPavements(3, districtSize - 1);
-    createPavements(3, districtSize + 2);
-    createPavements(4, districtSize - 1);
-    createPavements(4, districtSize + 2);
-    createPavements(5, districtSize - 1);
-    createPavements(5, districtSize + 2);
-    createPavements(6, districtSize - 1);
-    createPavements(6, districtSize + 2);
-    createPavements(7, districtSize - 1);
-    createPavements(7, districtSize + 2);
-    createPavements(8, districtSize - 1);
-    createPavements(8, districtSize + 2);
-    createPavements(11, districtSize - 1);
-    createPavements(11, districtSize + 2);
-    createPavements(12, districtSize - 1);
-    createPavements(12, districtSize + 2);
-    createPavements(13, districtSize - 1);
-    createPavements(13, districtSize + 2);
-    createPavements(14, districtSize - 1);
-    createPavements(14, districtSize + 2);
-    createPavements(15, districtSize - 1);
-    createPavements(15, districtSize + 2);
-    createPavements(16, districtSize - 1);
-    createPavements(16, districtSize + 2);
-    createPavements(17, districtSize - 1);
-    createPavements(17, districtSize + 2);
-    createPavements(18, districtSize - 1);
-    createPavements(18, districtSize + 2);
-    createPavements(19, districtSize - 1);
-    createPavements(19, districtSize + 2);
-
-    createPavements(8, districtSize - 9);
-    createPavements(11, districtSize - 9);
-    createPavements(8, districtSize - 8);
-    createPavements(11, districtSize - 8);
-    createPavements(8, districtSize - 7);
-    createPavements(11, districtSize - 7);
-    createPavements(8, districtSize - 6);
-    createPavements(11, districtSize - 6);
-    createPavements(8, districtSize - 5);
-    createPavements(11, districtSize - 5);
-    createPavements(8, districtSize - 4);
-    createPavements(11, districtSize - 4);
-    createPavements(8, districtSize - 3);
-    createPavements(11, districtSize - 3);
-    createPavements(8, districtSize - 2);
-    createPavements(11, districtSize - 2);
-    createPavements(8, districtSize + 3);
-    createPavements(11, districtSize + 3);
-    createPavements(8, districtSize + 4);
-    createPavements(11, districtSize + 4);
-    createPavements(8, districtSize + 5);
-    createPavements(11, districtSize + 5);
-    createPavements(8, districtSize + 6);
-    createPavements(11, districtSize + 6);
-    createPavements(8, districtSize + 7);
-    createPavements(11, districtSize + 7);
-    createPavements(8, districtSize + 8);
-    createPavements(11, districtSize + 8);
-    createPavements(8, districtSize + 9);
-    createPavements(11, districtSize + 9);
-    createPavements(8, districtSize + 10);
-    createPavements(11, districtSize + 10);
-
     function createRoadStrips(x, y) {
         findField({row: x, cell: y}).css("border-right", "solid 0.5px black");
 
     }
-
-    createRoadStrips(0, districtSize);
-    createRoadStrips(1, districtSize);
-    createRoadStrips(2, districtSize);
-    createRoadStrips(3, districtSize);
-    createRoadStrips(4, districtSize);
-    createRoadStrips(5, districtSize);
-    createRoadStrips(6, districtSize);
-    createRoadStrips(7, districtSize);
-    createRoadStrips(8, districtSize);
-
-    createRoadStrips(11, districtSize);
-    createRoadStrips(12, districtSize);
-    createRoadStrips(13, districtSize);
-    createRoadStrips(14, districtSize);
-    createRoadStrips(15, districtSize);
-    createRoadStrips(16, districtSize);
-    createRoadStrips(17, districtSize);
-    createRoadStrips(18, districtSize);
-    createRoadStrips(19, districtSize);
-
 
     function createHorizontalRoadStrips(x, y) {
         findField({row: x, cell: y}).css("border-top", "solid 0.5px black");
 
     }
 
-    createHorizontalRoadStrips(10, districtSize - 9);
-    createHorizontalRoadStrips(10, districtSize - 8);
-    createHorizontalRoadStrips(10, districtSize - 7);
-    createHorizontalRoadStrips(10, districtSize - 6);
-    createHorizontalRoadStrips(10, districtSize - 5);
-    createHorizontalRoadStrips(10, districtSize - 4);
-    createHorizontalRoadStrips(10, districtSize - 3);
-    createHorizontalRoadStrips(10, districtSize - 2);
-    createHorizontalRoadStrips(10, districtSize - 1);
-
-    createHorizontalRoadStrips(10, districtSize + 2);
-    createHorizontalRoadStrips(10, districtSize + 3);
-    createHorizontalRoadStrips(10, districtSize + 4);
-    createHorizontalRoadStrips(10, districtSize + 5);
-    createHorizontalRoadStrips(10, districtSize + 6);
-    createHorizontalRoadStrips(10, districtSize + 7);
-    createHorizontalRoadStrips(10, districtSize + 8);
-    createHorizontalRoadStrips(10, districtSize + 9);
-    createHorizontalRoadStrips(10, districtSize + 10);
 
 // PLACE AND CONTROL PASSENGER
 
     var passInitPosition = randomDistrictCell();
-    movePassenger(passInitPosition, passInitPosition);
 
 
     function movePassenger(current, target) {
@@ -341,7 +377,6 @@ $(document).ready(function () {
     }
 
     function findPassenger() {
-        // var player = $('#passenger').parent();
         var player = document.getElementById('passenger').parentNode;
 
         return {
@@ -369,12 +404,6 @@ $(document).ready(function () {
             case 37: // left
                 if (passTarget.cell > 0) {
                     passTarget.cell--;
-                    // if (findField({row: passTarget.row, cell: passTarget.cell - 2}).hasClass('bus-stop') &&
-                    //     findField(passTarget).hasClass('road') &&
-                    //     findField(passTarget).hasClass('bus') == false) {
-                    //     passTarget.cell -= 2;
-                    //     movePassenger(findPassenger(), passTarget)
-                    // }
                     movePassenger(findPassenger(), passTarget);
                 }
                 break;
@@ -382,32 +411,17 @@ $(document).ready(function () {
             case 38: // up
                 if (passTarget.row > 0) {
                     passTarget.row--;
-                    // if (findField({row: passTarget.row - 2, cell: passTarget.cell}).hasClass('bus-stop') &&
-                    //     findField(passTarget).hasClass('road') &&
-                    //     findField(passTarget).hasClass('bus') == false) {
-                    //     passTarget.row -= 2;
-                    // }
                     movePassenger(findPassenger(), passTarget);
                 }
                 break;
 
             case 39: // right
                 passTarget.cell++;
-                // if (findField({row: passTarget.row, cell: passTarget.cell + 2}).hasClass('bus-stop') &&
-                //     findField(passTarget).hasClass('road') &&
-                //     findField(passTarget).hasClass('bus') == false) {
-                //     passTarget.cell += 2;
-                // }
                 movePassenger(findPassenger(), passTarget);
                 break;
 
             case 40: // down
                 passTarget.row++;
-                // if (findField({row: passTarget.row + 2, cell: passTarget.cell}).hasClass('bus-stop') &&
-                //     findField(passTarget).hasClass('road') &&
-                //     findField(passTarget).hasClass('bus') == false) {
-                //     passTarget.row += 2;
-                // }
                 movePassenger(findPassenger(), passTarget);
                 break;
 
@@ -462,8 +476,6 @@ $(document).ready(function () {
         return busTarget;
     }
 
-    var busLoopIntervals = [];
-
     function moveBus(createBus) {
         showNewBusPosition(createBus.position, createBus.line);
         busLoopIntervals.push(setInterval(function () {
@@ -471,36 +483,6 @@ $(document).ready(function () {
         }, busSpeed));
 
     }
-
-    moveBus(createBusLine('bus1', [0, districtSize], [1, 0]));
-
-    setTimeout(function () {
-        moveBus(createBusLine('bus2', [boardSize - 1, districtSize + 1], [-1, 0]));
-    }, busSpeed * 3);
-
-    setTimeout(function () {
-        moveBus(createBusLine('bus3', [0, districtSize], [1, 0]));
-    }, busSpeed * 10);
-
-    setTimeout(function () {
-        moveBus(createBusLine('bus4', [boardSize - 1, districtSize + 1], [-1, 0]));
-    }, busSpeed * 13);
-
-    setTimeout(function () {
-        moveBus(createBusLine('bus5', [districtSize + 1, 0], [0, 1]));
-    }, busSpeed * 5);
-
-    setTimeout(function () {
-        moveBus(createBusLine('bus6', [districtSize, boardSize - 1], [0, -1]));
-    }, busSpeed * 7);
-
-    setTimeout(function () {
-        moveBus(createBusLine('bus7', [districtSize + 1, 0], [0, 1]));
-    }, busSpeed * 15);
-
-    setTimeout(function () {
-        moveBus(createBusLine('bus8', [districtSize, boardSize - 1], [0, -1]));
-    }, busSpeed * 17);
 
 
     // ADD & COLLECT REWARDS
