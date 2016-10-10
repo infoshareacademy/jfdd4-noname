@@ -88,7 +88,7 @@ currentSlideSquareBar(1);
 
 $(".squareNav").click(function() {
     var myClass = this.classList;
-    $('#sliderBackground').css({
+    $('#welcome').css({
         "background": "url('img/slider/slajd" + myClass[0] + ".jpg') no-repeat center",
         "backgroundSize": "cover"
     });
