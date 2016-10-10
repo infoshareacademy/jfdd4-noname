@@ -36,7 +36,6 @@ $(document).ready(function () {
         var timer = setInterval(function () {
 
             timeCounter++;
-            console.log(timeCounter);
             $time.text('Czas: ' + (limit - timeCounter));
 
 
@@ -47,7 +46,7 @@ $(document).ready(function () {
                                 $('#close-instructions').removeClass('inactive').find('span').text(''+ score +'');
                 $('#board').addClass('inactive');
                 $time.text('Czas: ' + limit);
-                score = 0;
+                scoreCounter(-score);
                 $('#startGameAgain').click(function () {
                     $('#intro-game').addClass('inactive');
                     $board.removeClass('inactive');
@@ -55,8 +54,6 @@ $(document).ready(function () {
                 });
 
             }
-
-
         }, 1000);
     }
 
@@ -67,7 +64,24 @@ $(document).ready(function () {
     function scoreCounter(points) {
         var $score = $('div.score');
         score += points;
-        $score.text('Wynik: ' + (score + points))
+        $score.text('Wynik: ' + score)
+    }
+
+// RANDOMIZE POSITION
+
+    function randomDistrictCell() {
+        function randomize() {
+            var randomNumber = Math.floor(Math.random() * 9);
+            if (Math.round(Math.random()) == 1) {
+                randomNumber = Math.floor(Math.random() * (19 - 11) + 11)
+            }
+            return randomNumber
+        }
+
+        return {
+            row: randomize(),
+            cell: randomize()
+        }
     }
 
 
@@ -91,7 +105,7 @@ $(document).ready(function () {
 
         var $gameBoard = $("#gameBoard");
         $gameBoard.css("background-image", "none");
-        gameTimer(10);
+        gameTimer(30);
     });
 
 
@@ -105,7 +119,7 @@ $(document).ready(function () {
                 $('<td class="board-cell road">').css({width: fieldsize})
                     .attr('data-boardRow', i)
                     .attr('data-boardCell', j)
-                    .append('<div class="passenger">')
+                    .append('<div class="box">')
                     .appendTo($row)
             }
         }
@@ -114,6 +128,12 @@ $(document).ready(function () {
     }
 
     createBoard();
+    addReward();
+    addReward();
+    addReward();
+    addReward();
+    addReward();
+    addReward();
 
     function findField(coordinates) {
         return $('.board-row').eq(coordinates.row).find($('.board-cell')).eq(coordinates.cell)
@@ -287,7 +307,7 @@ $(document).ready(function () {
 
 // PLACE AND CONTROL PASSENGER
 
-    var passInitPosition = {row: 2, cell: 7};
+    var passInitPosition = randomDistrictCell();
     movePassenger(passInitPosition, passInitPosition);
 
 
@@ -295,6 +315,7 @@ $(document).ready(function () {
         if (checkIfMoveIsValid(current, target)) {
             findField(current).find('div').removeAttr('id');
             findField(target).find('div').attr('id', 'passenger');
+            collectReward()
         }
     }
 
@@ -330,7 +351,6 @@ $(document).ready(function () {
     function findPassenger() {
         // var player = $('#passenger').parent();
         var player = document.getElementById('passenger').parentNode;
-        console.log(player);
 
         return {
             row: Number.parseInt(player.dataset.boardrow),
@@ -489,5 +509,21 @@ $(document).ready(function () {
     setTimeout(function () {
         moveBus(createBusLine('bus8', [districtSize, boardSize - 1], [0, -1]));
     }, busSpeed * 17);
+
+
+    // ADD & COLLECT REWARDS
+
+    function addReward() {
+        findField(randomDistrictCell()).find('div').addClass('reward')
+    }
+
+    function collectReward() {
+        if ($('#passenger').hasClass('reward')) {
+            $('#passenger').removeClass('reward');
+            scoreCounter(50);
+            addReward();
+        }
+    }
+
 
 });
