@@ -60,7 +60,6 @@ $(document).ready(function () {
 // POINTS COUNTER
     var score = 0;
 
-
     function scoreCounter(points) {
         var $score = $('div.score');
         score += points;

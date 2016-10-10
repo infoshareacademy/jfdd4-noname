@@ -127,20 +127,6 @@ a:hover {
   z-index: -2;
 }
 
-#sliderBackground {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 650px;
-  margin: 0 auto;
-  //padding-top: 10%;
-  //padding-bottom: 5%;
-  position: absolute;
-  z-index: -100;
-}
-
 #welcome {
   display: flex;
   flex-direction: column;
