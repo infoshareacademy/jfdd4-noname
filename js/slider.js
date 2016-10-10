@@ -25,7 +25,7 @@ function slideRotationInterval(){
 }
 
 function chooseCurrentSlide() {
-    $('#sliderBackground').css({
+    $('#welcome').css({
         "background": "url('img/slider/slajd" + slideCounter + ".jpg') no-repeat center",
         "backgroundSize": "cover"
     });
@@ -46,8 +46,6 @@ function currentSlideSquareBar(identyfikator) {
     // console.log(identyfikator + "" +"to jest identyfikator");
     $('div.'+identyfikator).css("background","rgba(139, 0, 0, 0.8)");
 }
-
-
 
 $('#moveForward').click(function() {
     clearInterval(sliderClock);
@@ -82,9 +80,6 @@ currentSlide();
 slideRotationInterval();
 createSquareBar();
 currentSlideSquareBar(1);
-
-
-
 
 $(".squareNav").click(function() {
     var myClass = this.classList;
