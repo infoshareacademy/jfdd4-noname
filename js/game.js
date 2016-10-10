@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 
-// Walidacja EMAIL
+// EMAIL VALIDATION
 
     function validateEmail(email) {
         var regEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -19,7 +19,6 @@ $(document).ready(function () {
             $result.text('Dziękujemy za podanie swojego emaila: ' + email + ' :-)');
             $result.css("color", "white");
             $('#game').removeClass('inactive');
-            startGame();
             $('#board').addClass('inactive');
 
         }
@@ -31,7 +30,6 @@ $(document).ready(function () {
 
 // GAME UNIFICATION
     function startGame() {
-
         createBoard();
         createDistricts();
         addReward();
@@ -169,7 +167,7 @@ $(document).ready(function () {
         createHorizontalRoadStrips(10, districtSize + 9);
         createHorizontalRoadStrips(10, districtSize + 10);
 
-        movePassenger(passInitPosition, passInitPosition);
+        movePassenger(null, passInitPosition);
 
         moveBus(createBusLine('bus1', [0, districtSize], [1, 0]));
 
@@ -200,7 +198,6 @@ $(document).ready(function () {
         setTimeout(function () {
             moveBus(createBusLine('bus8', [districtSize, boardSize - 1], [0, -1]));
         }, busSpeed * 17);
-
     }
 
 
@@ -398,7 +395,7 @@ $(document).ready(function () {
     $(document).keydown(function (e) {
 
 
-        var passTarget = findPassenger();
+        var passTarget = randomDistrictCell();
 
         switch (e.which) {
             case 37: // left
@@ -498,6 +495,4 @@ $(document).ready(function () {
             addReward();
         }
     }
-
-
 });
