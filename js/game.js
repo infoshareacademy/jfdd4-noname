@@ -44,7 +44,6 @@ $(document).ready(function () {
     // $('#board').addClass('inactive');
 
 
-
 // GAME UNIFICATION
     function startGame() {
         createBoard();
@@ -217,15 +216,21 @@ $(document).ready(function () {
         }, busSpeed * 17);
 
 
-        gameTimer(5);
+        gameTimer(30);
+    }
+
+    function stopAllBuses() {
+        for (var i = 0; i < busLoopIntervals.length; i++) {
+            clearInterval(busLoopIntervals[i])
+        }
     }
 
     function endGame() {
         scoreCounter(-score);
-        clearInterval(busLoop);
+        stopAllBuses();
         $('#intro-game').removeClass('inactive');
         $('#intro-instructions').addClass('inactive');
-        $('#close-instructions').removeClass('inactive').find('span').text(''+ score +'');
+        $('#close-instructions').removeClass('inactive').find('span').text('' + score + '');
         $('#board').empty();
         $('#board').addClass('inactive');
     }
@@ -449,7 +454,7 @@ $(document).ready(function () {
 
 //CREATE AND MOVE BUSES
     var busSpeed = 550;
-    var busLoop;
+    // var busLoop;
 
     function createBusLine(name, position, direction) {
         return {
@@ -489,11 +494,13 @@ $(document).ready(function () {
         return busTarget;
     }
 
+    var busLoopIntervals = [];
+
     function moveBus(createBus) {
         showNewBusPosition(createBus.position, createBus.line);
-        busLoop = setInterval(function () {
+        busLoopIntervals.push(setInterval(function () {
             showNewBusPosition(setBusTarget(createBus), createBus.line);
-        }, busSpeed);
+        }, busSpeed));
 
     }
 
