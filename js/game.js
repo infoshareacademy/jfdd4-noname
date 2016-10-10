@@ -25,6 +25,7 @@ $(document).ready(function () {
             $result.css("color", "white");
             $('#game').removeClass('inactive');
             $('#board').addClass('inactive');
+            $('html, body').animate({ scrollTop: $("#game").offset().top }, 500);
 
             $('#startGame').click(function () {
                 $('#intro-game').addClass('inactive');
