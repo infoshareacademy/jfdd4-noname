@@ -42,9 +42,17 @@ $(document).ready(function () {
             if (timeCounter == limit) {
                 clearInterval(timer);
                 $('#intro-game').removeClass('inactive');
+                $('#intro-instructions').addClass('inactive');
+                                $('#close-instructions').removeClass('inactive').find('span').text(''+ score +'');
                 $('#board').addClass('inactive');
                 $time.text('Czas: ' + limit);
-                scoreCounter(-score)
+                scoreCounter(-score);
+                $('#startGameAgain').click(function () {
+                    $('#intro-game').addClass('inactive');
+                    $board.removeClass('inactive');
+                    gameTimer(10);
+                });
+
             }
         }, 1000);
     }
