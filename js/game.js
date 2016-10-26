@@ -6,6 +6,33 @@ $(document).ready(function () {
         startGame();
     });
 
+//SEND NEWSLETTER
+    var $form = $('form')
+
+    function sendMail(address) {
+        $form.submit(function (event) {
+            event.preventDefault();
+            var dataForm = {
+                'email': $('input[name=email]').val(),
+                'receiver': address
+            };
+            $.ajax({
+                type: 'POST',
+                url: 'http://tools.is-academy.pl/mailer.php',
+                data: dataForm,
+                dataType: 'text'
+            })
+                .done(function (data) {
+                    console.log(data);
+                })
+                .fail(function (data) {
+                    console.log(data);
+                });
+            this.reset();
+        });
+    }
+
+
 // EMAIL VALIDATION
 
     function validateEmail(email) {
@@ -13,7 +40,7 @@ $(document).ready(function () {
         return regEmail.test(email);
     }
 
-    function validate() {
+    function validate(e) {
         var $result = $("#result");
         $result.text("");
         var email = $("#email").val();
@@ -21,8 +48,10 @@ $(document).ready(function () {
             $result.text('Podaj swój poprawny e-mail! Czeka na Ciebie niespodzianka :-)');
             $result.css("color", "red");
         } else {
-            $result.text('Dziękujemy za podanie swojego emaila: ' + email + ' :-)');
+
+            $result.text('Dziękujemy za podanie adresu ' + email + ' :-)');
             $result.css("color", "white");
+            sendMail($('#email').val());
             $('#game').removeClass('inactive');
             $('#board').addClass('inactive');
             $('html, body').animate({ scrollTop: $("#game").offset().top }, 500);
@@ -37,12 +66,10 @@ $(document).ready(function () {
 
         }
         return false;
+
     }
 
-    $("form").bind("submit", validate);
-
-    // $('#game').removeClass('inactive');
-    // $('#board').addClass('inactive');
+    $form.bind("submit", validate);
 
 
 // GAME UNIFICATION
@@ -514,7 +541,7 @@ $(document).ready(function () {
     function collectReward() {
         if ($('#passenger').hasClass('reward')) {
             $('#passenger').removeClass('reward');
-            scoreCounter(50);
+            scoreCounter(150);
             addReward();
         }
     }

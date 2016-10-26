@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css"/>
     <link rel="stylesheet" href="css/game.css" type="text/css"/>
-    <!--<link rel="stylesheet" href="css/timer.css" type="text/css"/>-->
-    <!--<link rel="stylesheet" href="css/game-menu.css" type="text/css"/>-->
 </head>
 <body>
 <header>
@@ -100,10 +98,17 @@
 <section id="join" class="navigable">
     <h2>Zapisz się do newslettera i bądź na bieżąco z nowościami w aplikacji Ikarus!</h2>
     <div id="result"></div>
-    <form action="http://tools.is-academy.pl/mailer.php" method="POST">
-        <input id ="email" name="receiver" placeholder="Twój e-mail">
+
+
+    <form id="newsletter" action="http://tools.is-academy.pl/mailer.php" method="POST">
+        <input id ="email" name="email" placeholder="Twój e-mail">
+        <input type="hidden" value="isaikarus@gmail.com" name="receiver">
         <input class="button" type="submit" value="Zapisz się" href="#game">
     </form>
+
+
+
+
 </section>
 
 <section id="game" class="inactive">
